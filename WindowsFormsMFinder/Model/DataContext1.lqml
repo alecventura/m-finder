@@ -1,83 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Database Name="mfinder" EntityNamespace="MfinderContext" ContextNamespace="MfinderContext" Class="MfinderDataContext" xmlns:ed="http://devart.com/schemas/EntityDeveloper/1.0" ed:Guid="a94091a8-93f0-4ffe-ae96-dfa5530ff785" Provider="Devart.Data.MySql.Linq.Provider.MySqlDataProvider, Devart.Data.MySql.Linq" Extended="true" xmlns="http://schemas.devart.com/linqconnect/mapping">
+<Database Name="mfinder" EntityNamespace="MfinderContext" ContextNamespace="MfinderContext" Class="MfinderDataContext" xmlns:ed="http://devart.com/schemas/EntityDeveloper/1.0" ed:Guid="5f0dd6d9-2a51-461a-b134-8a99f2572258" Provider="Devart.Data.MySql.Linq.Provider.MySqlDataProvider, Devart.Data.MySql.Linq" Extended="true" xmlns="http://schemas.devart.com/linqconnect/mapping">
   <Connection Mode="ConnectionString" ConnectionString="User Id=root;Password=root;Host=localhost;Database=mfinder;Persist Security Info=True" Provider="Devart.Data.MySql" />
   <Table Name="mfinder.`action`" Member="Actions">
-    <Type Name="Action" ed:Guid="271661c8-5267-4abc-92e4-8e2458b648df">
-      <Column Name="id" Member="Id" Type="System.Int32" AutoSync="OnInsert" DbType="INT(11) NOT NULL AUTO_INCREMENT" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Always" Precision="11" ed:ValidateRequired="true" ed:Guid="7a811491-4d65-4f13-838c-52976b6ff9de" />
-      <Column Name="name" Member="Name" Type="System.String" DbType="VARCHAR(45) NULL" CanBeNull="true" UpdateCheck="Never" MaxLength="45" Unicode="true" ed:ValidateMaxLength="45" ed:ValidateRequired="false" ed:Guid="cd871c95-6b22-41e9-90f3-2ae438b8da19" />
-      <Association Name="Action_History" ed:AssociationGuid="f446e33d-90f7-4c43-91bd-71215e2efb41" Member="Histories" ed:Guid="83393acf-62c1-406c-8fb7-f142c85cda70" ThisKey="Id" OtherKey="ActionFk" Type="History" />
+    <Type Name="Action" ed:Guid="70e3b532-2a0d-4c44-8ff8-fefc1d76df33">
+      <Column Name="id" Member="Id" Type="System.Int32" AutoSync="OnInsert" DbType="INT(11) NOT NULL AUTO_INCREMENT" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Always" Precision="11" ed:ValidateRequired="true" ed:Guid="4d3f0ff1-3a7c-43dd-be29-d562374ad8d6" />
+      <Column Name="name" Member="Name" Type="System.String" DbType="VARCHAR(45) NULL" CanBeNull="true" UpdateCheck="Never" MaxLength="45" Unicode="true" ed:ValidateMaxLength="45" ed:ValidateRequired="false" ed:Guid="4a4a0bb7-8b07-43da-9a7c-2797909b42bb" />
+      <Association Name="Action_History" ed:AssociationGuid="43a1f629-2601-45ad-98b6-04a69b2914d5" Member="Histories" ed:Guid="29569ed0-5b2f-4f8b-acfd-da231851acec" ThisKey="Id" OtherKey="ActionFk" Type="History" />
     </Type>
   </Table>
   <Table Name="mfinder.dpto" Member="Dptos">
-    <Type Name="Dpto" ed:Guid="d05c1efe-a7e2-4976-be59-a8d4180b380b">
-      <Column Name="id" Member="Id" Type="System.Int32" DbType="INT(11) NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Always" Precision="11" ed:ValidateRequired="true" ed:Guid="0771c40a-8e33-4a3e-a26f-1ebfb4a2ce71" />
-      <Column Name="name" Member="Name" Type="System.String" DbType="VARCHAR(45) NOT NULL" CanBeNull="false" UpdateCheck="Never" MaxLength="45" Unicode="true" ed:ValidateMaxLength="45" ed:ValidateRequired="true" ed:Guid="aaf78f2f-b3cd-4325-8c9f-1759148dcda1" />
-      <Association Name="Dpto_History" ed:AssociationGuid="0e97de58-9846-4de5-8dab-a1ab1348f83f" Member="Histories" ed:Guid="128ce601-769a-4748-886e-77b1433e92ec" ThisKey="Id" OtherKey="DptoFk" Type="History" />
-      <Association Name="Dpto_Location" ed:AssociationGuid="75cfb9f2-1da6-4786-b24e-234198d73aff" Member="Locations" ed:Guid="3c1be90e-c177-47a8-b769-f0fc028e5ecb" ThisKey="Id" OtherKey="DptoFk" Type="Location" />
-      <Association Name="Dpto_User" ed:AssociationGuid="ab8b01c3-35f3-48ef-bb75-dec6f8857429" Member="Users" ed:Guid="1ec8119d-d017-4297-a44c-54deffa52d58" ThisKey="Id" OtherKey="DptoFk" Type="User" />
+    <Type Name="Dpto" ed:Guid="4ad93db3-6eca-45f9-a473-b862be14f260">
+      <Column Name="id" Member="Id" Type="System.Int32" DbType="INT(11) NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Always" Precision="11" ed:ValidateRequired="true" ed:Guid="db652d20-df62-454d-aa33-6a6c8c79a1f3" />
+      <Column Name="name" Member="Name" Type="System.String" DbType="VARCHAR(45) NOT NULL" CanBeNull="false" UpdateCheck="Never" MaxLength="45" Unicode="true" ed:ValidateMaxLength="45" ed:ValidateRequired="true" ed:Guid="f6f4e038-4424-4423-a4e7-b2dd69fc1a6d" />
+      <Association Name="Dpto_History" ed:AssociationGuid="0336ed4d-c746-447a-b2f6-4e8aca32e539" Member="Histories" ed:Guid="7659b7ae-a5f1-4ce5-a30e-13ff3692ab7c" ThisKey="Id" OtherKey="DptoFk" Type="History" />
+      <Association Name="Dpto_Location" ed:AssociationGuid="b1447c2f-9aa6-4ba6-83c5-70efc8d6b54f" Member="Locations" ed:Guid="754444a1-d0b3-4ca1-8ce7-4281c9d62237" ThisKey="Id" OtherKey="DptoFk" Type="Location" />
+      <Association Name="Dpto_User" ed:AssociationGuid="c258d1fd-7a6b-4f29-8df1-62d30ea0dcd1" Member="Users" ed:Guid="5dc2ff6a-06c4-4ff7-985a-c0d7c52db957" ThisKey="Id" OtherKey="DptoFk" Type="User" />
     </Type>
   </Table>
   <Table Name="mfinder.history" Member="Histories">
-    <Type Name="History" ed:Guid="e103cd96-f624-4457-ae08-ee9abb678758">
-      <Column Name="action_fk" Member="ActionFk" Type="System.Int32" DbType="INT(11) NOT NULL" CanBeNull="false" UpdateCheck="Never" Precision="11" ed:ValidateRequired="true" ed:Guid="56f81ce9-0963-4ce0-b81b-163e2dd30162" />
-      <Column Name="user_fk" Member="UserFk" Type="System.Int32" DbType="INT(11) NULL" CanBeNull="true" UpdateCheck="Never" Precision="11" ed:ValidateRequired="false" ed:Guid="05de1444-1450-49d5-9892-7fc02152f20f" />
-      <Column Name="machine_fk" Member="MachineFk" Type="System.Int32" DbType="INT(11) NULL" CanBeNull="true" UpdateCheck="Never" Precision="11" ed:ValidateRequired="false" ed:Guid="fbe630cc-af48-4fd0-8864-e6aed394ad7d" />
-      <Column Name="dpto_fk" Member="DptoFk" Type="System.Int32" DbType="INT(11) NULL" CanBeNull="true" UpdateCheck="Never" Precision="11" ed:ValidateRequired="false" ed:Guid="410abb06-18bc-4418-a8de-d09dd00bc01c" />
-      <Column Name="`comment`" Member="Comment" Type="System.String" DbType="VARCHAR(255) NULL" CanBeNull="true" UpdateCheck="Never" MaxLength="255" Unicode="true" ed:ValidateMaxLength="255" ed:ValidateRequired="false" ed:Guid="c7efd979-3d38-461e-a77c-317caa805169" />
-      <Column Name="actionDate" Member="ActionDate" Type="System.DateTime" DbType="DATETIME NULL" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="false" ed:Guid="45bb61f2-ce7d-47f9-ae7a-fb03cb010847" />
-      <Column Name="technical_fk" Member="TechnicalFk" Type="System.Int32" DbType="INT(11) NULL" CanBeNull="true" UpdateCheck="Never" Precision="11" ed:ValidateRequired="false" ed:Guid="e019ae09-74c2-4bac-af94-47e5feb5f3ea" />
-      <Association Name="Action_History" ed:AssociationGuid="f446e33d-90f7-4c43-91bd-71215e2efb41" Member="Action" ed:Guid="5937965d-6f0d-4108-9e1a-34da5042de5c" ThisKey="ActionFk" OtherKey="Id" Type="Action" DeleteRule="NO ACTION" IsForeignKey="true" />
-      <Association Name="Dpto_History" ed:AssociationGuid="0e97de58-9846-4de5-8dab-a1ab1348f83f" Member="Dpto" ed:Guid="c71ce24d-94ad-4d16-ac1f-5ab9e036b05f" ThisKey="DptoFk" OtherKey="Id" Type="Dpto" DeleteRule="NO ACTION" IsForeignKey="true" />
-      <Association Name="Machine_History" ed:AssociationGuid="3500b34e-2a0e-4d53-b64e-98fca49bfcd8" Member="Machine" ed:Guid="42478858-68c4-4ea7-9886-cff9812b8e3b" ThisKey="MachineFk" OtherKey="Id" Type="Machine" DeleteRule="NO ACTION" IsForeignKey="true" />
-      <Association Name="User_History" ed:AssociationGuid="a643ddf0-cbff-489e-a4f5-80efe08f8295" Member="User_TechnicalFk" ed:Guid="9a258891-d2d9-4e72-8fb3-8038084f927f" ThisKey="TechnicalFk" OtherKey="Id" Type="User" DeleteRule="NO ACTION" IsForeignKey="true" />
-      <Association Name="User_History1" ed:AssociationGuid="737e1458-e471-4461-97fe-cf5172846530" Member="User_UserFk" ed:Guid="08986df7-75e3-4341-9fc1-8d43978a719f" ThisKey="UserFk" OtherKey="Id" Type="User" DeleteRule="NO ACTION" IsForeignKey="true" />
+    <Type Name="History" ed:Guid="a62321c9-3305-4a2a-9607-3223b6766a55">
+      <Column Name="action_fk" Member="ActionFk" Type="System.Int32" DbType="INT(11) NOT NULL" CanBeNull="false" UpdateCheck="Never" Precision="11" ed:ValidateRequired="true" ed:Guid="69dcf8f6-da13-4bca-95ba-235d2aca9c1f" />
+      <Column Name="user_fk" Member="UserFk" Type="System.Int32" DbType="INT(11) NULL" CanBeNull="true" UpdateCheck="Never" Precision="11" ed:ValidateRequired="false" ed:Guid="c322d0d0-4566-425f-8978-716049988d87" />
+      <Column Name="machine_fk" Member="MachineFk" Type="System.Int32" DbType="INT(11) NULL" CanBeNull="true" UpdateCheck="Never" Precision="11" ed:ValidateRequired="false" ed:Guid="21bf7688-0eb9-44f2-8386-22416609c052" />
+      <Column Name="dpto_fk" Member="DptoFk" Type="System.Int32" DbType="INT(11) NULL" CanBeNull="true" UpdateCheck="Never" Precision="11" ed:ValidateRequired="false" ed:Guid="545156f1-3c97-4e7a-a279-5924cab9c4e6" />
+      <Column Name="`comment`" Member="Comment" Type="System.String" DbType="VARCHAR(255) NULL" CanBeNull="true" UpdateCheck="Never" MaxLength="255" Unicode="true" ed:ValidateMaxLength="255" ed:ValidateRequired="false" ed:Guid="7bac13ce-f65c-4f1a-bf03-24adff6f88a5" />
+      <Column Name="actionDate" Member="ActionDate" Type="System.DateTime" DbType="DATETIME NULL" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="false" ed:Guid="38b6fb49-c5ca-4b9c-b593-c7c955bf5871" />
+      <Column Name="technical_fk" Member="TechnicalFk" Type="System.Int32" DbType="INT(11) NULL" CanBeNull="true" UpdateCheck="Never" Precision="11" ed:ValidateRequired="false" ed:Guid="932a42cd-be21-4436-8b27-03afefe56b9e" />
+      <Association Name="Action_History" ed:AssociationGuid="43a1f629-2601-45ad-98b6-04a69b2914d5" Member="Action" ed:Guid="ebcd98d1-5be9-4a67-8aee-c440fda99651" ThisKey="ActionFk" OtherKey="Id" Type="Action" DeleteRule="NO ACTION" IsForeignKey="true" />
+      <Association Name="Dpto_History" ed:AssociationGuid="0336ed4d-c746-447a-b2f6-4e8aca32e539" Member="Dpto" ed:Guid="74208da1-78eb-4949-93c1-26aff35cb26b" ThisKey="DptoFk" OtherKey="Id" Type="Dpto" DeleteRule="NO ACTION" IsForeignKey="true" />
+      <Association Name="Machine_History" ed:AssociationGuid="8faf8671-13bf-492a-b8e5-523ebcd7fa84" Member="Machine" ed:Guid="6bed50f7-2dcf-43d8-9312-75582a76cf91" ThisKey="MachineFk" OtherKey="Id" Type="Machine" DeleteRule="NO ACTION" IsForeignKey="true" />
+      <Association Name="User_History" ed:AssociationGuid="77de98cf-e957-4605-8d7e-8beb3e98bc51" Member="User_TechnicalFk" ed:Guid="7ba23147-253b-4d71-99e3-7ec249cfd3cd" ThisKey="TechnicalFk" OtherKey="Id" Type="User" DeleteRule="NO ACTION" IsForeignKey="true" />
+      <Association Name="User_History1" ed:AssociationGuid="a898fdff-6308-4119-a897-c240acc94637" Member="User_UserFk" ed:Guid="f9621520-d671-4cea-8f92-bf7bb0521822" ThisKey="UserFk" OtherKey="Id" Type="User" DeleteRule="NO ACTION" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="mfinder.location" Member="Locations">
-    <Type Name="Location" ed:Guid="5b25dde3-c7a5-4a39-a489-eb66108bfb41">
-      <Column Name="user_fk" Member="UserFk" Type="System.Int32" DbType="INT(11) NULL" CanBeNull="true" UpdateCheck="Never" Precision="11" ed:ValidateRequired="false" ed:Guid="55c52fb9-be71-42d5-9dab-546bdeb82bef" />
-      <Column Name="dpto_fk" Member="DptoFk" Type="System.Int32" DbType="INT(11) NULL" CanBeNull="true" UpdateCheck="Never" Precision="11" ed:ValidateRequired="false" ed:Guid="74da736d-1d4f-4221-8c1d-9e445a950b88" />
-      <Column Name="machine_fk" Member="MachineFk" Type="System.Int32" DbType="INT(11) NOT NULL" CanBeNull="false" UpdateCheck="Never" Precision="11" ed:ValidateRequired="true" ed:Guid="f04632a7-6883-4252-8ad2-b10e8c59a86d" />
-      <Column Name="`comment`" Member="Comment" Type="System.String" DbType="VARCHAR(255) NULL" CanBeNull="true" UpdateCheck="Never" MaxLength="255" Unicode="true" ed:ValidateMaxLength="255" ed:ValidateRequired="false" ed:Guid="7a35af76-b81d-490b-8b0d-d60303126464" />
-      <Column Name="technical_fk" Member="TechnicalFk" Type="System.Int32" DbType="INT(11) NULL" CanBeNull="true" UpdateCheck="Never" Precision="11" ed:ValidateRequired="false" ed:Guid="5272ee2c-8a7a-4cd6-9507-1bdb97d69b26" />
-      <Association Name="Dpto_Location" ed:AssociationGuid="75cfb9f2-1da6-4786-b24e-234198d73aff" Member="Dpto" ed:Guid="85a4a618-652f-40f5-9f5d-66be39dfd5d7" ThisKey="DptoFk" OtherKey="Id" Type="Dpto" DeleteRule="NO ACTION" IsForeignKey="true" />
-      <Association Name="Machine_Location" ed:AssociationGuid="c383770b-bb42-4790-8590-94f8f839078c" Member="Machine" ed:Guid="1d6e0d0d-2143-4c97-bb8c-dae3f12d4a57" ThisKey="MachineFk" OtherKey="Id" Type="Machine" DeleteRule="NO ACTION" IsForeignKey="true" />
-      <Association Name="User_Location" ed:AssociationGuid="4c064023-cca3-4c23-a4f6-268cbbf9d072" Member="User_TechnicalFk" ed:Guid="35fcb3b8-d9fa-44f8-a02f-067d4ed940c3" ThisKey="TechnicalFk" OtherKey="Id" Type="User" DeleteRule="NO ACTION" IsForeignKey="true" />
-      <Association Name="User_Location1" ed:AssociationGuid="3594ecfd-7b6f-4971-bcb4-8df4d25e884c" Member="User_UserFk" ed:Guid="f2c23ecb-abce-49dd-be42-e1396e7c83ec" ThisKey="UserFk" OtherKey="Id" Type="User" DeleteRule="NO ACTION" IsForeignKey="true" />
+    <Type Name="Location" ed:Guid="2663f405-5b92-4d64-8dc6-22a93bfbfc79">
+      <Column Name="user_fk" Member="UserFk" Type="System.Int32" DbType="INT(11) NULL" CanBeNull="true" UpdateCheck="Never" Precision="11" ed:ValidateRequired="false" ed:Guid="8fd0938a-b379-43fc-b2ae-ffab22a51c26" />
+      <Column Name="dpto_fk" Member="DptoFk" Type="System.Int32" DbType="INT(11) NULL" CanBeNull="true" UpdateCheck="Never" Precision="11" ed:ValidateRequired="false" ed:Guid="645c4352-6c34-4336-a844-bb134c4a4055" />
+      <Column Name="machine_fk" Member="MachineFk" Type="System.Int32" DbType="INT(11) NOT NULL" CanBeNull="false" UpdateCheck="Never" Precision="11" ed:ValidateRequired="true" ed:Guid="cd052127-05e8-49d7-afec-76e510d34dda" />
+      <Column Name="`comment`" Member="Comment" Type="System.String" DbType="VARCHAR(255) NULL" CanBeNull="true" UpdateCheck="Never" MaxLength="255" Unicode="true" ed:ValidateMaxLength="255" ed:ValidateRequired="false" ed:Guid="6c9f589b-4f35-408f-ae1b-9df0f59f1152" />
+      <Column Name="technical_fk" Member="TechnicalFk" Type="System.Int32" DbType="INT(11) NULL" CanBeNull="true" UpdateCheck="Never" Precision="11" ed:ValidateRequired="false" ed:Guid="28080643-4171-4825-a641-a24f37c916a7" />
+      <Association Name="Dpto_Location" ed:AssociationGuid="b1447c2f-9aa6-4ba6-83c5-70efc8d6b54f" Member="Dpto" ed:Guid="bd906cb7-ad85-4300-a810-62fdde307bd9" ThisKey="DptoFk" OtherKey="Id" Type="Dpto" DeleteRule="NO ACTION" IsForeignKey="true" />
+      <Association Name="Machine_Location" ed:AssociationGuid="bb58ae5c-6b30-4250-9ac4-570f74dab51d" Member="Machine" ed:Guid="ed224fac-07eb-43c3-b3da-d1dde2b3fc11" ThisKey="MachineFk" OtherKey="Id" Type="Machine" DeleteRule="NO ACTION" IsForeignKey="true" />
+      <Association Name="User_Location" ed:AssociationGuid="2fe39cb3-2806-44ad-800f-8462f956e92d" Member="User_TechnicalFk" ed:Guid="cddaafe7-0cdf-4d40-b678-e085e553cf82" ThisKey="TechnicalFk" OtherKey="Id" Type="User" DeleteRule="NO ACTION" IsForeignKey="true" />
+      <Association Name="User_Location1" ed:AssociationGuid="7513b29c-82d3-41c2-bc48-4212b024379b" Member="User_UserFk" ed:Guid="3eb879db-1bc2-431f-b8d4-ba05ad3dc1c7" ThisKey="UserFk" OtherKey="Id" Type="User" DeleteRule="NO ACTION" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="mfinder.machine" Member="Machines">
-    <Type Name="Machine" ed:Guid="d9106adb-6997-4a0f-907c-cf53bc2e6a2d">
-      <Column Name="id" Member="Id" Type="System.Int32" AutoSync="OnInsert" DbType="INT(11) NOT NULL AUTO_INCREMENT" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Always" Precision="11" ed:ValidateRequired="true" ed:Guid="a9bbf019-ac0c-4030-ab2e-a384a077b418" />
-      <Column Name="model" Member="Model" Type="System.String" DbType="VARCHAR(45) NULL" CanBeNull="true" UpdateCheck="Never" MaxLength="45" Unicode="true" ed:ValidateMaxLength="45" ed:ValidateRequired="false" ed:Guid="90e018f5-c4ec-4a38-806b-d4d5e50e1547" />
-      <Column Name="serialnumber" Member="Serialnumber" Type="System.String" DbType="VARCHAR(45) NOT NULL" CanBeNull="false" UpdateCheck="Never" MaxLength="45" Unicode="true" ed:ValidateMaxLength="45" ed:ValidateRequired="true" ed:Guid="b029b3d8-9beb-4507-b168-eee9f4287d4b" />
-      <Column Name="name" Member="Name" Type="System.String" DbType="VARCHAR(45) NULL" CanBeNull="true" UpdateCheck="Never" MaxLength="45" Unicode="true" ed:ValidateMaxLength="45" ed:ValidateRequired="false" ed:Guid="8593124e-27c6-44f9-9b02-19acbc45e640" />
-      <Column Name="aquisitionDate" Member="AquisitionDate" Type="System.DateTime" DbType="DATETIME NULL" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="false" ed:Guid="8047d637-3dbd-401c-b055-519ad2fb7030" />
-      <Column Name="warrantyExpirationDate" Member="WarrantyExpirationDate" Type="System.DateTime" DbType="DATETIME NULL" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="false" ed:Guid="ed01d29e-6f3a-4a40-9e64-f16e0f0751f2" />
-      <Association Name="Machine_History" ed:AssociationGuid="3500b34e-2a0e-4d53-b64e-98fca49bfcd8" Member="Histories" ed:Guid="e197b87b-b81d-4dbf-aa00-14b4fba0ac44" ThisKey="Id" OtherKey="MachineFk" Type="History" />
-      <Association Name="Machine_Location" ed:AssociationGuid="c383770b-bb42-4790-8590-94f8f839078c" Member="Locations" ed:Guid="076d9048-5916-433f-b43b-986e775d8c64" ThisKey="Id" OtherKey="MachineFk" Type="Location" />
+    <Type Name="Machine" ed:Guid="771bc340-d5f6-4980-bf22-33dfad4993a7">
+      <Column Name="id" Member="Id" Type="System.Int32" AutoSync="OnInsert" DbType="INT(11) NOT NULL AUTO_INCREMENT" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Always" Precision="11" ed:ValidateRequired="true" ed:Guid="fa01ef3d-5621-4acb-9ed2-f11f7a67784f" />
+      <Column Name="model" Member="Model" Type="System.String" DbType="VARCHAR(45) NULL" CanBeNull="true" UpdateCheck="Never" MaxLength="45" Unicode="true" ed:ValidateMaxLength="45" ed:ValidateRequired="false" ed:Guid="21a519e0-652e-49ac-a822-116d02d72819" />
+      <Column Name="serialnumber" Member="Serialnumber" Type="System.String" DbType="VARCHAR(45) NOT NULL" CanBeNull="false" UpdateCheck="Never" MaxLength="45" Unicode="true" ed:ValidateMaxLength="45" ed:ValidateRequired="true" ed:Guid="1dcd04b9-998d-446b-8625-28d5b71b0ba0" />
+      <Column Name="name" Member="Name" Type="System.String" DbType="VARCHAR(45) NULL" CanBeNull="true" UpdateCheck="Never" MaxLength="45" Unicode="true" ed:ValidateMaxLength="45" ed:ValidateRequired="false" ed:Guid="68d6dcaa-6a6b-4b71-b70d-f32b5dc430fe" />
+      <Column Name="aquisitionDate" Member="AquisitionDate" Type="System.DateTime" DbType="DATETIME NULL" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="false" ed:Guid="e0889b5d-01ae-46ce-962a-835dbed461eb" />
+      <Column Name="warrantyExpirationDate" Member="WarrantyExpirationDate" Type="System.DateTime" DbType="DATETIME NULL" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="false" ed:Guid="f7abc9b7-537d-4583-a577-fb841a9d96d0" />
+      <Association Name="Machine_History" ed:AssociationGuid="8faf8671-13bf-492a-b8e5-523ebcd7fa84" Member="Histories" ed:Guid="47ec3e0f-411c-4fa2-81f8-3e26c88136a3" ThisKey="Id" OtherKey="MachineFk" Type="History" />
+      <Association Name="Machine_Location" ed:AssociationGuid="bb58ae5c-6b30-4250-9ac4-570f74dab51d" Member="Locations" ed:Guid="853b6bf5-8bac-4890-8abd-f82543958649" ThisKey="Id" OtherKey="MachineFk" Type="Location" />
     </Type>
   </Table>
   <Table Name="mfinder.role" Member="Roles">
-    <Type Name="Role" ed:Guid="5c032904-289b-4c14-a09b-3389ff1643e9">
-      <Column Name="id" Member="Id" Type="System.Int32" AutoSync="OnInsert" DbType="INT(11) NOT NULL AUTO_INCREMENT" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Always" Precision="11" ed:ValidateRequired="true" ed:Guid="4eb50167-1573-4db1-b577-80292eb92d52" />
-      <Column Name="name" Member="Name" Type="System.String" DbType="VARCHAR(45) NOT NULL" CanBeNull="false" UpdateCheck="Never" MaxLength="45" Unicode="true" ed:ValidateMaxLength="45" ed:ValidateRequired="true" ed:Guid="e842a3f7-7ce0-4e39-bcdb-dcf0c8c48ca3" />
-      <Association Name="Role_User" ed:AssociationGuid="d4793a6b-ec96-4af3-89b1-8515e68091e5" Member="Users" ed:Guid="a01f439b-acec-4c71-93f1-b3c0655f8079" ThisKey="Id" OtherKey="RoleFk" Type="User" />
+    <Type Name="Role" ed:Guid="ad4d344d-afd9-462b-9b37-a5b9a2380375">
+      <Column Name="id" Member="Id" Type="System.Int32" AutoSync="OnInsert" DbType="INT(11) NOT NULL AUTO_INCREMENT" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Always" Precision="11" ed:ValidateRequired="true" ed:Guid="10ecaf54-5c60-48b8-be4e-4a83a33f2ab8" />
+      <Column Name="name" Member="Name" Type="System.String" DbType="VARCHAR(45) NOT NULL" CanBeNull="false" UpdateCheck="Never" MaxLength="45" Unicode="true" ed:ValidateMaxLength="45" ed:ValidateRequired="true" ed:Guid="eaca4bdb-085d-43c2-a783-99183a9ac438" />
+      <Association Name="Role_User" ed:AssociationGuid="e41d11ea-de20-49a2-9186-e828df7ba2d9" Member="Users" ed:Guid="be202d1d-f37f-4dcc-92c8-ddc3509788cd" ThisKey="Id" OtherKey="RoleFk" Type="User" />
     </Type>
   </Table>
   <Table Name="mfinder.user" Member="Users">
-    <Type Name="User" ed:Guid="e9e527bd-3f6a-4a31-9e45-136852583a32">
-      <Column Name="id" Member="Id" Type="System.Int32" AutoSync="OnInsert" DbType="INT(11) NOT NULL AUTO_INCREMENT" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Always" Precision="11" ed:ValidateRequired="true" ed:Guid="f541d75c-29f7-4be0-adc3-36e9c6f6c552" />
-      <Column Name="name" Member="Name" Type="System.String" DbType="VARCHAR(45) NULL" CanBeNull="true" UpdateCheck="Never" MaxLength="45" Unicode="true" ed:ValidateMaxLength="45" ed:ValidateRequired="false" ed:Guid="64bc0050-57b4-4511-bae9-1109670f3381" />
-      <Column Name="ramal" Member="Ramal" Type="System.String" DbType="VARCHAR(45) NULL" CanBeNull="true" UpdateCheck="Never" MaxLength="45" Unicode="true" ed:ValidateMaxLength="45" ed:ValidateRequired="false" ed:Guid="a32ec2e1-9c4f-4198-a421-4d5456df3b1d" />
-      <Column Name="role_fk" Member="RoleFk" Type="System.Int32" DbType="INT(11) NOT NULL" CanBeNull="false" UpdateCheck="Never" Precision="11" ed:ValidateRequired="true" ed:Guid="be7f6592-7c2d-4120-8c9e-608f259eb017" />
-      <Column Name="dpto_fk" Member="DptoFk" Type="System.Int32" DbType="INT(11) NULL" CanBeNull="true" UpdateCheck="Never" Precision="11" ed:ValidateRequired="false" ed:Guid="4da1e6cb-b24d-4f5f-944a-9b1cb1536aa9" />
-      <Association Name="Dpto_User" ed:AssociationGuid="ab8b01c3-35f3-48ef-bb75-dec6f8857429" Member="Dpto" ed:Guid="e96163be-8b27-4d67-a7b0-549da42a6db3" ThisKey="DptoFk" OtherKey="Id" Type="Dpto" DeleteRule="NO ACTION" IsForeignKey="true" />
-      <Association Name="User_History" ed:AssociationGuid="a643ddf0-cbff-489e-a4f5-80efe08f8295" Member="Histories_TechnicalFk" ed:Guid="889ea041-a378-4140-87c0-9f26e0e3825f" ThisKey="Id" OtherKey="TechnicalFk" Type="History" />
-      <Association Name="User_History1" ed:AssociationGuid="737e1458-e471-4461-97fe-cf5172846530" Member="Histories_UserFk" ed:Guid="8617bc10-2ec6-4c07-be1f-adb604adbeb2" ThisKey="Id" OtherKey="UserFk" Type="History" />
-      <Association Name="User_Location" ed:AssociationGuid="4c064023-cca3-4c23-a4f6-268cbbf9d072" Member="Locations_TechnicalFk" ed:Guid="f154c8a8-c443-4c04-8985-0100a29b96ed" ThisKey="Id" OtherKey="TechnicalFk" Type="Location" />
-      <Association Name="User_Location1" ed:AssociationGuid="3594ecfd-7b6f-4971-bcb4-8df4d25e884c" Member="Locations_UserFk" ed:Guid="2c66537e-72a7-4c4c-a183-8b5ebda01a04" ThisKey="Id" OtherKey="UserFk" Type="Location" />
-      <Association Name="Role_User" ed:AssociationGuid="d4793a6b-ec96-4af3-89b1-8515e68091e5" Member="Role" ed:Guid="8413d46b-bf3c-44a4-9daa-a85a97a6157e" ThisKey="RoleFk" OtherKey="Id" Type="Role" DeleteRule="NO ACTION" IsForeignKey="true" />
+    <Type Name="User" ed:Guid="11ce0c87-ff6c-4234-88ce-ed4541039860">
+      <Column Name="id" Member="Id" Type="System.Int32" AutoSync="OnInsert" DbType="INT(11) NOT NULL AUTO_INCREMENT" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Always" Precision="11" ed:ValidateRequired="true" ed:Guid="db3a3695-c1a1-4eda-8658-61b97e759248" />
+      <Column Name="firstname" Member="Firstname" Type="System.String" DbType="VARCHAR(45) NULL" CanBeNull="true" UpdateCheck="Never" MaxLength="45" Unicode="true" ed:ValidateMaxLength="45" ed:ValidateRequired="false" ed:Guid="8f4f601e-ac15-40a8-96a1-502a689c061d" />
+      <Column Name="ramal" Member="Ramal" Type="System.String" DbType="VARCHAR(45) NULL" CanBeNull="true" UpdateCheck="Never" MaxLength="45" Unicode="true" ed:ValidateMaxLength="45" ed:ValidateRequired="false" ed:Guid="94fc2d24-5f9b-4e24-9e39-2abce1ea3673" />
+      <Column Name="role_fk" Member="RoleFk" Type="System.Int32" DbType="INT(11) NOT NULL" CanBeNull="false" UpdateCheck="Never" Precision="11" ed:ValidateRequired="true" ed:Guid="76d37efa-7d8f-47a5-89ed-ae73e9b52f6b" />
+      <Column Name="dpto_fk" Member="DptoFk" Type="System.Int32" DbType="INT(11) NULL" CanBeNull="true" UpdateCheck="Never" Precision="11" ed:ValidateRequired="false" ed:Guid="e41c4c7a-16a6-49f2-8999-13ff6ecc86a6" />
+      <Column Name="`password`" Member="Password" Type="System.String" DbType="VARCHAR(45) NOT NULL" CanBeNull="false" UpdateCheck="Never" MaxLength="45" Unicode="true" ed:ValidateMaxLength="45" ed:ValidateRequired="true" ed:Guid="bb1b6e8a-0c65-4f35-a3da-6736c78533c0" />
+      <Column Name="lastname" Member="Lastname" Type="System.String" DbType="VARCHAR(45) NULL" CanBeNull="true" UpdateCheck="Never" MaxLength="45" Unicode="true" ed:ValidateMaxLength="45" ed:ValidateRequired="false" ed:Guid="98f5c4e9-79eb-4998-8a94-f98ab7f5e01a" />
+      <Column Name="username" Member="Username" Type="System.String" DbType="VARCHAR(45) NULL" CanBeNull="true" UpdateCheck="Never" MaxLength="45" Unicode="true" ed:ValidateMaxLength="45" ed:ValidateRequired="false" ed:Guid="a53c5f69-ede1-40e4-ac16-a844663409f4" />
+      <Association Name="Dpto_User" ed:AssociationGuid="c258d1fd-7a6b-4f29-8df1-62d30ea0dcd1" Member="Dpto" ed:Guid="7ac1de88-595f-4dfe-a3e3-f1e9ac9fda38" ThisKey="DptoFk" OtherKey="Id" Type="Dpto" DeleteRule="NO ACTION" IsForeignKey="true" />
+      <Association Name="User_History" ed:AssociationGuid="77de98cf-e957-4605-8d7e-8beb3e98bc51" Member="Histories_TechnicalFk" ed:Guid="db3db768-b6ed-4e7b-adee-4c620702b44f" ThisKey="Id" OtherKey="TechnicalFk" Type="History" />
+      <Association Name="User_History1" ed:AssociationGuid="a898fdff-6308-4119-a897-c240acc94637" Member="Histories_UserFk" ed:Guid="3558ea2e-e776-4ed9-b0be-1ab1d507d65d" ThisKey="Id" OtherKey="UserFk" Type="History" />
+      <Association Name="User_Location" ed:AssociationGuid="2fe39cb3-2806-44ad-800f-8462f956e92d" Member="Locations_TechnicalFk" ed:Guid="64f88a2f-1f0a-41ac-aa60-1b7ee3752be5" ThisKey="Id" OtherKey="TechnicalFk" Type="Location" />
+      <Association Name="User_Location1" ed:AssociationGuid="7513b29c-82d3-41c2-bc48-4212b024379b" Member="Locations_UserFk" ed:Guid="7b87e585-25c8-4b7b-9c84-d2d22bb9ae13" ThisKey="Id" OtherKey="UserFk" Type="Location" />
+      <Association Name="Role_User" ed:AssociationGuid="e41d11ea-de20-49a2-9186-e828df7ba2d9" Member="Role" ed:Guid="e357011e-c645-48d1-931f-6d35b0b37123" ThisKey="RoleFk" OtherKey="Id" Type="Role" DeleteRule="NO ACTION" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

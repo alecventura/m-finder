@@ -1,0 +1,14 @@
+C:\Users\Vulcan\Documents\GitHub\m-finder\WindowsFormsMFinder\WindowsFormsMFinder\bin\Debug\WindowsFormsMFinder.exe.config
+C:\Users\Vulcan\Documents\GitHub\m-finder\WindowsFormsMFinder\WindowsFormsMFinder\obj\Debug\WindowsFormsMFinder.csprojResolveAssemblyReference.cache
+C:\Users\Vulcan\Documents\GitHub\m-finder\WindowsFormsMFinder\WindowsFormsMFinder\obj\Debug\WindowsFormsMFinder.Login.resources
+C:\Users\Vulcan\Documents\GitHub\m-finder\WindowsFormsMFinder\WindowsFormsMFinder\obj\Debug\WindowsFormsMFinder.Properties.Resources.resources
+C:\Users\Vulcan\Documents\GitHub\m-finder\WindowsFormsMFinder\WindowsFormsMFinder\obj\Debug\WindowsFormsMFinder.Register.resources
+C:\Users\Vulcan\Documents\GitHub\m-finder\WindowsFormsMFinder\WindowsFormsMFinder\obj\Debug\WindowsFormsMFinder.csproj.GenerateResource.Cache
+C:\Users\Vulcan\Documents\GitHub\m-finder\WindowsFormsMFinder\WindowsFormsMFinder\bin\Debug\WindowsFormsMFinder.exe
+C:\Users\Vulcan\Documents\GitHub\m-finder\WindowsFormsMFinder\WindowsFormsMFinder\bin\Debug\WindowsFormsMFinder.pdb
+C:\Users\Vulcan\Documents\GitHub\m-finder\WindowsFormsMFinder\WindowsFormsMFinder\bin\Debug\Model.dll
+C:\Users\Vulcan\Documents\GitHub\m-finder\WindowsFormsMFinder\WindowsFormsMFinder\bin\Debug\Presenter.dll
+C:\Users\Vulcan\Documents\GitHub\m-finder\WindowsFormsMFinder\WindowsFormsMFinder\bin\Debug\Model.pdb
+C:\Users\Vulcan\Documents\GitHub\m-finder\WindowsFormsMFinder\WindowsFormsMFinder\bin\Debug\Presenter.pdb
+C:\Users\Vulcan\Documents\GitHub\m-finder\WindowsFormsMFinder\WindowsFormsMFinder\obj\Debug\WindowsFormsMFinder.exe
+C:\Users\Vulcan\Documents\GitHub\m-finder\WindowsFormsMFinder\WindowsFormsMFinder\obj\Debug\WindowsFormsMFinder.pdb
