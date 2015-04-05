@@ -5,11 +5,8 @@ using System.Text;
 
 namespace Presenter.InterfaceViews
 {
-    public interface ILogin : IBase
+    public interface IBase
     {
-        string username { get; }
-        string password { get; }
-
-        void openDashboard();
+        bool showMessage(string message);
     }
 }

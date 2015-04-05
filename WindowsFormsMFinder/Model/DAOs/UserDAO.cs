@@ -1,16 +1,14 @@
-﻿using System;
+﻿using MfinderContext;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-using MfinderContext;
-
-namespace Model
+namespace Model.DAOs
 {
-    public class UserService
+    public class UserDAO
     {
-
-        public bool registerNewUser(string username, string password, int role)
+        public static bool registerNewUser(string username, string password, Object role)
         {
             try
             {
@@ -21,11 +19,11 @@ namespace Model
                 if (role != null)
                 {
                     //string stringValue = Enum.GetName(typeof(RoleEnum.Roles), role);
-                    user.RoleFk = role;
+                    user.RoleFk = (int)role;
                 }
                 else
                 {
-                    user.RoleFk = (int)RoleEnum.Roles.USER; // User role
+                    user.RoleFk = 3; // User role
                 }
                 context.Users.InsertOnSubmit(user);
                 context.SubmitChanges();
@@ -45,7 +43,8 @@ namespace Model
                         select it;
 
             // Since we query for a single object instead of a collection, we can use the method First()
-            return query.First();
+            User answer = query.FirstOrDefault();
+            return answer;
         }
     }
 }

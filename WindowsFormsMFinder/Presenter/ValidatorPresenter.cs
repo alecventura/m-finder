@@ -1,7 +1,10 @@
-﻿using System;
+﻿using Presenter.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+
+using Presenter.Utils;
 
 namespace Presenter
 {
@@ -12,10 +15,17 @@ namespace Presenter
             return pw.Equals(repeatPw);
         }
 
-        protected bool validateUsernamePassword(string username, string pw)
+        protected bool validateUsernamePasswordAndRole(string username, string pw)
         {
-            User user = Model.UserService.retrieveUserByUsername(username);
-            return true; //TODO terminar
+            MfinderContext.User user = UserService.retrieveUserByUsername(username);
+            if (user != null && (user.RoleFk.Equals((int)RoleEnum.Roles.ADMIN) || user.RoleFk.Equals((int)RoleEnum.Roles.TECH)))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

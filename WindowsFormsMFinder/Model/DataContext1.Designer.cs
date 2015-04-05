@@ -29,7 +29,7 @@ namespace MfinderContext
         private static MappingSource mappingSource = new Devart.Data.Linq.Mapping.AttributeMappingSource();
 
         #region Extensibility Method Definitions
-    
+
         partial void OnCreated();
         partial void OnSubmitError(Devart.Data.Linq.SubmitErrorEventArgs args);
         partial void InsertAction(Action instance);
@@ -51,13 +51,13 @@ namespace MfinderContext
         #endregion
 
         public MfinderDataContext() :
-        base(GetConnectionString("MfinderDataContextConnectionString"), mappingSource)
+            base(GetConnectionString("MfinderDataContextConnectionString"), mappingSource)
         {
             OnCreated();
         }
 
         public MfinderDataContext(MappingSource mappingSource) :
-        base(GetConnectionString("MfinderDataContextConnectionString"), mappingSource)
+            base(GetConnectionString("MfinderDataContextConnectionString"), mappingSource)
         {
             OnCreated();
         }
@@ -66,32 +66,32 @@ namespace MfinderContext
         {
             System.Configuration.ConnectionStringSettings connectionStringSettings = System.Configuration.ConfigurationManager.ConnectionStrings[connectionStringName];
             if (connectionStringSettings == null)
-                throw new InvalidOperationException("Connection string \"" + connectionStringName +"\" could not be found in the configuration file.");
+                throw new InvalidOperationException("Connection string \"" + connectionStringName + "\" could not be found in the configuration file.");
             return connectionStringSettings.ConnectionString;
         }
 
         public MfinderDataContext(string connection) :
             base(connection, mappingSource)
         {
-          OnCreated();
+            OnCreated();
         }
 
         public MfinderDataContext(System.Data.IDbConnection connection) :
             base(connection, mappingSource)
         {
-          OnCreated();
+            OnCreated();
         }
 
         public MfinderDataContext(string connection, MappingSource mappingSource) :
             base(connection, mappingSource)
         {
-          OnCreated();
+            OnCreated();
         }
 
         public MfinderDataContext(System.Data.IDbConnection connection, MappingSource mappingSource) :
             base(connection, mappingSource)
         {
-          OnCreated();
+            OnCreated();
         }
 
         public Devart.Data.Linq.Table<Action> Actions
@@ -163,13 +163,13 @@ namespace MfinderContext
     {
 
         private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(System.String.Empty);
-        #pragma warning disable 0649
+#pragma warning disable 0649
 
         private int _Id;
 
         private string _Name;
-        #pragma warning restore 0649
-    
+#pragma warning restore 0649
+
         #region Extensibility Method Definitions
 
         partial void OnLoaded();
@@ -186,7 +186,7 @@ namespace MfinderContext
             OnCreated();
         }
 
-    
+
         /// <summary>
         /// There are no comments for Id in the schema.
         /// </summary>
@@ -210,7 +210,7 @@ namespace MfinderContext
             }
         }
 
-    
+
         /// <summary>
         /// There are no comments for Name in the schema.
         /// </summary>
@@ -233,28 +233,28 @@ namespace MfinderContext
                 }
             }
         }
-   
+
         public event PropertyChangingEventHandler PropertyChanging;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected virtual void SendPropertyChanging()
         {
-		        var handler = this.PropertyChanging;
+            var handler = this.PropertyChanging;
             if (handler != null)
                 handler(this, emptyChangingEventArgs);
         }
 
-        protected virtual void SendPropertyChanging(System.String propertyName) 
-        {    
-		        var handler = this.PropertyChanging;
+        protected virtual void SendPropertyChanging(System.String propertyName)
+        {
+            var handler = this.PropertyChanging;
             if (handler != null)
                 handler(this, new PropertyChangingEventArgs(propertyName));
         }
 
         protected virtual void SendPropertyChanged(System.String propertyName)
-        {    
-		        var handler = this.PropertyChanged;
+        {
+            var handler = this.PropertyChanged;
             if (handler != null)
                 handler(this, new PropertyChangedEventArgs(propertyName));
         }
@@ -268,15 +268,15 @@ namespace MfinderContext
     {
 
         private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(System.String.Empty);
-        #pragma warning disable 0649
+#pragma warning disable 0649
 
         private int _Id;
 
         private string _Name;
-        #pragma warning restore 0649
+#pragma warning restore 0649
 
         private EntitySet<User> _Users;
-    
+
         #region Extensibility Method Definitions
 
         partial void OnLoaded();
@@ -294,7 +294,7 @@ namespace MfinderContext
             OnCreated();
         }
 
-    
+
         /// <summary>
         /// There are no comments for Id in the schema.
         /// </summary>
@@ -318,7 +318,7 @@ namespace MfinderContext
             }
         }
 
-    
+
         /// <summary>
         /// There are no comments for Name in the schema.
         /// </summary>
@@ -342,11 +342,11 @@ namespace MfinderContext
             }
         }
 
-    
+
         /// <summary>
         /// There are no comments for Users in the schema.
         /// </summary>
-        [Devart.Data.Linq.Mapping.Association(Name="Dpto_User", Storage="_Users", ThisKey="Id", OtherKey="DptoFk", DeleteRule="NO ACTION")]
+        [Devart.Data.Linq.Mapping.Association(Name = "Dpto_User", Storage = "_Users", ThisKey = "Id", OtherKey = "DptoFk", DeleteRule = "NO ACTION")]
         public EntitySet<User> Users
         {
             get
@@ -358,28 +358,28 @@ namespace MfinderContext
                 this._Users.Assign(value);
             }
         }
-   
+
         public event PropertyChangingEventHandler PropertyChanging;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected virtual void SendPropertyChanging()
         {
-		        var handler = this.PropertyChanging;
+            var handler = this.PropertyChanging;
             if (handler != null)
                 handler(this, emptyChangingEventArgs);
         }
 
-        protected virtual void SendPropertyChanging(System.String propertyName) 
-        {    
-		        var handler = this.PropertyChanging;
+        protected virtual void SendPropertyChanging(System.String propertyName)
+        {
+            var handler = this.PropertyChanging;
             if (handler != null)
                 handler(this, new PropertyChangingEventArgs(propertyName));
         }
 
         protected virtual void SendPropertyChanged(System.String propertyName)
-        {    
-		        var handler = this.PropertyChanged;
+        {
+            var handler = this.PropertyChanged;
             if (handler != null)
                 handler(this, new PropertyChangedEventArgs(propertyName));
         }
@@ -389,7 +389,7 @@ namespace MfinderContext
             this.SendPropertyChanging("Users");
             entity.Dpto = this;
         }
-    
+
         private void detach_Users(User entity)
         {
             this.SendPropertyChanging("Users");
@@ -403,7 +403,7 @@ namespace MfinderContext
     [Table(Name = @"mfinder.history")]
     public partial class History
     {
-        #pragma warning disable 0649
+#pragma warning disable 0649
 
         private int _ActionFk;
 
@@ -418,8 +418,8 @@ namespace MfinderContext
         private System.Nullable<System.DateTime> _ActionDate;
 
         private System.Nullable<int> _TechnicalFk;
-        #pragma warning restore 0649
-    
+#pragma warning restore 0649
+
         #region Extensibility Method Definitions
 
         partial void OnLoaded();
@@ -446,7 +446,7 @@ namespace MfinderContext
             OnCreated();
         }
 
-    
+
         /// <summary>
         /// There are no comments for ActionFk in the schema.
         /// </summary>
@@ -466,7 +466,7 @@ namespace MfinderContext
             }
         }
 
-    
+
         /// <summary>
         /// There are no comments for UserFk in the schema.
         /// </summary>
@@ -486,7 +486,7 @@ namespace MfinderContext
             }
         }
 
-    
+
         /// <summary>
         /// There are no comments for MachineFk in the schema.
         /// </summary>
@@ -506,7 +506,7 @@ namespace MfinderContext
             }
         }
 
-    
+
         /// <summary>
         /// There are no comments for DptoFk in the schema.
         /// </summary>
@@ -526,7 +526,7 @@ namespace MfinderContext
             }
         }
 
-    
+
         /// <summary>
         /// There are no comments for Comment in the schema.
         /// </summary>
@@ -546,7 +546,7 @@ namespace MfinderContext
             }
         }
 
-    
+
         /// <summary>
         /// There are no comments for ActionDate in the schema.
         /// </summary>
@@ -566,7 +566,7 @@ namespace MfinderContext
             }
         }
 
-    
+
         /// <summary>
         /// There are no comments for TechnicalFk in the schema.
         /// </summary>
@@ -593,7 +593,7 @@ namespace MfinderContext
     [Table(Name = @"mfinder.location")]
     public partial class Location
     {
-        #pragma warning disable 0649
+#pragma warning disable 0649
 
         private System.Nullable<int> _UserFk;
 
@@ -604,8 +604,8 @@ namespace MfinderContext
         private string _Comment;
 
         private System.Nullable<int> _TechnicalFk;
-        #pragma warning restore 0649
-    
+#pragma warning restore 0649
+
         #region Extensibility Method Definitions
 
         partial void OnLoaded();
@@ -628,7 +628,7 @@ namespace MfinderContext
             OnCreated();
         }
 
-    
+
         /// <summary>
         /// There are no comments for UserFk in the schema.
         /// </summary>
@@ -648,7 +648,7 @@ namespace MfinderContext
             }
         }
 
-    
+
         /// <summary>
         /// There are no comments for DptoFk in the schema.
         /// </summary>
@@ -668,7 +668,7 @@ namespace MfinderContext
             }
         }
 
-    
+
         /// <summary>
         /// There are no comments for MachineFk in the schema.
         /// </summary>
@@ -688,7 +688,7 @@ namespace MfinderContext
             }
         }
 
-    
+
         /// <summary>
         /// There are no comments for Comment in the schema.
         /// </summary>
@@ -708,7 +708,7 @@ namespace MfinderContext
             }
         }
 
-    
+
         /// <summary>
         /// There are no comments for TechnicalFk in the schema.
         /// </summary>
@@ -737,7 +737,7 @@ namespace MfinderContext
     {
 
         private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(System.String.Empty);
-        #pragma warning disable 0649
+#pragma warning disable 0649
 
         private int _Id;
 
@@ -750,8 +750,8 @@ namespace MfinderContext
         private System.Nullable<System.DateTime> _AquisitionDate;
 
         private System.Nullable<System.DateTime> _WarrantyExpirationDate;
-        #pragma warning restore 0649
-    
+#pragma warning restore 0649
+
         #region Extensibility Method Definitions
 
         partial void OnLoaded();
@@ -776,7 +776,7 @@ namespace MfinderContext
             OnCreated();
         }
 
-    
+
         /// <summary>
         /// There are no comments for Id in the schema.
         /// </summary>
@@ -800,7 +800,7 @@ namespace MfinderContext
             }
         }
 
-    
+
         /// <summary>
         /// There are no comments for Model in the schema.
         /// </summary>
@@ -824,7 +824,7 @@ namespace MfinderContext
             }
         }
 
-    
+
         /// <summary>
         /// There are no comments for Serialnumber in the schema.
         /// </summary>
@@ -848,7 +848,7 @@ namespace MfinderContext
             }
         }
 
-    
+
         /// <summary>
         /// There are no comments for Name in the schema.
         /// </summary>
@@ -872,7 +872,7 @@ namespace MfinderContext
             }
         }
 
-    
+
         /// <summary>
         /// There are no comments for AquisitionDate in the schema.
         /// </summary>
@@ -896,7 +896,7 @@ namespace MfinderContext
             }
         }
 
-    
+
         /// <summary>
         /// There are no comments for WarrantyExpirationDate in the schema.
         /// </summary>
@@ -919,28 +919,28 @@ namespace MfinderContext
                 }
             }
         }
-   
+
         public event PropertyChangingEventHandler PropertyChanging;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected virtual void SendPropertyChanging()
         {
-		        var handler = this.PropertyChanging;
+            var handler = this.PropertyChanging;
             if (handler != null)
                 handler(this, emptyChangingEventArgs);
         }
 
-        protected virtual void SendPropertyChanging(System.String propertyName) 
-        {    
-		        var handler = this.PropertyChanging;
+        protected virtual void SendPropertyChanging(System.String propertyName)
+        {
+            var handler = this.PropertyChanging;
             if (handler != null)
                 handler(this, new PropertyChangingEventArgs(propertyName));
         }
 
         protected virtual void SendPropertyChanged(System.String propertyName)
-        {    
-		        var handler = this.PropertyChanged;
+        {
+            var handler = this.PropertyChanged;
             if (handler != null)
                 handler(this, new PropertyChangedEventArgs(propertyName));
         }
@@ -954,15 +954,15 @@ namespace MfinderContext
     {
 
         private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(System.String.Empty);
-        #pragma warning disable 0649
+#pragma warning disable 0649
 
         private int _Id;
 
         private string _Name;
-        #pragma warning restore 0649
+#pragma warning restore 0649
 
         private EntitySet<User> _Users;
-    
+
         #region Extensibility Method Definitions
 
         partial void OnLoaded();
@@ -980,7 +980,7 @@ namespace MfinderContext
             OnCreated();
         }
 
-    
+
         /// <summary>
         /// There are no comments for Id in the schema.
         /// </summary>
@@ -1004,7 +1004,7 @@ namespace MfinderContext
             }
         }
 
-    
+
         /// <summary>
         /// There are no comments for Name in the schema.
         /// </summary>
@@ -1028,11 +1028,11 @@ namespace MfinderContext
             }
         }
 
-    
+
         /// <summary>
         /// There are no comments for Users in the schema.
         /// </summary>
-        [Devart.Data.Linq.Mapping.Association(Name="Role_User", Storage="_Users", ThisKey="Id", OtherKey="RoleFk", DeleteRule="NO ACTION")]
+        [Devart.Data.Linq.Mapping.Association(Name = "Role_User", Storage = "_Users", ThisKey = "Id", OtherKey = "RoleFk", DeleteRule = "NO ACTION")]
         public EntitySet<User> Users
         {
             get
@@ -1044,28 +1044,28 @@ namespace MfinderContext
                 this._Users.Assign(value);
             }
         }
-   
+
         public event PropertyChangingEventHandler PropertyChanging;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected virtual void SendPropertyChanging()
         {
-		        var handler = this.PropertyChanging;
+            var handler = this.PropertyChanging;
             if (handler != null)
                 handler(this, emptyChangingEventArgs);
         }
 
-        protected virtual void SendPropertyChanging(System.String propertyName) 
-        {    
-		        var handler = this.PropertyChanging;
+        protected virtual void SendPropertyChanging(System.String propertyName)
+        {
+            var handler = this.PropertyChanging;
             if (handler != null)
                 handler(this, new PropertyChangingEventArgs(propertyName));
         }
 
         protected virtual void SendPropertyChanged(System.String propertyName)
-        {    
-		        var handler = this.PropertyChanged;
+        {
+            var handler = this.PropertyChanged;
             if (handler != null)
                 handler(this, new PropertyChangedEventArgs(propertyName));
         }
@@ -1075,7 +1075,7 @@ namespace MfinderContext
             this.SendPropertyChanging("Users");
             entity.Role = this;
         }
-    
+
         private void detach_Users(User entity)
         {
             this.SendPropertyChanging("Users");
@@ -1091,7 +1091,7 @@ namespace MfinderContext
     {
 
         private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(System.String.Empty);
-        #pragma warning disable 0649
+#pragma warning disable 0649
 
         private int _Id;
 
@@ -1108,12 +1108,12 @@ namespace MfinderContext
         private string _Lastname;
 
         private string _Username;
-        #pragma warning restore 0649
+#pragma warning restore 0649
 
         private EntityRef<Dpto> _Dpto;
 
         private EntityRef<Role> _Role;
-    
+
         #region Extensibility Method Definitions
 
         partial void OnLoaded();
@@ -1139,12 +1139,12 @@ namespace MfinderContext
 
         public User()
         {
-            this._Dpto  = default(EntityRef<Dpto>);
-            this._Role  = default(EntityRef<Role>);
+            this._Dpto = default(EntityRef<Dpto>);
+            this._Role = default(EntityRef<Role>);
             OnCreated();
         }
 
-    
+
         /// <summary>
         /// There are no comments for Id in the schema.
         /// </summary>
@@ -1168,7 +1168,7 @@ namespace MfinderContext
             }
         }
 
-    
+
         /// <summary>
         /// There are no comments for Firstname in the schema.
         /// </summary>
@@ -1192,7 +1192,7 @@ namespace MfinderContext
             }
         }
 
-    
+
         /// <summary>
         /// There are no comments for Ramal in the schema.
         /// </summary>
@@ -1216,7 +1216,7 @@ namespace MfinderContext
             }
         }
 
-    
+
         /// <summary>
         /// There are no comments for RoleFk in the schema.
         /// </summary>
@@ -1245,7 +1245,7 @@ namespace MfinderContext
             }
         }
 
-    
+
         /// <summary>
         /// There are no comments for DptoFk in the schema.
         /// </summary>
@@ -1274,7 +1274,7 @@ namespace MfinderContext
             }
         }
 
-    
+
         /// <summary>
         /// There are no comments for Password in the schema.
         /// </summary>
@@ -1298,7 +1298,7 @@ namespace MfinderContext
             }
         }
 
-    
+
         /// <summary>
         /// There are no comments for Lastname in the schema.
         /// </summary>
@@ -1322,7 +1322,7 @@ namespace MfinderContext
             }
         }
 
-    
+
         /// <summary>
         /// There are no comments for Username in the schema.
         /// </summary>
@@ -1346,11 +1346,11 @@ namespace MfinderContext
             }
         }
 
-    
+
         /// <summary>
         /// There are no comments for Dpto in the schema.
         /// </summary>
-        [Devart.Data.Linq.Mapping.Association(Name="Dpto_User", Storage="_Dpto", ThisKey="DptoFk", OtherKey="Id", IsForeignKey=true)]
+        [Devart.Data.Linq.Mapping.Association(Name = "Dpto_User", Storage = "_Dpto", ThisKey = "DptoFk", OtherKey = "Id", IsForeignKey = true)]
         public Dpto Dpto
         {
             get
@@ -1383,11 +1383,11 @@ namespace MfinderContext
             }
         }
 
-    
+
         /// <summary>
         /// There are no comments for Role in the schema.
         /// </summary>
-        [Devart.Data.Linq.Mapping.Association(Name="Role_User", Storage="_Role", ThisKey="RoleFk", OtherKey="Id", IsForeignKey=true)]
+        [Devart.Data.Linq.Mapping.Association(Name = "Role_User", Storage = "_Role", ThisKey = "RoleFk", OtherKey = "Id", IsForeignKey = true)]
         public Role Role
         {
             get
@@ -1419,28 +1419,28 @@ namespace MfinderContext
                 }
             }
         }
-   
+
         public event PropertyChangingEventHandler PropertyChanging;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected virtual void SendPropertyChanging()
         {
-		        var handler = this.PropertyChanging;
+            var handler = this.PropertyChanging;
             if (handler != null)
                 handler(this, emptyChangingEventArgs);
         }
 
-        protected virtual void SendPropertyChanging(System.String propertyName) 
-        {    
-		        var handler = this.PropertyChanging;
+        protected virtual void SendPropertyChanging(System.String propertyName)
+        {
+            var handler = this.PropertyChanging;
             if (handler != null)
                 handler(this, new PropertyChangingEventArgs(propertyName));
         }
 
         protected virtual void SendPropertyChanged(System.String propertyName)
-        {    
-		        var handler = this.PropertyChanged;
+        {
+            var handler = this.PropertyChanged;
             if (handler != null)
                 handler(this, new PropertyChangedEventArgs(propertyName));
         }

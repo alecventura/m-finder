@@ -5,12 +5,11 @@ using System.Text;
 
 namespace Presenter.InterfaceViews
 {
-    public interface IRegister
+    public interface IRegister : IBase
     {
         string username { get; }
         string password { get; }
         string repeatPw { get; }
-        bool showMessage(string message);
 
         void goToLogin();
     }

@@ -15,7 +15,14 @@ namespace Presenter
 
         public void view_loginEvent(object sender, EventArgs e)
         {
-
+            if (validateUsernamePasswordAndRole(view.username, view.password))
+            {
+                view.openDashboard();
+            }
+            else
+            {
+                view.showMessage("Cannot authenticate user " + view.username + " please check your username and password!");
+            }
         }
     }
 }
