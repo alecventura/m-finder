@@ -60,6 +60,7 @@
             this.manageUsersButton.TabIndex = 2;
             this.manageUsersButton.Text = "Manage Users";
             this.manageUsersButton.UseVisualStyleBackColor = true;
+            this.manageUsersButton.Click += new System.EventHandler(this.manageUsersButton_Click);
             // 
             // manageMachinesButton
             // 

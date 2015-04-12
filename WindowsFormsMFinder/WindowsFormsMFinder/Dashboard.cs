@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Presenter;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,9 +10,11 @@ using System.Windows.Forms;
 
 namespace WindowsFormsMFinder
 {
-    public partial class Dashboard : Form
+    public partial class Dashboard : Form, Presenter.InterfaceViews.IDashboard
     {
         private Login login;
+        private DashboardPresenter presenter;
+        private Users u;
 
         public Dashboard()
         {
@@ -20,8 +23,16 @@ namespace WindowsFormsMFinder
 
         public Dashboard(Login login)
         {
+            presenter = new DashboardPresenter(this);
+            u = new Users(this);
             InitializeComponent();
             this.login = login;
+        }
+
+        private void manageUsersButton_Click(object sender, EventArgs e)
+        {
+            Hide();
+            u.Show();
         }
     }
 }

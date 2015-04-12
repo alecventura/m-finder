@@ -46,5 +46,14 @@ namespace Model.DAOs
             User answer = query.FirstOrDefault();
             return answer;
         }
+
+        public static List<User> loadUsersData()
+        {
+            MfinderDataContext context = new MfinderDataContext();
+            var query = from it in context.Users
+                        select it;
+            List<User> list = query.ToList();
+            return list;
+        }
     }
 }

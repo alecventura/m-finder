@@ -3,18 +3,25 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
+using Model.DAOs;
+
 namespace Presenter.Services
 {
     class UserService
     {
         internal static MfinderContext.User retrieveUserByUsername(string username)
         {
-            return Model.DAOs.UserDAO.retrieveUserByUsername(username);
+            return UserDAO.retrieveUserByUsername(username);
         }
 
         internal static bool registerNewUser(string username, string password, int role)
         {
-            return Model.DAOs.UserDAO.registerNewUser(username, password, role);
+            return UserDAO.registerNewUser(username, password, role);
+        }
+
+        internal static List<MfinderContext.User> loadUsersData()
+        {
+            return UserDAO.loadUsersData();
         }
     }
 }
