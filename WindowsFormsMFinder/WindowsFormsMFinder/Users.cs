@@ -10,10 +10,10 @@ using System.Windows.Forms;
 
 namespace WindowsFormsMFinder
 {
-    public partial class Users : Form, Presenter.InterfaceViews.IManageUser
+    public partial class Users : Form, Presenter.InterfaceViews.IUsers
     {
         Dashboard dashboard;
-        ManageUserPresenter presenter;
+        UsersPresenter presenter;
         EditUser editUser;
 
         public Users()
@@ -25,7 +25,7 @@ namespace WindowsFormsMFinder
         {
             this.dashboard = dashboard;
             InitializeComponent();
-            presenter = new Presenter.ManageUserPresenter(this);
+            presenter = new Presenter.UsersPresenter(this);
         }
 
         public void fillUsers(List<MfinderContext.User> users)

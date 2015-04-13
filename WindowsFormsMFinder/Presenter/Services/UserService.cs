@@ -26,7 +26,7 @@ namespace Presenter.Services
 
         internal static bool saveUser(string firstname, string lastname, string ramal, int dpto, int role, int id)
         {
-            if (id != null && id > 0)
+            if (id > 0)
             {
                 return UserDAO.updateUser(firstname, lastname, ramal, dpto, role, id);
             }

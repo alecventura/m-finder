@@ -5,9 +5,9 @@ using System.Text;
 
 namespace Presenter.InterfaceViews
 {
-    public interface IManageUser : IBase
+    public interface IMachines : IBase
     {
-        void fillUsers(List<MfinderContext.User> users);
+        void fillMachines(List<MfinderContext.Machine> machines);
 
         void addCellClickEvent();
     }

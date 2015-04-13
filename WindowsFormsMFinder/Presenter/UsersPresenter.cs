@@ -5,10 +5,10 @@ using System.Text;
 
 namespace Presenter
 {
-    public class ManageUserPresenter : ValidatorPresenter
+    public class UsersPresenter : ValidatorPresenter
     {
-        private InterfaceViews.IManageUser view;
-        public ManageUserPresenter(InterfaceViews.IManageUser view)
+        private InterfaceViews.IUsers view;
+        public UsersPresenter(InterfaceViews.IUsers view)
         {
             this.view = view;
             loadUsersData();

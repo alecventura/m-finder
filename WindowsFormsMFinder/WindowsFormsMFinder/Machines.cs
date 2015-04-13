@@ -9,9 +9,11 @@ using System.Windows.Forms;
 
 namespace WindowsFormsMFinder
 {
-    public partial class Machines : Form
+    public partial class Machines : Form, Presenter.InterfaceViews.IMachines
     {
         private Dashboard dashboard;
+        private Presenter.MachinesPresenter presenter;
+        private EditMachine editMachine;
 
         public Machines()
         {
@@ -20,8 +22,124 @@ namespace WindowsFormsMFinder
 
         public Machines(Dashboard dashboard)
         {
-            // TODO: Complete member initialization
+            InitializeComponent();
             this.dashboard = dashboard;
+            presenter = new Presenter.MachinesPresenter(this);
+        }
+
+        private void backButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            dashboard.Show();
+        }
+
+        private void addButton_Click(object sender, EventArgs e)
+        {
+            editMachine = new EditMachine(this);
+            editMachine.Show();
+        }
+
+        public void fillMachines(List<MfinderContext.Machine> machines)
+        {
+            machinesBindingSource.DataSource = machines;
+            machinesGridView.DataSource = machinesBindingSource;
+
+            //Hide all columns and make then read-only
+            foreach (DataGridViewColumn column in machinesGridView.Columns)
+            {
+                column.Visible = false;
+                column.ReadOnly = true;
+            }
+
+            showColumns();
+            addAditionalButtonsToGrid();
+
+
+            //remove last empty row
+            machinesGridView.AllowUserToAddRows = false;
+        }
+
+        private void showColumns()
+        {
+            machinesGridView.Columns["name"].Visible = true;
+            machinesGridView.Columns["model"].Visible = true;
+            machinesGridView.Columns["serialnumber"].Visible = true;
+            machinesGridView.Columns["aquisitionDate"].Visible = true;
+            machinesGridView.Columns["warrantyExpirationDate"].Visible = true;
+        }
+
+        private void addAditionalButtonsToGrid()
+        {
+            DataGridViewButtonColumn EditColumn = new DataGridViewButtonColumn();
+            EditColumn.Text = "Edit";
+            EditColumn.Name = "Edit";
+            EditColumn.DataPropertyName = "Edit";
+            EditColumn.UseColumnTextForButtonValue = true;
+            machinesGridView.Columns.Add(EditColumn);
+            DataGridViewButtonColumn DelColumn = new DataGridViewButtonColumn();
+            DelColumn.Text = "Delete";
+            DelColumn.Name = "Delete";
+            DelColumn.DataPropertyName = "Delete";
+            DelColumn.UseColumnTextForButtonValue = true;
+            machinesGridView.Columns.Add(DelColumn);
+        }
+
+
+        public bool showMessage(string message)
+        {
+            DialogResult result = MessageBox.Show(message);
+            if (DialogResult.OK.Equals(result))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+
+        public void addCellClickEvent()
+        {
+            machinesGridView.CellContentClick += new DataGridViewCellEventHandler(machinesGridView_CellContentClick);
+        }
+
+        private void machinesGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var senderGrid = (DataGridView)sender;
+            if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
+        e.RowIndex >= 1)
+            {
+                int idColumnIndex = senderGrid.Rows[0].Cells["Id"].ColumnIndex;
+                int id = (int)senderGrid.Rows[e.RowIndex].Cells[idColumnIndex].Value;
+
+                int serialnumberColumnIndex = senderGrid.Rows[0].Cells["Serialnumber"].ColumnIndex;
+                string serialNumber = senderGrid.Rows[e.RowIndex].Cells[serialnumberColumnIndex].Value.ToString();
+                if (senderGrid.Columns[e.ColumnIndex].Name.Equals("Edit"))
+                {
+                    //Handle for edit button
+
+                }
+                else if (senderGrid.Columns[e.ColumnIndex].Name.Equals("Delete"))
+                {
+                    //Handle for delete button
+                    bool confirm = showMessage("Are you sure you want to delete machine with serialnumber " + serialNumber + "?");
+                    if (confirm)
+                    {
+                        //bool delete = presenter.deleteMachine(id);
+                        //if (delete)
+                        //{
+                        //    presenter.loadMachines();
+                        //}
+                        //else
+                        //{
+                        //    showMessage("Machine with serialnumber= " + serialNumber + " coudn't be deleted!");
+                        //}
+
+                    }
+                }
+
+            }
         }
     }
 }
