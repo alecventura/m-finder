@@ -39,8 +39,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DashboardPresenter.cs" />
+    <Compile Include="EditUserPresenter.cs" />
     <Compile Include="InterfaceViews\IBase.cs" />
     <Compile Include="InterfaceViews\IDashboard.cs" />
+    <Compile Include="InterfaceViews\IEditUser.cs" />
     <Compile Include="InterfaceViews\ILogin.cs" />
     <Compile Include="InterfaceViews\IManageUser.cs" />
     <Compile Include="InterfaceViews\IRegister.cs" />
@@ -48,6 +50,8 @@
     <Compile Include="ManageUserPresenter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegisterPresenter.cs" />
+    <Compile Include="Services\DptoService.cs" />
+    <Compile Include="Services\RoleService.cs" />
     <Compile Include="Services\UserService.cs" />
     <Compile Include="Utils\RoleEnum.cs" />
     <Compile Include="ValidatorPresenter.cs" />

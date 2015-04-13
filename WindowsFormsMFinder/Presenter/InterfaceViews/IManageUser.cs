@@ -8,5 +8,7 @@ namespace Presenter.InterfaceViews
     public interface IManageUser : IBase
     {
         void fillUsers(List<MfinderContext.User> users);
+
+        void addCellClickEvent();
     }
 }

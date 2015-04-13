@@ -12,12 +12,18 @@ namespace Presenter
         {
             this.view = view;
             loadUsersData();
+            view.addCellClickEvent();
         }
 
-        private void loadUsersData()
+        public void loadUsersData()
         {
             List<MfinderContext.User> users = Services.UserService.loadUsersData();
             view.fillUsers(users);
+        }
+
+        public bool deleteUser(int id)
+        {
+            return Services.UserService.deleteUser(id);
         }
     }
 }

@@ -15,6 +15,9 @@ namespace WindowsFormsMFinder
         private Login login;
         private DashboardPresenter presenter;
         private Users u;
+        private Loans l;
+        private Machines m;
+        private History h;
 
         public Dashboard()
         {
@@ -25,6 +28,9 @@ namespace WindowsFormsMFinder
         {
             presenter = new DashboardPresenter(this);
             u = new Users(this);
+            l = new Loans(this);
+            m = new Machines(this);
+            h = new History(this);
             InitializeComponent();
             this.login = login;
         }
@@ -33,6 +39,12 @@ namespace WindowsFormsMFinder
         {
             Hide();
             u.Show();
+        }
+
+        private void manageMachinesButton_Click(object sender, EventArgs e)
+        {
+            Hide();
+            m.Show();
         }
     }
 }

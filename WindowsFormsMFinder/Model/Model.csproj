@@ -43,6 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAOs\DptoDAO.cs" />
+    <Compile Include="DAOs\RoleDAO.cs" />
     <Compile Include="DAOs\UserDAO.cs" />
     <Compile Include="DataContext1.Designer.cs">
       <AutoGen>True</AutoGen>

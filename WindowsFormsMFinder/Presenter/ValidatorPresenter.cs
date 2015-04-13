@@ -27,5 +27,13 @@ namespace Presenter
                 return false;
             }
         }
+        protected bool validateUser(string firstname, string lastname, string ramal, int dpto, int role)
+        {
+            if (String.IsNullOrEmpty(firstname) || String.IsNullOrEmpty(lastname))
+            {
+                return false;
+            }
+            return true;
+        }
     }
 }

@@ -11,9 +11,17 @@ namespace WindowsFormsMFinder
 {
     public partial class History : Form
     {
+        private Dashboard dashboard;
+
         public History()
         {
             InitializeComponent();
+        }
+
+        public History(Dashboard dashboard)
+        {
+            // TODO: Complete member initialization
+            this.dashboard = dashboard;
         }
     }
 }

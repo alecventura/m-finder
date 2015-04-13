@@ -14,3 +14,4 @@ C:\Users\Vulcan\Documents\GitHub\m-finder\WindowsFormsMFinder\WindowsFormsMFinde
 C:\Users\Vulcan\Documents\GitHub\m-finder\WindowsFormsMFinder\WindowsFormsMFinder\obj\Debug\WindowsFormsMFinder.pdb
 C:\Users\Vulcan\Documents\GitHub\m-finder\WindowsFormsMFinder\WindowsFormsMFinder\obj\Debug\WindowsFormsMFinder.Dashboard.resources
 C:\Users\Vulcan\Documents\GitHub\m-finder\WindowsFormsMFinder\WindowsFormsMFinder\obj\Debug\WindowsFormsMFinder.Users.resources
+C:\Users\Vulcan\Documents\GitHub\m-finder\WindowsFormsMFinder\WindowsFormsMFinder\obj\Debug\WindowsFormsMFinder.EditUser.resources

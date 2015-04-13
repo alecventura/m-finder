@@ -23,5 +23,22 @@ namespace Presenter.Services
         {
             return UserDAO.loadUsersData();
         }
+
+        internal static bool saveUser(string firstname, string lastname, string ramal, int dpto, int role, int id)
+        {
+            if (id != null && id > 0)
+            {
+                return UserDAO.updateUser(firstname, lastname, ramal, dpto, role, id);
+            }
+            else
+            {
+                return UserDAO.saveNewUser(firstname, lastname, ramal, dpto, role);
+            }
+        }
+
+        internal static bool deleteUser(int id)
+        {
+            return UserDAO.deleteUser(id);
+        }
     }
 }

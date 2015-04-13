@@ -70,6 +70,7 @@
             this.manageMachinesButton.TabIndex = 3;
             this.manageMachinesButton.Text = "Manage Machines";
             this.manageMachinesButton.UseVisualStyleBackColor = true;
+            this.manageMachinesButton.Click += new System.EventHandler(this.manageMachinesButton_Click);
             // 
             // Dashboard
             // 

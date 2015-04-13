@@ -11,9 +11,17 @@ namespace WindowsFormsMFinder
 {
     public partial class Loans : Form
     {
+        private Dashboard dashboard;
+
         public Loans()
         {
             InitializeComponent();
+        }
+
+        public Loans(Dashboard dashboard)
+        {
+            // TODO: Complete member initialization
+            this.dashboard = dashboard;
         }
     }
 }
