@@ -35,5 +35,9 @@ namespace Presenter
             }
             return true;
         }
+        protected bool validateMachine(string model, string serialnumber, string name, DateTime aquisitionDate, DateTime warrantyExpirationDate)
+        {
+            return true;
+        }
     }
 }

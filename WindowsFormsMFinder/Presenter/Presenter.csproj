@@ -39,6 +39,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DashboardPresenter.cs" />
+    <Compile Include="EditMachinesPresenter.cs" />
     <Compile Include="EditUserPresenter.cs" />
     <Compile Include="InterfaceViews\IBase.cs" />
     <Compile Include="InterfaceViews\IDashboard.cs" />

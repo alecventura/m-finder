@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
@@ -108,38 +109,61 @@ namespace WindowsFormsMFinder
         {
             var senderGrid = (DataGridView)sender;
             if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
-        e.RowIndex >= 1)
+        e.RowIndex >= 0)
             {
                 int idColumnIndex = senderGrid.Rows[0].Cells["Id"].ColumnIndex;
                 int id = (int)senderGrid.Rows[e.RowIndex].Cells[idColumnIndex].Value;
 
                 int serialnumberColumnIndex = senderGrid.Rows[0].Cells["Serialnumber"].ColumnIndex;
                 string serialNumber = senderGrid.Rows[e.RowIndex].Cells[serialnumberColumnIndex].Value.ToString();
+
+                int nameColumnIndex = senderGrid.Rows[0].Cells["Name"].ColumnIndex;
+                string name = senderGrid.Rows[e.RowIndex].Cells[nameColumnIndex].Value.ToString();
                 if (senderGrid.Columns[e.ColumnIndex].Name.Equals("Edit"))
                 {
-                    //Handle for edit button
+                    int modelColumnIndex = senderGrid.Rows[0].Cells["Model"].ColumnIndex;
+                    string model = senderGrid.Rows[e.RowIndex].Cells[modelColumnIndex].Value.ToString();
+                    int aquisitionDateColumnIndex = senderGrid.Rows[0].Cells["AquisitionDate"].ColumnIndex;
+                    DateTime aquisitionDate = DateTime.Parse(senderGrid.Rows[e.RowIndex].Cells[aquisitionDateColumnIndex].Value.ToString());
+                    int warrantyExpirationDateColumnIndex = senderGrid.Rows[0].Cells["WarrantyExpirationDate"].ColumnIndex;
+                    DateTime warrantyExpirationDate = DateTime.Parse(senderGrid.Rows[e.RowIndex].Cells[warrantyExpirationDateColumnIndex].Value.ToString());
 
+                    MfinderContext.Machine m = new MfinderContext.Machine();
+                    m.WarrantyExpirationDate = warrantyExpirationDate;
+                    m.Name = name;
+                    m.Serialnumber = serialNumber;
+                    m.Model = model;
+                    m.AquisitionDate = aquisitionDate;
+                    m.Id = id;
+
+                    editMachine = new EditMachine(this, m);
+                    editMachine.Show();
                 }
                 else if (senderGrid.Columns[e.ColumnIndex].Name.Equals("Delete"))
                 {
                     //Handle for delete button
-                    bool confirm = showMessage("Are you sure you want to delete machine with serialnumber " + serialNumber + "?");
+                    bool confirm = showMessage("Are you sure you want to delete machine " + name + " with serialnumber " + serialNumber + "?");
                     if (confirm)
                     {
-                        //bool delete = presenter.deleteMachine(id);
-                        //if (delete)
-                        //{
-                        //    presenter.loadMachines();
-                        //}
-                        //else
-                        //{
-                        //    showMessage("Machine with serialnumber= " + serialNumber + " coudn't be deleted!");
-                        //}
+                        bool delete = presenter.deleteMachine(id);
+                        if (delete)
+                        {
+                            presenter.loadMachines();
+                        }
+                        else
+                        {
+                            showMessage("Machine with serialnumber= " + serialNumber + " coudn't be deleted!");
+                        }
 
                     }
                 }
 
             }
+        }
+
+        internal void updateMachinesList()
+        {
+            presenter.loadMachines();
         }
     }
 }

@@ -21,5 +21,10 @@ namespace Presenter
             List<MfinderContext.Machine> machines = Services.MachineService.loadMachines();
             view.fillMachines(machines);
         }
+
+        public bool deleteMachine(int id)
+        {
+            return Services.MachineService.deleteMachine(id);
+        }
     }
 }

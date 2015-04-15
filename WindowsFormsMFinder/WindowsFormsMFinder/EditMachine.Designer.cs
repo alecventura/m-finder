@@ -37,6 +37,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.dateTimePickerAquisition = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePickerWarrantExpiration = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // buttonSave
@@ -47,6 +49,7 @@
             this.buttonSave.TabIndex = 19;
             this.buttonSave.Text = "Save";
             this.buttonSave.UseVisualStyleBackColor = true;
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
             // textBoxSerialNumber
             // 
@@ -114,11 +117,31 @@
             this.label1.TabIndex = 11;
             this.label1.Text = "Name:";
             // 
+            // dateTimePickerAquisition
+            // 
+            this.dateTimePickerAquisition.CustomFormat = "dd-MM-yyyy";
+            this.dateTimePickerAquisition.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePickerAquisition.Location = new System.Drawing.Point(216, 204);
+            this.dateTimePickerAquisition.Name = "dateTimePickerAquisition";
+            this.dateTimePickerAquisition.Size = new System.Drawing.Size(121, 20);
+            this.dateTimePickerAquisition.TabIndex = 20;
+            // 
+            // dateTimePickerWarrantExpiration
+            // 
+            this.dateTimePickerWarrantExpiration.CustomFormat = "dd-MM-yyyy";
+            this.dateTimePickerWarrantExpiration.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePickerWarrantExpiration.Location = new System.Drawing.Point(216, 246);
+            this.dateTimePickerWarrantExpiration.Name = "dateTimePickerWarrantExpiration";
+            this.dateTimePickerWarrantExpiration.Size = new System.Drawing.Size(121, 20);
+            this.dateTimePickerWarrantExpiration.TabIndex = 21;
+            // 
             // EditMachine
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(387, 477);
+            this.Controls.Add(this.dateTimePickerWarrantExpiration);
+            this.Controls.Add(this.dateTimePickerAquisition);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.textBoxSerialNumber);
             this.Controls.Add(this.textBoxModel);
@@ -146,6 +169,8 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DateTimePicker dateTimePickerAquisition;
+        private System.Windows.Forms.DateTimePicker dateTimePickerWarrantExpiration;
 
     }
 }

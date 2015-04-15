@@ -13,5 +13,9 @@ namespace Presenter.InterfaceViews
         DateTime aquisitionDate { get; set; }
         DateTime warrantyExpirationDate { get; set; }
         void goToMachines();
+
+        bool showMessage(string message);
+
+        int id { get; set; }
     }
 }

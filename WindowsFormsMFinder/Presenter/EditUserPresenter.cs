@@ -42,7 +42,7 @@ namespace Presenter
 
             if (success)
             {
-                bool click = view.showMessage("User " + view.firstname + " " + view.lastname + " successfully created!");
+                bool click = view.showMessage("User " + view.firstname + " " + view.lastname + " successfully saved!");
                 if (click)
                 {
                     view.goToUsers();
@@ -53,7 +53,5 @@ namespace Presenter
                 view.showMessage("User " + view.firstname + " " + view.lastname + " cannot be created!");
             }
         }
-
-
     }
 }

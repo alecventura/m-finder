@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Presenter.Utils;
 
 namespace Presenter
 {
@@ -24,6 +25,15 @@ namespace Presenter
         public bool deleteUser(int id)
         {
             return Services.UserService.deleteUser(id);
+        }
+
+        public bool canEditUser(int role)
+        {
+            if (((int)RoleEnum.Roles.ADMIN).Equals(role))
+            {
+                return false;
+            }
+            return true;
         }
     }
 }

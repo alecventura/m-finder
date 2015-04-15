@@ -100,55 +100,60 @@ namespace WindowsFormsMFinder
         {
             var senderGrid = (DataGridView)sender;
             if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
-        e.RowIndex >= 1)
+        e.RowIndex >= 0)
             {
-                int idColumnIndex = senderGrid.Rows[0].Cells["Id"].ColumnIndex;
-                int id = (int)senderGrid.Rows[e.RowIndex].Cells[idColumnIndex].Value;
+                int roleColumnIndex = senderGrid.Rows[0].Cells["RoleFk"].ColumnIndex;
+                int role = (int)senderGrid.Rows[e.RowIndex].Cells[roleColumnIndex].Value;
 
-                int firstnameColumnIndex = senderGrid.Rows[0].Cells["Firstname"].ColumnIndex;
-                int lastnameColumnIndex = senderGrid.Rows[0].Cells["Lastname"].ColumnIndex;
-                string firstname = senderGrid.Rows[e.RowIndex].Cells[firstnameColumnIndex].Value.ToString();
-                string lastname = senderGrid.Rows[e.RowIndex].Cells[lastnameColumnIndex].Value.ToString();
-                if (senderGrid.Columns[e.ColumnIndex].Name.Equals("Edit"))
+                if (presenter.canEditUser(role))
                 {
-                    //Handle for edit button
+                    int idColumnIndex = senderGrid.Rows[0].Cells["Id"].ColumnIndex;
+                    int id = (int)senderGrid.Rows[e.RowIndex].Cells[idColumnIndex].Value;
 
-                    int ramalColumnIndex = senderGrid.Rows[0].Cells["Ramal"].ColumnIndex;
-                    int dptoColumnIndex = senderGrid.Rows[0].Cells["RoleFk"].ColumnIndex;
-                    int roleColumnIndex = senderGrid.Rows[0].Cells["DptoFk"].ColumnIndex;
-
-                    string ramal = senderGrid.Rows[e.RowIndex].Cells[ramalColumnIndex].Value.ToString();
-                    int dpto = (int)senderGrid.Rows[e.RowIndex].Cells[dptoColumnIndex].Value;
-                    int role = (int)senderGrid.Rows[e.RowIndex].Cells[roleColumnIndex].Value;
-
-                    MfinderContext.User user = new MfinderContext.User();
-                    user.Firstname = firstname;
-                    user.Lastname = lastname;
-                    user.RoleFk = role;
-                    user.DptoFk = dpto;
-                    user.Ramal = ramal;
-                    user.Id = id;
-
-                    editUser = new EditUser(this, user);
-                    editUser.Show();
-                }
-                else if (senderGrid.Columns[e.ColumnIndex].Name.Equals("Delete"))
-                {
-                    //Handle for delete button
-                    bool confirm = showMessage("Are you sure you want to delete user " + firstname + " " + lastname + "?");
-                    if (confirm)
+                    int firstnameColumnIndex = senderGrid.Rows[0].Cells["Firstname"].ColumnIndex;
+                    int lastnameColumnIndex = senderGrid.Rows[0].Cells["Lastname"].ColumnIndex;
+                    string firstname = senderGrid.Rows[e.RowIndex].Cells[firstnameColumnIndex].Value.ToString();
+                    string lastname = senderGrid.Rows[e.RowIndex].Cells[lastnameColumnIndex].Value.ToString();
+                    if (senderGrid.Columns[e.ColumnIndex].Name.Equals("Edit"))
                     {
-                        bool delete = presenter.deleteUser(id);
-                        if (delete)
-                        {
-                            updateUsersList();
-                        }
-                        else
-                        {
-                            showMessage("User " + firstname + " " + lastname + " coudn't be deleted!");
-                        }
+                        //Handle for edit button
 
+                        int ramalColumnIndex = senderGrid.Rows[0].Cells["Ramal"].ColumnIndex;
+                        int dptoColumnIndex = senderGrid.Rows[0].Cells["DptoFk"].ColumnIndex;
+
+                        string ramal = senderGrid.Rows[e.RowIndex].Cells[ramalColumnIndex].Value.ToString();
+                        int dpto = (int)senderGrid.Rows[e.RowIndex].Cells[dptoColumnIndex].Value;
+
+                        MfinderContext.User user = new MfinderContext.User();
+                        user.Firstname = firstname;
+                        user.Lastname = lastname;
+                        user.RoleFk = role;
+                        user.DptoFk = dpto;
+                        user.Ramal = ramal;
+                        user.Id = id;
+
+                        editUser = new EditUser(this, user);
+                        editUser.Show();
                     }
+                    else if (senderGrid.Columns[e.ColumnIndex].Name.Equals("Delete"))
+                    {
+                        //Handle for delete button
+                        bool confirm = showMessage("Are you sure you want to delete user " + firstname + " " + lastname + "?");
+                        if (confirm)
+                        {
+                            bool delete = presenter.deleteUser(id);
+                            if (delete)
+                            {
+                                updateUsersList();
+                            }
+                            else
+                            {
+                                showMessage("User " + firstname + " " + lastname + " coudn't be deleted!");
+                            }
+
+                        }
+                    }
+
                 }
 
             }
