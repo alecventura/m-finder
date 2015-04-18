@@ -46,5 +46,11 @@ namespace WindowsFormsMFinder
             Hide();
             m.Show();
         }
+
+        private void viewLoanButton_Click(object sender, EventArgs e)
+        {
+            Hide();
+            l.Show();
+        }
     }
 }

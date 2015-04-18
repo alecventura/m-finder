@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAOs\DptoDAO.cs" />
+    <Compile Include="DAOs\LoanDAO.cs" />
     <Compile Include="DAOs\MachineDAO.cs" />
     <Compile Include="DAOs\RoleDAO.cs" />
     <Compile Include="DAOs\UserDAO.cs" />

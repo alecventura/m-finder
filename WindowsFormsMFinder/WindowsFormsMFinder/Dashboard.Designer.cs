@@ -42,6 +42,7 @@
             this.viewLoanButton.TabIndex = 0;
             this.viewLoanButton.Text = "View Loans";
             this.viewLoanButton.UseVisualStyleBackColor = true;
+            this.viewLoanButton.Click += new System.EventHandler(this.viewLoanButton_Click);
             // 
             // viewHistoryButton
             // 
