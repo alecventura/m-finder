@@ -10,6 +10,8 @@ namespace Presenter.InterfaceViews
         string username { get; }
         string password { get; }
 
-        void openDashboard();
+        void openHomePage();
+
+        void performSessionLogin();
     }
 }

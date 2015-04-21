@@ -1,0 +1,57 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Layout.master.cs" Inherits="WebBootstrapKnockout.Layout.Layout" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Welcome to Machine finder web app</title>
+    <script type="text/javascript">
+        //Access Code-Behind Data in Javascript
+        var userLogged = '<%=userLogged %>';
+    </script>
+</head>
+<body>
+    <form runat="server" method="post" id="logout" style="height: 281px">
+
+        <nav class="navbar navbar-inverse navbar-fixed-top" id="menu">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">WebSiteName</a>
+                </div>
+                <div data-bind="visible: isUserLogged">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#">Dashboard</a></li>
+                        <li><a href="/Loans.aspx">Loans</a></li>
+                        <li><a href="/History.aspx">History</a></li>
+                        <li><a href="/Users.aspx">Users</a></li>
+                        <li><a href="/Machines.aspx">Machines</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav pull-right">
+                        <li>
+                            <asp:LinkButton runat="server" OnClick="onLogoutClicked">Logout</asp:LinkButton>
+
+
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <link href="<%# ResolveUrl("~/") %>css/bootstrap.css" rel="stylesheet" type="text/css" />
+        <link href="<%# ResolveUrl("~/") %>css/custom.css" rel="stylesheet" type="text/css" />
+        <script src='<%= ResolveUrl("~/Scripts/jquery-1.9.1.min.js") %>'></script>
+        <script src='<%= ResolveUrl("~/Scripts/bootstrap.min.js") %>'></script>
+        <script src='<%= ResolveUrl("~/Scripts/knockout-3.3.0.js") %>'></script>
+        <script src='<%= ResolveUrl("~/Scripts/knockout.mapping-latest.js") %>'></script>
+        <script src='<%= ResolveUrl("./Layout.js") %>'></script>
+        <script src='<%= ResolveUrl("~/Scripts/knockout-bindings-modal.js") %>'></script>
+        <script src='<%= ResolveUrl("~/Scripts/knockout-bindings-toggle.js") %>'></script>
+
+        <div style="padding-top: 51px;">
+            <asp:ContentPlaceHolder ID="content" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+
+    </form>
+</body>
+</html>

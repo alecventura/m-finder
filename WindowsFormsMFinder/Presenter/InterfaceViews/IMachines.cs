@@ -10,5 +10,10 @@ namespace Presenter.InterfaceViews
         void fillMachines(List<MfinderContext.Machine> machines);
 
         void addCellClickEvent();
+        void goToMachines();
+
+        bool showMessage(string message);
+
+        int id { get; set; }
     }
 }

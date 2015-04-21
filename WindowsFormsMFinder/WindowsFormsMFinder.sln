@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.30501.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormsMFinder", "WindowsFormsMFinder\WindowsFormsMFinder.csproj", "{5E6E309F-66B8-45B2-A6BD-70336BC57F30}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "Model\Model.csproj", "{88418148-6D00-401D-B7DF-44D46638B2F0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Presenter", "Presenter\Presenter.csproj", "{145C0E05-793B-46C5-BA33-4BF403C91F4E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebBootstrapKnockout", "WebBootstrapKnockout\WebBootstrapKnockout.csproj", "{4558075A-B4DC-4819-98CC-DC9D879B2B80}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,10 +15,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{5E6E309F-66B8-45B2-A6BD-70336BC57F30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5E6E309F-66B8-45B2-A6BD-70336BC57F30}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5E6E309F-66B8-45B2-A6BD-70336BC57F30}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5E6E309F-66B8-45B2-A6BD-70336BC57F30}.Release|Any CPU.Build.0 = Release|Any CPU
 		{88418148-6D00-401D-B7DF-44D46638B2F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{88418148-6D00-401D-B7DF-44D46638B2F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{88418148-6D00-401D-B7DF-44D46638B2F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -27,6 +23,10 @@ Global
 		{145C0E05-793B-46C5-BA33-4BF403C91F4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{145C0E05-793B-46C5-BA33-4BF403C91F4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{145C0E05-793B-46C5-BA33-4BF403C91F4E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4558075A-B4DC-4819-98CC-DC9D879B2B80}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4558075A-B4DC-4819-98CC-DC9D879B2B80}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4558075A-B4DC-4819-98CC-DC9D879B2B80}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4558075A-B4DC-4819-98CC-DC9D879B2B80}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

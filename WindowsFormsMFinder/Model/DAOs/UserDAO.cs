@@ -1,6 +1,7 @@
 ﻿using MfinderContext;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 
@@ -29,8 +30,9 @@ namespace Model.DAOs
                 context.SubmitChanges();
                 return true;
             }
-            catch
+            catch (Exception e)
             {
+                Debug.WriteLine(e);
                 return false;
             }
         }
@@ -74,8 +76,9 @@ namespace Model.DAOs
                 context.SubmitChanges();
                 return true;
             }
-            catch
+            catch (Exception e)
             {
+                Debug.WriteLine(e);
                 return false;
             }
         }
@@ -96,8 +99,9 @@ namespace Model.DAOs
                 context.SubmitChanges();
                 return true;
             }
-            catch
+            catch (Exception e)
             {
+                Debug.WriteLine(e);
                 return false;
             }
         }
@@ -115,8 +119,9 @@ namespace Model.DAOs
                 context.SubmitChanges();
                 return true;
             }
-            catch
+            catch (Exception e)
             {
+                Debug.WriteLine(e);
                 return false;
             }
         }

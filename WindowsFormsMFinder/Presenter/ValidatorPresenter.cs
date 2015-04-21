@@ -27,9 +27,9 @@ namespace Presenter
                 return false;
             }
         }
-        protected bool validateUser(string firstname, string lastname, string ramal, int dpto, int role)
+        public static bool validateUser(JSONs.User user)
         {
-            if (String.IsNullOrEmpty(firstname) || String.IsNullOrEmpty(lastname))
+            if (String.IsNullOrEmpty(user.firstname) || String.IsNullOrEmpty(user.lastname))
             {
                 return false;
             }

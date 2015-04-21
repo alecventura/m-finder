@@ -15,7 +15,8 @@ namespace Presenter
 
         public void view_loginEvent(object sender, EventArgs e)
         {
-            view.openDashboard();
+            view.performSessionLogin();
+            view.openHomePage();
             //if (validateUsernamePasswordAndRole(view.username, view.password))
             //{
             //    view.openDashboard();

@@ -39,20 +39,22 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DashboardPresenter.cs" />
-    <Compile Include="EditMachinesPresenter.cs" />
-    <Compile Include="EditUserPresenter.cs" />
     <Compile Include="InterfaceViews\IBase.cs" />
     <Compile Include="InterfaceViews\IDashboard.cs" />
-    <Compile Include="InterfaceViews\IEditMachines.cs" />
-    <Compile Include="InterfaceViews\IEditUser.cs" />
     <Compile Include="InterfaceViews\ILoans.cs" />
     <Compile Include="InterfaceViews\ILogin.cs" />
     <Compile Include="InterfaceViews\IMachines.cs" />
+    <Compile Include="InterfaceViews\IMaster.cs" />
     <Compile Include="InterfaceViews\IUsers.cs" />
     <Compile Include="InterfaceViews\IRegister.cs" />
+    <Compile Include="JSONs\Item.cs" />
+    <Compile Include="JSONs\Loan.cs" />
+    <Compile Include="JSONs\Machine.cs" />
+    <Compile Include="JSONs\User.cs" />
     <Compile Include="LoansPresenter.cs" />
     <Compile Include="LoginPresenter.cs" />
     <Compile Include="MachinesPresenter.cs" />
+    <Compile Include="MasterPresenter.cs" />
     <Compile Include="Services\LoansService.cs" />
     <Compile Include="Services\MachineService.cs" />
     <Compile Include="UsersPresenter.cs" />

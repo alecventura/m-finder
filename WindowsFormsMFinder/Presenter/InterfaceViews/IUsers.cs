@@ -9,6 +9,10 @@ namespace Presenter.InterfaceViews
     {
         void fillUsers(List<MfinderContext.User> users);
 
-        void addCellClickEvent();
+        //JSONs.User userJSON;
+        void fillDptoList(List<MfinderContext.Dpto> list);
+        void fillRoleList(List<MfinderContext.Role> list);
+
+        void goToUsers();
     }
 }
