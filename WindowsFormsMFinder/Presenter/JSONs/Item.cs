@@ -7,8 +7,8 @@ namespace Presenter.JSONs
 {
     public class Item
     {
-        private int id { get; set; }
-        private string name { get; set; }
+        public int id { get; set; }
+        public string name { get; set; }
 
         public Item(int id, string name)
         {
