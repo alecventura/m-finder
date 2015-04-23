@@ -13,6 +13,7 @@ namespace Presenter
         {
             this.view = view;
             loadLoans();
+            view.fillDptoList(Services.DptoService.loadAll());
         }
 
         private void loadLoans()

@@ -9,7 +9,7 @@
     </script>
     <div class="row" id="users">
         <div class="col-xs-10 col-xs-offset-1" style="margin-top: 10px;">
-            <button type="button" class="btn btn-primary" data-bind="toggle: isVisible">Add new user</button>
+            <button type="button" class="btn btn-primary" data-bind="click: onAddNewUserClicked">Add new user</button>
         </div>
         <div class="col-xs-10 col-xs-offset-1" style="margin-top: 100px;">
             <h2 style="text-align: center;">USERS</h2>
@@ -23,6 +23,8 @@
                         </th>
                         <th>Dpto
                         </th>
+                        <th>Role
+                        </th>
                         <th>Edit
                         </th>
                         <th>Remove
@@ -34,11 +36,14 @@
                     <tr>
                         <td data-bind="text: $data.firstname"></td>
                         <td data-bind="text: $data.lastname"></td>
-                        <td data-bind="text: $data.dpto_fk"></td>
+                        <td data-bind="text: $data.dptoName"></td>
+                        <td data-bind="text: $data.roleName"></td>
                         <td>
-                            <button type="button" class="btn btn-primary" data-bind="click: $root.onEditUserClicked">Edit user</button></td>
+                            <a href="#" data-bind="click: $root.onEditUserClicked"><i class="glyphicon glyphicon-edit"></i></a>
+                        </td>
                         <td>
-                            <button type="button" class="btn btn-primary" data-bind="click: $root.onEditUserClicked">Edit user</button></td>
+                            <a href="#" data-bind="click: $root.onRemoveUserClicked"><i class="glyphicon glyphicon-remove-circle"></i></a>
+                        </td>
                     </tr>
                 </tbody>
             </table>
@@ -53,28 +58,31 @@
                         <h4 class="modal-title">Edit User</h4>
                     </div>
                     <div class="modal-body" data-bind="with: userModal">
-                        <div class="form-control">
-                            <div class="col-lg-4">
-                                <label>Firstname:</label>
-                            </div>
-                            <div class="col-lg-8">
-                                <input class="form-control" type="text" id="firstname" data-bind="value: firstname" />
-                            </div>
+                        <div class="form-group margin-bottom20">
+                            <label class="control-label label-centralized col-lg-4">Firstname:</label>
+                            <input class="input-nice col-lg-8" type="text" id="firstname" data-bind="value: firstname" />
                         </div>
                         <br />
-                        <div class="col-lg-4 margin-top5">
-                            <label>Lastname:</label>
-                        </div>
-                        <div class="col-lg-8">
-                            <input class="form-control" type="text" id="lastname" data-bind="value: lastname" />
+                        <div class="form-group margin-bottom20">
+                            <label class="control-label label-centralized col-lg-4">Lastname:</label>
+                            <input class="input-nice col-lg-8" type="text" id="lastname" data-bind="value: lastname" />
                         </div>
                         <br />
-                        <div class="col-lg-4 margin-top5">
-                            <label>Ramal:</label>
+                        <div class="form-group margin-bottom20">
+                            <label class="control-label label-centralized col-lg-4">Ramal:</label>
+                            <input class="input-nice col-lg-8" type="text" id="ramal" data-bind="value: ramal" />
                         </div>
-                        <div class="col-lg-8">
-                            <input class="form-control" type="text" id="ramal" data-bind="value: ramal" />
+                        <br />
+                        <div class="form-group margin-bottom20">
+                            <label class="control-label label-centralized col-lg-4">Dpto:</label>
+                            <select class="select-nice  col-lg-8" data-bind="options: $root.dptos, optionsValue:'id', optionsText: 'name',value: dpto"></select>
                         </div>
+                        <br />
+                        <div class="form-group margin-bottom20">
+                            <label class="control-label label-centralized col-lg-4">Role:</label>
+                            <select class="select-nice col-lg-8" data-bind="options: $root.roles, optionsValue:'id' ,optionsText: 'name',value: role"></select>
+                        </div>
+                        <br />
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-bind="toggle: isVisible">Close</button>

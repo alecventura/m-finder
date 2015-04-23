@@ -12,7 +12,5 @@ namespace Presenter.InterfaceViews
         //JSONs.User userJSON;
         void fillDptoList(List<MfinderContext.Dpto> list);
         void fillRoleList(List<MfinderContext.Role> list);
-
-        void goToUsers();
     }
 }

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Presenter
 {
-    public class MachinesPresenter
+    public class MachinesPresenter : ValidatorPresenter
     {
         private InterfaceViews.IMachines view;
 
@@ -13,7 +13,6 @@ namespace Presenter
         {
             this.view = view;
             loadMachines();
-            view.addCellClickEvent();
         }
 
         public void loadMachines()
@@ -22,33 +21,21 @@ namespace Presenter
             view.fillMachines(machines);
         }
 
-        public bool deleteMachine(int id)
+        public static bool deleteMachine(int id)
         {
             return Services.MachineService.deleteMachine(id);
         }
 
-        public void buttonSave_Click(object sender, EventArgs e)
+        public static List<MfinderContext.Machine> staticLoadMachinesData()
         {
-            //if (!validateMachine(view.model, view.serialnumber, view.name, view.aquisitionDate, view.warrantyExpirationDate))
-            //{
-            //    //Have to make a validation per field.
-            //    view.showMessage("TODO: Machine validation!");
-            //}
+            List<MfinderContext.Machine> machines = Services.MachineService.loadMachines();
+            return machines;
+        }
 
-            //bool success = MachineService.saveMachine(view.model, view.serialnumber, view.name, view.aquisitionDate, view.warrantyExpirationDate, view.id);
-
-            //if (success)
-            //{
-            //    bool click = view.showMessage("Machine " + view.name + " with serialnumber " + view.serialnumber + " successfully saved!");
-            //    if (click)
-            //    {
-            //        view.goToMachines();
-            //    }
-            //}
-            //else
-            //{
-            //    view.showMessage("Machine " + view.name + " with serialnumber " + view.serialnumber + " cannot be created!");
-            //}
+        public static bool saveMachine(JSONs.Machine machine)
+        {
+            bool success = Services.MachineService.saveMachine(machine.model, machine.serialnumber, machine.name, machine.aquisitionDate, machine.warrantyExpirationDate, machine.id);
+            return success;
         }
     }
 }

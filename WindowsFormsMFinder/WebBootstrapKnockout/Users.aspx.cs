@@ -32,29 +32,6 @@ namespace WebBootstrapKnockout
             throw new NotImplementedException();
         }
 
-        [WebMethod]
-        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public static List<Presenter.JSONs.User> saveUser(User user)
-        {
-            if (!Presenter.UsersPresenter.validateUser(user))
-            {
-                HttpContext.Current.Response.Status = "404 Bad Request";
-                HttpContext.Current.Response.StatusCode = 403;
-                HttpContext.Current.Response.End();
-                return null;
-            }
-            bool save = Presenter.UsersPresenter.saveUser(user);
-            if (!save)
-            {
-                HttpContext.Current.Response.Status = "500 Server Internal Error";
-                HttpContext.Current.Response.StatusCode = 500;
-                HttpContext.Current.Response.End();
-                return null;
-            }
-            return Presenter.JSONs.User.map(Presenter.UsersPresenter.staticLoadUsersData()); ;
-        }
-
-
         public void fillDptoList(List<MfinderContext.Dpto> list)
         {
             List<Item> jsons = new List<Item>();
@@ -75,9 +52,41 @@ namespace WebBootstrapKnockout
             this.roles = jsons;
         }
 
-        public void goToUsers()
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public static List<Presenter.JSONs.User> removeUser(User user)
         {
-            throw new NotImplementedException();
+            bool delete = Presenter.UsersPresenter.deleteUser(user.id);
+            if (!delete)
+            {
+                HttpContext.Current.Response.Status = "500 Server Internal Error";
+                HttpContext.Current.Response.StatusCode = 500;
+                HttpContext.Current.Response.End();
+                return null;
+            }
+            return Presenter.JSONs.User.map(Presenter.UsersPresenter.staticLoadUsersData());
+        }
+
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public static List<Presenter.JSONs.User> saveUser(User user)
+        {
+            if (!Presenter.UsersPresenter.validateUser(user))
+            {
+                HttpContext.Current.Response.Status = "400 Bad Request";
+                HttpContext.Current.Response.StatusCode = 400;
+                HttpContext.Current.Response.End();
+                return null;
+            }
+            bool save = Presenter.UsersPresenter.saveUser(user);
+            if (!save)
+            {
+                HttpContext.Current.Response.Status = "500 Server Internal Error";
+                HttpContext.Current.Response.StatusCode = 500;
+                HttpContext.Current.Response.End();
+                return null;
+            }
+            return Presenter.JSONs.User.map(Presenter.UsersPresenter.staticLoadUsersData());
         }
     }
 }

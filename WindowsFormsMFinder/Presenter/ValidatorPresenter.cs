@@ -35,7 +35,7 @@ namespace Presenter
             }
             return true;
         }
-        protected bool validateMachine(string model, string serialnumber, string name, DateTime aquisitionDate, DateTime warrantyExpirationDate)
+        public static bool validateMachine(JSONs.Machine machine)
         {
             return true;
         }

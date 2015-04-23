@@ -30,7 +30,7 @@ namespace Presenter
             return users;
         }
 
-        public bool deleteUser(int id)
+        public static bool deleteUser(int id)
         {
             return Services.UserService.deleteUser(id);
         }
@@ -55,10 +55,6 @@ namespace Presenter
                 }
             }
             return filtered;
-        }
-
-        public void saveUser(object sender, EventArgs e)
-        {
         }
 
         public static bool saveUser(JSONs.User user)
