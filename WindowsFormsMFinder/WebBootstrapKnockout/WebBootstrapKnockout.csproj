@@ -57,6 +57,9 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="components\machine-create\machinecreate.aspx" />
+    <Content Include="components\machine-create\machinecreate.html" />
+    <Content Include="components\machine-create\machinecreate.js" />
     <Content Include="css\toastr.css" />
     <Content Include="css\toastr.min.css" />
     <Content Include="css\toastr.scss" />
@@ -78,7 +81,6 @@
     <Content Include="Global.asax" />
     <Content Include="History.aspx" />
     <Content Include="Icon.png" />
-    <Content Include="Layout\Layout.js" />
     <Content Include="Loans.aspx" />
     <Content Include="Loans.js" />
     <Content Include="Login.aspx" />
@@ -96,76 +98,28 @@
     <Content Include="Register.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\init\startup.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
     <Content Include="Scripts\knockout-3.3.0.debug.js" />
     <Content Include="Scripts\knockout-3.3.0.js" />
+    <Content Include="Scripts\knockout-bindings-allowBindings.js" />
     <Content Include="Scripts\knockout-bindings-modal.js" />
     <Content Include="Scripts\knockout-bindings-pickadate.js" />
     <Content Include="Scripts\knockout-bindings-toggle.js" />
+    <Content Include="Scripts\knockout-withComponent.js" />
     <Content Include="Scripts\knockout.mapping-latest.debug.js" />
     <Content Include="Scripts\knockout.mapping-latest.js" />
     <Content Include="Scripts\lodash.js" />
     <Content Include="Scripts\lodash.min.js" />
-    <Content Include="Scripts\moment-with-locales.js" />
-    <Content Include="Scripts\moment-with-locales.min.js" />
-    <Content Include="Scripts\moment.js" />
-    <Content Include="Scripts\moment.min.js" />
+    <Content Include="Scripts\moment\moment-with-locales.js" />
+    <Content Include="Scripts\moment\moment-with-locales.min.js" />
+    <Content Include="Scripts\moment\moment.js" />
+    <Content Include="Scripts\moment\moment.min.js" />
     <Content Include="Scripts\npm.js" />
-    <Content Include="Scripts\pickadate\legacy.js" />
-    <Content Include="Scripts\pickadate\picker.date.js" />
-    <Content Include="Scripts\pickadate\picker.js" />
-    <Content Include="Scripts\pickadate\picker.time.js" />
-    <Content Include="Scripts\pickadate\themes\classic.css" />
-    <Content Include="Scripts\pickadate\themes\classic.date.css" />
-    <Content Include="Scripts\pickadate\themes\classic.time.css" />
-    <Content Include="Scripts\pickadate\themes\default.css" />
-    <Content Include="Scripts\pickadate\themes\default.date.css" />
-    <Content Include="Scripts\pickadate\themes\default.time.css" />
-    <Content Include="Scripts\pickadate\themes\rtl.css" />
-    <Content Include="Scripts\pickadate\translations\ar.js" />
-    <Content Include="Scripts\pickadate\translations\bg_BG.js" />
-    <Content Include="Scripts\pickadate\translations\bs_BA.js" />
-    <Content Include="Scripts\pickadate\translations\ca_ES.js" />
-    <Content Include="Scripts\pickadate\translations\cs_CZ.js" />
-    <Content Include="Scripts\pickadate\translations\da_DK.js" />
-    <Content Include="Scripts\pickadate\translations\de_DE.js" />
-    <Content Include="Scripts\pickadate\translations\el_GR.js" />
-    <Content Include="Scripts\pickadate\translations\es_ES.js" />
-    <Content Include="Scripts\pickadate\translations\et_EE.js" />
-    <Content Include="Scripts\pickadate\translations\eu_ES.js" />
-    <Content Include="Scripts\pickadate\translations\fi_FI.js" />
-    <Content Include="Scripts\pickadate\translations\fr_FR.js" />
-    <Content Include="Scripts\pickadate\translations\gl_ES.js" />
-    <Content Include="Scripts\pickadate\translations\he_IL.js" />
-    <Content Include="Scripts\pickadate\translations\hi_IN.js" />
-    <Content Include="Scripts\pickadate\translations\hr_HR.js" />
-    <Content Include="Scripts\pickadate\translations\hu_HU.js" />
-    <Content Include="Scripts\pickadate\translations\id_ID.js" />
-    <Content Include="Scripts\pickadate\translations\is_IS.js" />
-    <Content Include="Scripts\pickadate\translations\it_IT.js" />
-    <Content Include="Scripts\pickadate\translations\ja_JP.js" />
-    <Content Include="Scripts\pickadate\translations\ko_KR.js" />
-    <Content Include="Scripts\pickadate\translations\lt_LT.js" />
-    <Content Include="Scripts\pickadate\translations\lv_LV.js" />
-    <Content Include="Scripts\pickadate\translations\nb_NO.js" />
-    <Content Include="Scripts\pickadate\translations\ne_NP.js" />
-    <Content Include="Scripts\pickadate\translations\nl_NL.js" />
-    <Content Include="Scripts\pickadate\translations\no_NO.js" />
-    <Content Include="Scripts\pickadate\translations\pl_PL.js" />
-    <Content Include="Scripts\pickadate\translations\pt_BR.js" />
-    <Content Include="Scripts\pickadate\translations\pt_PT.js" />
-    <Content Include="Scripts\pickadate\translations\ro_RO.js" />
-    <Content Include="Scripts\pickadate\translations\ru_RU.js" />
-    <Content Include="Scripts\pickadate\translations\sk_SK.js" />
-    <Content Include="Scripts\pickadate\translations\sl_SI.js" />
-    <Content Include="Scripts\pickadate\translations\sv_SE.js" />
-    <Content Include="Scripts\pickadate\translations\th_TH.js" />
-    <Content Include="Scripts\pickadate\translations\tr_TR.js" />
-    <Content Include="Scripts\pickadate\translations\uk_UA.js" />
-    <Content Include="Scripts\pickadate\translations\vi_VN.js" />
-    <Content Include="Scripts\pickadate\translations\zh_CN.js" />
-    <Content Include="Scripts\pickadate\translations\zh_TW.js" />
+    <Content Include="Scripts\r.js" />
+    <Content Include="Scripts\require.js" />
+    <Content Include="Scripts\text.js" />
     <Content Include="Scripts\toastr.js" />
     <Content Include="Scripts\toastr.min.js" />
     <Content Include="Users.aspx" />
@@ -176,6 +130,13 @@
     <Content Include="Scripts\jquery-1.9.1.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="components\machine-create\machinecreate.aspx.cs">
+      <DependentUpon>machinecreate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="components\machine-create\machinecreate.aspx.designer.cs">
+      <DependentUpon>machinecreate.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Controls\TextBox.cs" />
     <Compile Include="Machines.aspx.cs">
       <DependentUpon>Machines.aspx</DependentUpon>
@@ -240,6 +201,9 @@
       <Project>{145c0e05-793b-46c5-ba33-4bf403c91f4e}</Project>
       <Name>Presenter</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Scripts\pickadate\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

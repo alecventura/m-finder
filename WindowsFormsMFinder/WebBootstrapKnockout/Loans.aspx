@@ -3,11 +3,6 @@
 
 
 <asp:Content ContentPlaceHolderID="content" runat="server">
-    <script src='<%= ResolveUrl("~/Loans.js") %>'></script>
-    <script type="text/javascript">
-        var loansJSON = <%= new  System.Web.Script.Serialization.JavaScriptSerializer().Serialize(loansJSON) %>;
-        var dptos = <%= new  System.Web.Script.Serialization.JavaScriptSerializer().Serialize(dptos) %>;
-    </script>
     <div class="row" id="loans">
         <div class="col-xs-10 col-xs-offset-1" style="margin-top: 100px;">
             <h2 style="text-align: center;">LOANS</h2>
@@ -54,4 +49,9 @@
         </div>
 
     </div>
+    <script type="text/javascript">
+        var loansJSON = <%= new  System.Web.Script.Serialization.JavaScriptSerializer().Serialize(loansJSON) %>;
+        var dptos = <%= new  System.Web.Script.Serialization.JavaScriptSerializer().Serialize(dptos) %>;
+    </script>
+    <script src='<%= ResolveUrl("~/Loans.js") %>'></script>
 </asp:Content>

@@ -39,30 +39,28 @@
         <link href="<%# ResolveUrl("~/") %>css/bootstrap.css" rel="stylesheet" type="text/css" />
         <link href="<%# ResolveUrl("~/") %>css/custom.css" rel="stylesheet" type="text/css" />
         <link href="<%# ResolveUrl("~/") %>css/toastr.min.css" rel="stylesheet" type="text/css" />
+        <link href="<%# ResolveUrl("~/") %>Scripts/pickadate/default.css" rel="stylesheet" type="text/css" />
+        <link href="<%# ResolveUrl("~/") %>Scripts/pickadate/default.date.css" rel="stylesheet" type="text/css" />
+        <link href="<%# ResolveUrl("~/") %>Scripts/pickadate/default.time.css" rel="stylesheet" type="text/css" />
+
+        <script src='<%= ResolveUrl("~/Scripts/moment/moment.min.js") %>'></script>
         <script src='<%= ResolveUrl("~/Scripts/jquery-1.9.1.min.js") %>'></script>
         <script src='<%= ResolveUrl("~/Scripts/bootstrap.min.js") %>'></script>
         <script src='<%= ResolveUrl("~/Scripts/knockout-3.3.0.js") %>'></script>
         <script src='<%= ResolveUrl("~/Scripts/knockout.mapping-latest.js") %>'></script>
         <script src='<%= ResolveUrl("~/Scripts/toastr.js") %>'></script>
         <script src='<%= ResolveUrl("~/Scripts/lodash.min.js") %>'></script>
-        <script src='<%= ResolveUrl("~/Scripts/moment.min.js") %>'></script>
-        <%--<script src='<%= ResolveUrl("~/Scripts/pickadate/picker.js") %>'></script>
+        <script src='<%= ResolveUrl("~/Scripts/pickadate/picker.js") %>'></script>
         <script src='<%= ResolveUrl("~/Scripts/pickadate/picker.date.js") %>'></script>
+        <script src='<%= ResolveUrl("~/Scripts/pickadate/picker.time.js") %>'></script>
         <script src='<%= ResolveUrl("~/Scripts/pickadate/legacy.js") %>'></script>
-        <script src='<%= ResolveUrl("~/Scripts/pickadate/themes/default.css") %>'></script>
-        <script src='<%= ResolveUrl("~/Scripts/pickadate/themes/default.date.css") %>'></script>--%>
+        <script src='<%= ResolveUrl("~/Scripts/knockout-withComponent.js") %>'></script>
         <script src='<%= ResolveUrl("~/Scripts/knockout-bindings-modal.js") %>'></script>
         <script src='<%= ResolveUrl("~/Scripts/knockout-bindings-toggle.js") %>'></script>
         <script src='<%= ResolveUrl("~/Scripts/knockout-bindings-pickadate.js") %>'></script>
-        <script src='<%= ResolveUrl("./Layout.js") %>'></script>
-        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pickadate.js/3.5.3/themes/default.css" />
-        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pickadate.js/3.5.3/themes/default.date.css" />
-        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pickadate.js/3.5.3/themes/default.time.css" />
+        <script src='<%= ResolveUrl("~/Scripts/knockout-bindings-allowBindings.js") %>'></script>
+        <script data-main="Scripts/init/startup" src='<%= ResolveUrl("~/Scripts/require.js") %>'></script>
 
-        <script src="//cdnjs.cloudflare.com/ajax/libs/pickadate.js/3.5.3/picker.js"></script>
-        <script src="//cdnjs.cloudflare.com/ajax/libs/pickadate.js/3.5.3/picker.date.js"></script>
-        <script src="//cdnjs.cloudflare.com/ajax/libs/pickadate.js/3.5.3/picker.time.js"></script>
-        <script src="//cdnjs.cloudflare.com/ajax/libs/pickadate.js/3.5.3/legacy.js"></script>
 
         <div style="padding-top: 51px;">
             <asp:ContentPlaceHolder ID="content" runat="server">
