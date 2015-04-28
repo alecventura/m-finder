@@ -1,44 +1,53 @@
-﻿var newMachine = { 'model': '', 'name': '', 'serialnumber': '', 'aquisitionDate': -1, 'warrantyExpirationDate': -1, 'id': -1 }
+﻿define([], function () {
+    function MachineCreateViewModel(params) {
+        var newMachine = { 'model': '', 'name': '', 'serialnumber': '', 'aquisitionDate': moment().format('L'), 'warrantyExpirationDate': moment().format('L'), 'id': -1 }
+        var self = this;
+        self.isEdit = params.isEdit
 
-function MachineCreateViewModel(dptos, objModal, isVisible, machines) {
-    var self = this;
-    self.dptos = dptos;
-    self.objModal = objModal;
-    self.isVisible = isVisible;
-    self.machines = machines;
+        if (params.isEdit == true) {
+            self.objModal = ko.observable(ko.mapping.fromJS(params.objModal));
+        } else {
+            self.objModal = ko.observable(ko.mapping.fromJS(newMachine));
+        }
 
-    self.onEditClicked = function (item) {
-        self.objModal(ko.mapping.fromJS(item));
-        self.isVisible(true);
-    };
+        if (params.isVisible != null) {
+            self.isVisible = params.isVisible;
+        } else {
+            self.isVisible = ko.observable(false);
+        }
 
-    self.onSaveClicked = function () {
-        $.ajax({
-            type: "POST",
-            url: "Machines.aspx/saveMachine",
-            contentType: "application/json; charset=utf-8",
-            data: '{machine: ' + JSON.stringify(ko.mapping.toJS(self.objModal)) + '}',
-            dataType: 'json',
-            success: function (response) {
-                self.machines(response.d);
-                self.isVisible(false);
-                toastr.success("Machine successfully saved!");
-            },
-            failure: function (response) {
-                alert(response);
-            },
-            error: function (response) {
-                alert(response);
+        self.isVisible.subscribe(function (newValue) {
+            if (!self.isEdit && !newValue) {
+                self.objModal(ko.mapping.fromJS(newMachine));
             }
         });
-    }
 
-    self.onAddNewClicked = function () {
-        self.objModal(ko.mapping.fromJS(newMachine));
-        self.isVisible(true);
-    }
-}
+        self.dptos = params.dptos;
+        self.machines = params.machines;
 
-$(document).ready(function () {
-    ko.applyBindings(new MachineCreateViewModel(dptos));
+        self.onSaveClicked = function () {
+            $.ajax({
+                type: "POST",
+                url: "Machines.aspx/saveMachine",
+                contentType: "application/json; charset=utf-8",
+                data: '{machine: ' + JSON.stringify(ko.mapping.toJS(self.objModal)) + '}',
+                dataType: 'json',
+                success: function (response) {
+                    self.machines(response.d);
+                    self.isVisible(false);
+                    $('.modal-backdrop').remove();
+                    toastr.success("Machine successfully saved!");
+                },
+                failure: function (response) {
+                    alert(response);
+                },
+                error: function (response) {
+                    alert(response);
+                }
+            });
+        }
+
+    }
+    return MachineCreateViewModel;
+
 });

@@ -57,7 +57,6 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="components\machine-create\machinecreate.aspx" />
     <Content Include="components\machine-create\machinecreate.html" />
     <Content Include="components\machine-create\machinecreate.js" />
     <Content Include="css\toastr.css" />
@@ -106,6 +105,7 @@
     <Content Include="Scripts\knockout-bindings-allowBindings.js" />
     <Content Include="Scripts\knockout-bindings-modal.js" />
     <Content Include="Scripts\knockout-bindings-pickadate.js" />
+    <Content Include="Scripts\knockout-bindings-stopBinding.js" />
     <Content Include="Scripts\knockout-bindings-toggle.js" />
     <Content Include="Scripts\knockout-withComponent.js" />
     <Content Include="Scripts\knockout.mapping-latest.debug.js" />
@@ -130,13 +130,6 @@
     <Content Include="Scripts\jquery-1.9.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="components\machine-create\machinecreate.aspx.cs">
-      <DependentUpon>machinecreate.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="components\machine-create\machinecreate.aspx.designer.cs">
-      <DependentUpon>machinecreate.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Controls\TextBox.cs" />
     <Compile Include="Machines.aspx.cs">
       <DependentUpon>Machines.aspx</DependentUpon>

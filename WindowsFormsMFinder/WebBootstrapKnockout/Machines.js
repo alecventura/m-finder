@@ -11,11 +11,6 @@ window.jqReady = function () {
         });
         self.isVisible = ko.observable(false);
         self.objModal = ko.observable()
-        self.isVisible.subscribe(function (newValue) {
-            if (!newValue) {
-                self.objModal(ko.mapping.fromJS(newMachine));
-            }
-        });
 
         self.onEditClicked = function (item) {
             self.objModal(ko.mapping.fromJS(item));
@@ -50,38 +45,13 @@ window.jqReady = function () {
                 }
             });
         }
-
-        self.onSaveClicked = function () {
-            $.ajax({
-                type: "POST",
-                url: "Machines.aspx/saveMachine",
-                contentType: "application/json; charset=utf-8",
-                data: '{machine: ' + JSON.stringify(ko.mapping.toJS(self.objModal)) + '}',
-                dataType: 'json',
-                success: function (response) {
-                    self.machines(response.d);
-                    self.isVisible(false);
-                    toastr.success("Machine successfully saved!");
-                },
-                failure: function (response) {
-                    alert(response);
-                },
-                error: function (response) {
-                    alert(response);
-                }
-            });
-        }
-
-        self.onAddNewClicked = function () {
-            self.objModal(ko.mapping.fromJS(newMachine));
-            self.isVisible(true);
-        }
     }
 
     $(document).ready(function () {
         ko.components.register('machine-create', {
             viewModel: { require: 'components/machine-create/machinecreate.js' },
-            template: { require: 'Scripts/text!components/machine-create/machinecreate.html' },
+
+            template: { require: 'Scripts/text!components/machine-create/machinecreate.html' }
         });
         ko.applyBindings(new MachineViewModel(machines, dptos), document.getElementById('machines'));
     });
