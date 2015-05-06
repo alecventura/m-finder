@@ -50,6 +50,9 @@
     <Compile Include="JSONs\Item.cs" />
     <Compile Include="JSONs\Loan.cs" />
     <Compile Include="JSONs\Machine.cs" />
+    <Compile Include="JSONs\NewLoan.cs" />
+    <Compile Include="JSONs\Request\MachineRequest.cs" />
+    <Compile Include="JSONs\Request\UserRequest.cs" />
     <Compile Include="JSONs\User.cs" />
     <Compile Include="LoansPresenter.cs" />
     <Compile Include="LoginPresenter.cs" />

@@ -1,4 +1,4 @@
-﻿var newMachine = { 'model': '', 'name': '', 'serialnumber': '', 'aquisitionDate': -1, 'warrantyExpirationDate': -1, 'id': -1 }
+﻿var newMachine = { 'model': '', 'name': '', 'serialnumber': '', 'aquisitionDate': "2015-04-27T03:00:00.000Z", 'warrantyExpirationDate': "2015-04-27T03:00:00.000Z", 'id': -1 }
 
 window.jqReady = function () {
 
@@ -12,11 +12,6 @@ window.jqReady = function () {
         self.isVisible = ko.observable(false);
         self.objModal = ko.observable()
 
-        self.onEditClicked = function (item) {
-            self.objModal(ko.mapping.fromJS(item));
-            self.isVisible(true);
-        };
-
         self.setsLabels = function (array) {
             _.each(array, function (item) {
                 item.aquisitionDateText = moment(item.aquisitionDate).format('L');
@@ -27,23 +22,30 @@ window.jqReady = function () {
         self.setsLabels(self.machines());
 
         self.onRemoveClicked = function (item) {
-            $.ajax({
-                type: "POST",
-                url: "Machines.aspx/removeMachine",
-                contentType: "application/json; charset=utf-8",
-                data: '{machine: ' + JSON.stringify(ko.mapping.toJS(item)) + '}',
-                dataType: 'json',
-                success: function (response) {
-                    self.machines(response.d);
-                    toastr.success("Machine successfully removed!");
-                },
-                failure: function (response) {
-                    alert(response);
-                },
-                error: function (response) {
-                    alert(response);
+            bootbox.confirm("Are you sure you want to remove machine with serialnumber=" + item.serialnumber + "?", function (result) {
+                if (result) {
+                    var deep = _.cloneDeep(newMachine);
+                    deep.id = item.id
+                    $.ajax({
+                        type: "POST",
+                        url: "Machines.aspx/removeMachine",
+                        contentType: "application/json; charset=utf-8",
+                        data: '{machine: ' + JSON.stringify(deep) + '}',
+                        dataType: 'json',
+                        success: function (response) {
+                            self.machines(response.d);
+                            toastr.success("Machine successfully removed!");
+                        },
+                        failure: function (response) {
+                            alert(response);
+                        },
+                        error: function (response) {
+                            alert(response);
+                        }
+                    });
                 }
             });
+
         }
     }
 
@@ -54,5 +56,6 @@ window.jqReady = function () {
             template: { require: 'Scripts/text!components/machine-create/machinecreate.html' }
         });
         ko.applyBindings(new MachineViewModel(machines, dptos), document.getElementById('machines'));
+
     });
 }

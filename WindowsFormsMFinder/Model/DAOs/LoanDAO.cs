@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using MfinderContext;
+using System.Diagnostics;
 
 namespace Model.DAOs
 {
@@ -24,6 +25,28 @@ namespace Model.DAOs
                         select new Loan { user = user, dpto = dpto, machine = machine };
             List<Loan> list = query.ToList();
             return list;
+        }
+
+        public static bool saveNewLoan(int machineId, int userId, DateTime loanDate, int dpto_fk)
+        {
+            try
+            {
+                MfinderDataContext context = new MfinderDataContext();
+                Location loan = new Location();
+                loan.MachineFk = machineId;
+                loan.UserFk = userId;
+                loan.LoanDate = loanDate;
+                loan.DptoFk = dpto_fk;
+
+                context.Locations.InsertOnSubmit(loan);
+                context.SubmitChanges();
+                return true;
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e);
+                return false;
+            }
         }
     }
 }

@@ -59,6 +59,8 @@
   <ItemGroup>
     <Content Include="components\machine-create\machinecreate.html" />
     <Content Include="components\machine-create\machinecreate.js" />
+    <Content Include="components\user-create\usercreate.html" />
+    <Content Include="components\user-create\usercreate.js" />
     <Content Include="css\toastr.css" />
     <Content Include="css\toastr.min.css" />
     <Content Include="css\toastr.scss" />
@@ -95,11 +97,15 @@
     <Content Include="css\custom.css" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Register.aspx" />
+    <Content Include="Scripts\bootbox.js" />
+    <Content Include="Scripts\bootbox.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\init\startup.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
+    <Content Include="Scripts\jquery.bootstrap.wizard.js" />
+    <Content Include="Scripts\jquery.bootstrap.wizard.min.js" />
     <Content Include="Scripts\knockout-3.3.0.debug.js" />
     <Content Include="Scripts\knockout-3.3.0.js" />
     <Content Include="Scripts\knockout-bindings-allowBindings.js" />

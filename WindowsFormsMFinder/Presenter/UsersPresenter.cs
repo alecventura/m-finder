@@ -62,5 +62,11 @@ namespace Presenter
             bool success = UserService.saveUser(user.firstname, user.lastname, user.ramal, user.dpto, user.role, user.id);
             return success;
         }
+
+        public static List<MfinderContext.User> staticSearchUsers(JSONs.Request.UserRequest userRequest)
+        {
+            List<MfinderContext.User> users = Services.UserService.searchUsers(userRequest);
+            return users;
+        }
     }
 }

@@ -1,4 +1,36 @@
-﻿//require.config({
+﻿require.config({
+    wrapShim: true,
+    baseUrl: "/",
+    paths: {},
+    shim: {}
+});
+
+define([], function () {
+    function LayoutViewModel() {
+        var self = this;
+        self.isUserLogged = (userLogged.toLowerCase() == 'true');
+        var ok = _.isString('a');
+    }
+
+    $(document).ready(function () {
+        ko.applyBindings(new LayoutViewModel(), document.getElementById('menu'));
+    });
+
+    if (window.hasOwnProperty('jqReady')) $(function () { window.jqReady(); });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+//require.config({
 //    wrapShim: true,
 //    baseUrl: "/",
 //    paths: {
@@ -64,31 +96,3 @@
 //        }
 //    }
 //});
-
-require.config({
-    wrapShim: true,
-    baseUrl: "/",
-    paths: {
-        "jquery": "Scripts/jquery-1.9.1.min",
-        "ko2": "Scripts/knockout-3.3.0"
-    },
-    shim: {
-        "ko2": {
-            deps: ["jquery"]
-        }
-    }
-});
-
-define([], function () {
-    function LayoutViewModel() {
-        var self = this;
-        self.isUserLogged = (userLogged.toLowerCase() == 'true');
-        var ok = _.isString('a');
-    }
-
-    $(document).ready(function () {
-        ko.applyBindings(new LayoutViewModel(), document.getElementById('menu'));
-    });
-
-    if (window.hasOwnProperty('jqReady')) $(function () { window.jqReady(); });
-});

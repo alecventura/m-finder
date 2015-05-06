@@ -125,5 +125,29 @@ namespace Model.DAOs
                 return false;
             }
         }
+
+        public static List<User> searchUsers(string firstname, string lastname, string ramal, int dpto)
+        {
+            MfinderDataContext context = new MfinderDataContext();
+            var query = from it in context.Users
+                        select it;
+
+            if (!String.IsNullOrEmpty(firstname))
+                query = query.Where(w => w.Firstname.ToLower().Contains(firstname.ToLower()));
+
+            if (!String.IsNullOrEmpty(lastname))
+                query = query.Where(w => w.Lastname.ToLower().Contains(lastname.ToLower()));
+
+            if (!String.IsNullOrEmpty(ramal))
+                query = query.Where(w => w.Ramal.ToLower().Contains(ramal.ToLower()));
+
+            if (dpto != null && dpto > 0)
+                query = query.Where(w => w.DptoFk == dpto);
+
+            var sql = query.ToString();
+
+            List<User> list = query.ToList();
+            return list;
+        }
     }
 }

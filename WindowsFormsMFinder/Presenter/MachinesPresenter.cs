@@ -37,5 +37,11 @@ namespace Presenter
             bool success = Services.MachineService.saveMachine(machine.model, machine.serialnumber, machine.name, machine.aquisitionDate, machine.warrantyExpirationDate, machine.id);
             return success;
         }
+
+        public static List<MfinderContext.Machine> staticSearchMachinesData(JSONs.Request.MachineRequest machine)
+        {
+            List<MfinderContext.Machine> machines = Services.MachineService.searchMachines(machine);
+            return machines;
+        }
     }
 }

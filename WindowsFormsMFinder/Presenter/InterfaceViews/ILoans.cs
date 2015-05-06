@@ -10,5 +10,6 @@ namespace Presenter.InterfaceViews
         void fillLoans(List<Model.DAOs.LoanDAO.Loan> loans);
 
         void fillDptoList(List<MfinderContext.Dpto> list);
+        void fillRoleList(List<MfinderContext.Role> list);
     }
 }

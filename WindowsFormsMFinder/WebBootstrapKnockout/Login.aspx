@@ -6,9 +6,9 @@
         <div class="col-xs-4 col-xs-offset-4" style="margin-top: 100px;">
             <h2 style="text-align: center;">LOGIN</h2>
 
-            <asp:TextBox ID="username" runat="server" Width="100%" CssClass="margin-top15" PlaceHolder="Username" />
+            <asp:TextBox ID="username" runat="server" Width="100%" CssClass="margin-top15 input-nice" PlaceHolder="Username" />
             <br />
-            <asp:TextBox ID="password" runat="server" Width="100%" CssClass="margin-top15" PlaceHolder="Password" />
+            <asp:TextBox ID="password" runat="server" Width="100%" CssClass="margin-top15 input-nice" PlaceHolder="Password" />
             <br />
             <asp:Button ID="loginButton" Text="Login" OnClick="onLoginClicked" runat="server" CssClass="btn btn-primary btn-block margin-top15" />
             <br />

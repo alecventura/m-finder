@@ -83,5 +83,26 @@ namespace Model.DAOs
                 return false;
             }
         }
+
+        public static List<Machine> searchMachines(string model, string name, string serialnumber)
+        {
+            MfinderDataContext context = new MfinderDataContext();
+            var query = from it in context.Machines
+                        select it;
+
+            if (!String.IsNullOrEmpty(model))
+                query = query.Where(w => w.Model.ToLower().Contains(model.ToLower()));
+
+            if (!String.IsNullOrEmpty(name))
+                query = query.Where(w => w.Name.ToLower().Contains(name.ToLower()));
+
+            if (!String.IsNullOrEmpty(serialnumber))
+                query = query.Where(w => w.Serialnumber.ToLower().Contains(serialnumber.ToLower()));
+
+            var sql = query.ToString();
+
+            List<Machine> list = query.ToList();
+            return list;
+        }
     }
 }

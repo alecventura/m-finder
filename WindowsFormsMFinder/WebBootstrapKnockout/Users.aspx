@@ -9,7 +9,7 @@
     </script>
     <div class="row" id="users">
         <div class="col-xs-10 col-xs-offset-1" style="margin-top: 10px;">
-            <button type="button" class="btn btn-primary" data-bind="click: onAddNewUserClicked">Add new user</button>
+            <div data-bind='component: {name: "user-create", params:{dptos: $data.dptos, roles: $data.roles, objModal: null, isVisible: $data.isVisible, users: $data.users, isEdit: false}}'></div>
         </div>
         <div class="col-xs-10 col-xs-offset-1" style="margin-top: 100px;">
             <h2 style="text-align: center;">USERS</h2>
@@ -39,60 +39,14 @@
                         <td data-bind="text: $data.dptoName"></td>
                         <td data-bind="text: $data.roleName"></td>
                         <td>
-                            <a href="#" data-bind="click: $root.onEditUserClicked"><i class="glyphicon glyphicon-edit"></i></a>
+                            <div data-bind='component: {name: "user-create", params:{dptos: $root.dptos, roles: $data.roles, objModal: $data, isVisible: null, users: $root.users, isEdit: true}}'></div>
                         </td>
                         <td>
-                            <a href="#" data-bind="click: $root.onRemoveUserClicked"><i class="glyphicon glyphicon-remove-circle"></i></a>
+                            <a href="#" data-bind="click: $root.onRemoveClicked"><i class="glyphicon glyphicon-remove-circle"></i></a>
                         </td>
                     </tr>
                 </tbody>
             </table>
         </div>
-
-
-        <div class="modal fade" data-bind="isVisible: isVisible" data-backdrop="static" data-keyboard="false">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-bind="toggle: isVisible" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title">Edit User</h4>
-                    </div>
-                    <div class="modal-body" data-bind="with: userModal">
-                        <div class="form-group margin-bottom20">
-                            <label class="control-label label-centralized col-lg-4">Firstname:</label>
-                            <input class="input-nice col-lg-8" type="text" id="firstname" data-bind="value: firstname" />
-                        </div>
-                        <br />
-                        <div class="form-group margin-bottom20">
-                            <label class="control-label label-centralized col-lg-4">Lastname:</label>
-                            <input class="input-nice col-lg-8" type="text" id="lastname" data-bind="value: lastname" />
-                        </div>
-                        <br />
-                        <div class="form-group margin-bottom20">
-                            <label class="control-label label-centralized col-lg-4">Ramal:</label>
-                            <input class="input-nice col-lg-8" type="text" id="ramal" data-bind="value: ramal" />
-                        </div>
-                        <br />
-                        <div class="form-group margin-bottom20">
-                            <label class="control-label label-centralized col-lg-4">Dpto:</label>
-                            <select class="select-nice  col-lg-8" data-bind="options: $root.dptos, optionsValue:'id', optionsText: 'name',value: dpto"></select>
-                        </div>
-                        <br />
-                        <div class="form-group margin-bottom20">
-                            <label class="control-label label-centralized col-lg-4">Role:</label>
-                            <select class="select-nice col-lg-8" data-bind="options: $root.roles, optionsValue:'id' ,optionsText: 'name',value: role"></select>
-                        </div>
-                        <br />
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-bind="toggle: isVisible">Close</button>
-                        <button type="button" class="btn btn-primary" data-bind="click: onSaveUserClicked">Save User</button>
-                    </div>
-                </div>
-                <!-- /.modal-content -->
-            </div>
-            <!-- /.modal-dialog -->
-        </div>
-        <!-- /.modal -->
     </div>
 </asp:Content>

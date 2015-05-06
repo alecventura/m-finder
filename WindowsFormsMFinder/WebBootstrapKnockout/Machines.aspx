@@ -13,7 +13,7 @@
         <div class="col-xs-10 col-xs-offset-1" style="margin-top: 100px;">
             <h2 style="text-align: center;">Machines</h2>
 
-            <table id="loansTable" class="table">
+            <table id="machinesTable" class="table">
                 <thead>
                     <tr>
                         <th>Nodel

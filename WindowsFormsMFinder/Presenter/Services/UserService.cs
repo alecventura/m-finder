@@ -40,5 +40,10 @@ namespace Presenter.Services
         {
             return UserDAO.deleteUser(id);
         }
+
+        internal static List<MfinderContext.User> searchUsers(JSONs.Request.UserRequest userRequest)
+        {
+            return Model.DAOs.UserDAO.searchUsers(userRequest.firstname, userRequest.lastname, userRequest.ramal, userRequest.dpto);
+        }
     }
 }
