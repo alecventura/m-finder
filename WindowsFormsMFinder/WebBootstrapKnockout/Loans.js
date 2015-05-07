@@ -81,17 +81,11 @@ window.jqReady = function () {
 
         self.isVisible = ko.observable(false);
 
-        //self.isVisible.subscribe(function (bool) {
-        //    if (bool) {
-        //        var desiredWidth = $(window).width() * 0.8;
-        //        var desiredHeight = $(window).height() * 0.8;
-        //        var desiredMargin = $(window).height() * 0.2;
-
-        //        $('.modal-dialog', '.modal').css('width', (desiredWidth));
-        //        $('.modal-dialog', '.modal').css('height', (desiredHeight));
-        //        $('.modal-dialog', '.modal').css('margin-left', (desiredMargin));
-        //    }
-        //});
+        self.isVisible.subscribe(function (bool) {
+            if (bool) {
+                self.newLoan(ko.mapping.fromJS(newLoan))
+            }
+        });
 
 
         self.setLabels = function (array) {
@@ -176,6 +170,7 @@ window.jqReady = function () {
         };
 
         self.onSaveClicked = function () {
+            self.newLoan().aditional().loanDate(moment(self.newLoan().aditional().loanDate()).toDate())
             $.ajax({
                 type: "POST",
                 url: "Loans.aspx/saveNewLoan",
@@ -195,6 +190,31 @@ window.jqReady = function () {
                 }
             });
         };
+
+        self.onReturnLoanClicked = function (item) {
+            bootbox.confirm("Are you sure you want to return this loan?", function (result) {
+                if (result) {
+                    $.ajax({
+                        type: "POST",
+                        url: "Loans.aspx/returnLoan",
+                        contentType: "application/json; charset=utf-8",
+                        data: '{id: ' + JSON.stringify(item.id) + '}',
+                        dataType: 'json',
+                        success: function (response) {
+                            self.loans(response.d);
+                            self.isVisible(false);
+                            toastr.success("Loan was successfully returned!");
+                        },
+                        failure: function (response) {
+                            alert(response);
+                        },
+                        error: function (response) {
+                            alert(response);
+                        }
+                    });
+                }
+            });
+        }
     }
 
     $(document).ready(function () {

@@ -1,7 +1,7 @@
-C:\Users\Vulcan\Documents\GitHub\m-finder\WindowsFormsMFinder\Presenter\obj\Debug\Presenter.csprojResolveAssemblyReference.cache
 C:\Users\Vulcan\Documents\GitHub\m-finder\WindowsFormsMFinder\Presenter\bin\Debug\Presenter.dll
 C:\Users\Vulcan\Documents\GitHub\m-finder\WindowsFormsMFinder\Presenter\bin\Debug\Presenter.pdb
 C:\Users\Vulcan\Documents\GitHub\m-finder\WindowsFormsMFinder\Presenter\bin\Debug\Model.dll
 C:\Users\Vulcan\Documents\GitHub\m-finder\WindowsFormsMFinder\Presenter\bin\Debug\Model.pdb
+C:\Users\Vulcan\Documents\GitHub\m-finder\WindowsFormsMFinder\Presenter\obj\Debug\Presenter.csprojResolveAssemblyReference.cache
 C:\Users\Vulcan\Documents\GitHub\m-finder\WindowsFormsMFinder\Presenter\obj\Debug\Presenter.dll
 C:\Users\Vulcan\Documents\GitHub\m-finder\WindowsFormsMFinder\Presenter\obj\Debug\Presenter.pdb

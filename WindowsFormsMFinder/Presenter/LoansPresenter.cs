@@ -48,5 +48,11 @@ namespace Presenter
             bool success = Services.LoansService.staticSaveNewLoan(loan);
             return success;
         }
+
+        public static bool returnLoan(int id)
+        {
+            bool success = Services.LoansService.returnLoan(id);
+            return success;
+        }
     }
 }

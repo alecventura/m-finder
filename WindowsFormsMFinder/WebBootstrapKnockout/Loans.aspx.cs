@@ -77,5 +77,17 @@ namespace WebBootstrapKnockout
 
         }
 
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public static List<Presenter.JSONs.Loan> returnLoan(int id)
+        {
+            Presenter.LoansPresenter.returnLoan(id);
+
+            List<Model.DAOs.LoanDAO.Loan> loans = Presenter.LoansPresenter.staticLoadLoans();
+            return Loan.map(loans);
+
+        }
+
+
     }
 }

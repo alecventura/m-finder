@@ -15,7 +15,12 @@ namespace Presenter.Services
 
         internal static bool staticSaveNewLoan(JSONs.NewLoan loan)
         {
-            return LoanDAO.saveNewLoan(loan.machine.id, loan.user.id, loan.loanDate, loan.user.dpto);
+            return LoanDAO.saveNewLoan(loan.machine.id, loan.user.id, loan.aditional.loanDate, loan.user.dpto);
+        }
+
+        internal static bool returnLoan(int id)
+        {
+            return LoanDAO.returnLoan(id);
         }
     }
 }

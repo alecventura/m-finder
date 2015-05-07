@@ -11,7 +11,11 @@
         <div class="col-xs-10 col-xs-offset-1" style="margin-top: 100px;">
             <h2 style="text-align: center;">LOANS</h2>
 
-            <table id="loansTable" class="table">
+            <div data-bind="visible:$root.loans() == null || $root.loans().length == 0 ">
+                <p>You have no pending loan</p>
+            </div>
+
+            <table id="loansTable" class="table" data-bind="visible: $root.loans() != null && $root.loans().length > 0">
                 <thead>
                     <tr>
                         <th>Machine Name
@@ -45,7 +49,7 @@
                         </td>
                         <td data-bind="text: $data.dptoText"></td>
                         <td style="text-align: center;">
-                            <a href="#" data-bind="click: $root.onReturnLoanClicked"><i class="glyphicon glyphicon-edit"></i></a>
+                            <a href="#" data-bind="click: $root.onReturnLoanClicked"><i class="glyphicon glyphicon-download-alt"></i></a>
                         </td>
                     </tr>
                 </tbody>

@@ -20,6 +20,9 @@ namespace Presenter.JSONs
         public string userRamal { get; set; }
         public int userDpto { get; set; }
 
+        //Loan Data
+        public int id { get; set; }
+
         public static List<Loan> map(List<Model.DAOs.LoanDAO.Loan> loans)
         {
             List<Loan> list = new List<Loan>();
@@ -54,6 +57,7 @@ namespace Presenter.JSONs
             l.userFirstname = loan.user.Firstname;
             l.userLastName = loan.user.Lastname;
             l.userRamal = loan.user.Ramal;
+            l.id = loan.id;
             return l;
         }
     }

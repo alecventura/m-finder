@@ -14,6 +14,7 @@ namespace Model.DAOs
             public User user { get; set; }
             public Machine machine { get; set; }
             public Dpto dpto { get; set; }
+            public int id { get; set; }
         }
         public static List<Loan> loadLoans()
         {
@@ -22,7 +23,7 @@ namespace Model.DAOs
                         join user in context.Users on loan.UserFk equals user.Id
                         join dpto in context.Dptos on loan.DptoFk equals dpto.Id
                         join machine in context.Machines on loan.MachineFk equals machine.Id
-                        select new Loan { user = user, dpto = dpto, machine = machine };
+                        select new Loan { user = user, dpto = dpto, machine = machine, id = loan.Id };
             List<Loan> list = query.ToList();
             return list;
         }
@@ -40,6 +41,29 @@ namespace Model.DAOs
 
                 context.Locations.InsertOnSubmit(loan);
                 context.SubmitChanges();
+                saveHistory(loan);
+                return true;
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e);
+                return false;
+            }
+        }
+
+        private static void saveHistory(Location loan)
+        {
+        }
+
+        public static bool returnLoan(int id)
+        {
+            try
+            {
+                MfinderDataContext context = new MfinderDataContext();
+                var loan = context.Locations.Where(item => item.Id == id).Single();
+                context.Locations.DeleteOnSubmit(loan);
+                context.SubmitChanges();
+                saveHistory(loan);
                 return true;
             }
             catch (Exception e)
