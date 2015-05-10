@@ -123,11 +123,13 @@
     <Content Include="Scripts\moment\moment.js" />
     <Content Include="Scripts\moment\moment.min.js" />
     <Content Include="Scripts\npm.js" />
+    <Content Include="Scripts\paginator.js" />
     <Content Include="Scripts\r.js" />
     <Content Include="Scripts\require.js" />
     <Content Include="Scripts\text.js" />
     <Content Include="Scripts\toastr.js" />
     <Content Include="Scripts\toastr.min.js" />
+    <Content Include="Scripts\utils.js" />
     <Content Include="Users.aspx" />
     <Content Include="Users.js" />
     <Content Include="Web.config">

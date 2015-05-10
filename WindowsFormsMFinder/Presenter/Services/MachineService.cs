@@ -32,9 +32,9 @@ namespace Presenter.Services
             return Model.DAOs.MachineDAO.deleteMachine(id);
         }
 
-        internal static List<MfinderContext.Machine> searchMachines(JSONs.Request.MachineRequest machine)
+        internal static Model.JSONs.Request.Pagination searchMachines(Model.JSONs.Request.MachineRequest machine)
         {
-            return Model.DAOs.MachineDAO.searchMachines(machine.model, machine.name, machine.serialnumber);
+            return Model.DAOs.MachineDAO.searchMachines(machine);
         }
     }
 }

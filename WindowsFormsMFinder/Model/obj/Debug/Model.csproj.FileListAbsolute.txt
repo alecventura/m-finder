@@ -1,5 +1,5 @@
 C:\Users\Vulcan\Documents\GitHub\m-finder\WindowsFormsMFinder\Model\bin\Debug\Model.dll
 C:\Users\Vulcan\Documents\GitHub\m-finder\WindowsFormsMFinder\Model\bin\Debug\Model.pdb
-C:\Users\Vulcan\Documents\GitHub\m-finder\WindowsFormsMFinder\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
 C:\Users\Vulcan\Documents\GitHub\m-finder\WindowsFormsMFinder\Model\obj\Debug\Model.dll
 C:\Users\Vulcan\Documents\GitHub\m-finder\WindowsFormsMFinder\Model\obj\Debug\Model.pdb
+C:\Users\Vulcan\Documents\GitHub\m-finder\WindowsFormsMFinder\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache

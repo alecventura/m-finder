@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Presenter.JSONs.Request
+namespace Model.JSONs.Request
 {
     public class UserRequest
     {

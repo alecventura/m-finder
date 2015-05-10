@@ -4,25 +4,20 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using Presenter.JSONs;
+using Model.JSONs;
 using System.Web.Services;
 using System.Web.Script.Services;
+using Model.JSONs.Request;
 
 namespace WebBootstrapKnockout
 {
     public partial class EditMachine : System.Web.UI.Page, Presenter.InterfaceViews.IMachines
     {
         Presenter.MachinesPresenter presenter;
-        public List<Machine> machines;
         public List<Item> dptos;
         protected void Page_Load(object sender, EventArgs e)
         {
             presenter = new Presenter.MachinesPresenter(this);
-        }
-
-        public void fillMachines(List<MfinderContext.Machine> machines)
-        {
-            this.machines = Machine.map(machines);
         }
 
         public void fillDptoList(List<MfinderContext.Dpto> list)
@@ -42,7 +37,7 @@ namespace WebBootstrapKnockout
 
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public static List<Presenter.JSONs.Machine> removeMachine(Machine machine)
+        public static List<MachineJSON> removeMachine(MachineJSON machine)
         {
             bool delete = Presenter.MachinesPresenter.deleteMachine(machine.id);
             if (!delete)
@@ -52,12 +47,12 @@ namespace WebBootstrapKnockout
                 HttpContext.Current.Response.End();
                 return null;
             }
-            return Presenter.JSONs.Machine.map(Presenter.MachinesPresenter.staticLoadMachinesData());
+            return MachineJSON.map(Presenter.MachinesPresenter.staticLoadMachinesData());
         }
 
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public static List<Presenter.JSONs.Machine> saveMachine(Machine machine)
+        public static List<MachineJSON> saveMachine(MachineJSON machine)
         {
             if (!Presenter.MachinesPresenter.validateMachine(machine))
             {
@@ -74,7 +69,16 @@ namespace WebBootstrapKnockout
                 HttpContext.Current.Response.End();
                 return null;
             }
-            return Presenter.JSONs.Machine.map(Presenter.MachinesPresenter.staticLoadMachinesData());
+            return MachineJSON.map(Presenter.MachinesPresenter.staticLoadMachinesData());
+        }
+
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public static Pagination searchMachine(MachineRequest request)
+        {
+
+            Pagination pagination = Presenter.MachinesPresenter.searchMachine(request);
+            return pagination;
         }
     }
 }

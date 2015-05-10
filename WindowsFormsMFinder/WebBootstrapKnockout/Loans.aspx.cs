@@ -4,8 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using Presenter.JSONs;
-using Presenter.JSONs.Request;
+using Model.JSONs;
+using Model.JSONs.Request;
 using System.Web.Services;
 using System.Web.Script.Services;
 
@@ -54,21 +54,21 @@ namespace WebBootstrapKnockout
 
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public static List<Presenter.JSONs.Machine> searchMachines(MachineRequest machineRequest)
+        public static List<MachineJSON> searchMachines(MachineRequest machineRequest)
         {
-            return Presenter.JSONs.Machine.map(Presenter.MachinesPresenter.staticSearchMachinesData(machineRequest));
+            return Presenter.MachinesPresenter.staticSearchMachinesData(machineRequest);
         }
 
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public static List<Presenter.JSONs.User> searchUsers(UserRequest userRequest)
+        public static List<UserJSON> searchUsers(UserRequest userRequest)
         {
-            return Presenter.JSONs.User.map(Presenter.UsersPresenter.staticSearchUsers(userRequest));
+            return UserJSON.map(Presenter.UsersPresenter.staticSearchUsers(userRequest));
         }
 
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public static List<Presenter.JSONs.Loan> saveNewLoan(NewLoan loan)
+        public static List<Loan> saveNewLoan(NewLoan loan)
         {
             Presenter.LoansPresenter.staticSaveNewLoan(loan);
 
@@ -79,7 +79,7 @@ namespace WebBootstrapKnockout
 
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public static List<Presenter.JSONs.Loan> returnLoan(int id)
+        public static List<Loan> returnLoan(int id)
         {
             Presenter.LoansPresenter.returnLoan(id);
 

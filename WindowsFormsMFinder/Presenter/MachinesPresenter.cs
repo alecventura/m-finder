@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Model.JSONs;
+using Model.JSONs.Request;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,13 +14,6 @@ namespace Presenter
         public MachinesPresenter(InterfaceViews.IMachines view)
         {
             this.view = view;
-            loadMachines();
-        }
-
-        public void loadMachines()
-        {
-            List<MfinderContext.Machine> machines = Services.MachineService.loadMachines();
-            view.fillMachines(machines);
         }
 
         public static bool deleteMachine(int id)
@@ -32,16 +27,21 @@ namespace Presenter
             return machines;
         }
 
-        public static bool saveMachine(JSONs.Machine machine)
+        public static bool saveMachine(MachineJSON machine)
         {
             bool success = Services.MachineService.saveMachine(machine.model, machine.serialnumber, machine.name, machine.aquisitionDate, machine.warrantyExpirationDate, machine.id);
             return success;
         }
 
-        public static List<MfinderContext.Machine> staticSearchMachinesData(JSONs.Request.MachineRequest machine)
+        public static List<MachineJSON> staticSearchMachinesData(MachineRequest request)
         {
-            List<MfinderContext.Machine> machines = Services.MachineService.searchMachines(machine);
-            return machines;
+            Pagination p = Services.MachineService.searchMachines(request);
+            return p.list.Cast<MachineJSON>().ToList();
+        }
+
+        public static Pagination searchMachine(MachineRequest request)
+        {
+            return Services.MachineService.searchMachines(request);
         }
     }
 }

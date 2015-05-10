@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Presenter.JSONs
+namespace Model.JSONs
 {
     public class Item
     {

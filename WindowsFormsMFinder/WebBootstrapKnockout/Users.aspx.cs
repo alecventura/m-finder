@@ -6,7 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.Services;
 using Presenter.InterfaceViews;
-using Presenter.JSONs;
+using Model.JSONs;
 using System.Web.Script.Services;
 
 namespace WebBootstrapKnockout
@@ -14,7 +14,7 @@ namespace WebBootstrapKnockout
     public partial class Users : System.Web.UI.Page, Presenter.InterfaceViews.IUsers
     {
         Presenter.UsersPresenter presenter;
-        public List<User> usersJSON;
+        public List<UserJSON> usersJSON;
         public List<Item> dptos;
         public List<Item> roles;
         protected void Page_Load(object sender, EventArgs e)
@@ -24,7 +24,7 @@ namespace WebBootstrapKnockout
 
         public void fillUsers(List<MfinderContext.User> users)
         {
-            this.usersJSON = Presenter.JSONs.User.map(users);
+            this.usersJSON = UserJSON.map(users);
         }
 
         public bool showMessage(string message)
@@ -54,7 +54,7 @@ namespace WebBootstrapKnockout
 
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public static List<Presenter.JSONs.User> removeUser(User user)
+        public static List<UserJSON> removeUser(UserJSON user)
         {
             bool delete = Presenter.UsersPresenter.deleteUser(user.id);
             if (!delete)
@@ -64,12 +64,12 @@ namespace WebBootstrapKnockout
                 HttpContext.Current.Response.End();
                 return null;
             }
-            return Presenter.JSONs.User.map(Presenter.UsersPresenter.staticLoadUsersData());
+            return UserJSON.map(Presenter.UsersPresenter.staticLoadUsersData());
         }
 
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public static List<Presenter.JSONs.User> saveUser(User user)
+        public static List<UserJSON> saveUser(UserJSON user)
         {
             if (!Presenter.UsersPresenter.validateUser(user))
             {
@@ -86,7 +86,7 @@ namespace WebBootstrapKnockout
                 HttpContext.Current.Response.End();
                 return null;
             }
-            return Presenter.JSONs.User.map(Presenter.UsersPresenter.staticLoadUsersData());
+            return UserJSON.map(Presenter.UsersPresenter.staticLoadUsersData());
         }
     }
 }

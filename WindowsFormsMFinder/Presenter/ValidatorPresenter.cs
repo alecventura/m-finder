@@ -27,7 +27,7 @@ namespace Presenter
                 return false;
             }
         }
-        public static bool validateUser(JSONs.User user)
+        public static bool validateUser(Model.JSONs.UserJSON user)
         {
             if (String.IsNullOrEmpty(user.firstname) || String.IsNullOrEmpty(user.lastname))
             {
@@ -35,7 +35,7 @@ namespace Presenter
             }
             return true;
         }
-        public static bool validateMachine(JSONs.Machine machine)
+        public static bool validateMachine(Model.JSONs.MachineJSON machine)
         {
             return true;
         }

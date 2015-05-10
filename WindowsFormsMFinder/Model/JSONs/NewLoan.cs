@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Presenter.JSONs
+namespace Model.JSONs
 {
     public class NewLoan
     {
@@ -12,8 +12,8 @@ namespace Presenter.JSONs
             public DateTime loanDate { get; set; }
         }
 
-        public User user { get; set; }
-        public Machine machine { get; set; }
+        public UserJSON user { get; set; }
+        public MachineJSON machine { get; set; }
         public Aditional aditional { get; set; }
     }
 }

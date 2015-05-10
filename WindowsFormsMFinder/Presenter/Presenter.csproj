@@ -47,13 +47,6 @@
     <Compile Include="InterfaceViews\IMaster.cs" />
     <Compile Include="InterfaceViews\IUsers.cs" />
     <Compile Include="InterfaceViews\IRegister.cs" />
-    <Compile Include="JSONs\Item.cs" />
-    <Compile Include="JSONs\Loan.cs" />
-    <Compile Include="JSONs\Machine.cs" />
-    <Compile Include="JSONs\NewLoan.cs" />
-    <Compile Include="JSONs\Request\MachineRequest.cs" />
-    <Compile Include="JSONs\Request\UserRequest.cs" />
-    <Compile Include="JSONs\User.cs" />
     <Compile Include="LoansPresenter.cs" />
     <Compile Include="LoginPresenter.cs" />
     <Compile Include="MachinesPresenter.cs" />

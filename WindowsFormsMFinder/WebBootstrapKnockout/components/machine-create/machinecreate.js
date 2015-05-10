@@ -2,7 +2,8 @@
     function MachineCreateViewModel(params) {
         var newMachine = { 'model': '', 'name': '', 'serialnumber': '', 'aquisitionDate': moment().format('L'), 'warrantyExpirationDate': moment().format('L'), 'id': -1 }
         var self = this;
-        self.isEdit = params.isEdit
+        self.isEdit = params.isEdit;
+        self.search = params.search;
 
         if (params.isEdit == true) {
             self.objModal = ko.observable(ko.mapping.fromJS(params.objModal));
@@ -33,7 +34,7 @@
                 data: '{machine: ' + JSON.stringify(ko.mapping.toJS(self.objModal)) + '}',
                 dataType: 'json',
                 success: function (response) {
-                    self.machines(response.d);
+                    self.search(0, false);
                     self.isVisible(false);
                     $('.modal-backdrop').remove();
                     toastr.success("Machine successfully saved!");

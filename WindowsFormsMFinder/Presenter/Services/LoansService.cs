@@ -13,7 +13,7 @@ namespace Presenter.Services
             return LoanDAO.loadLoans();
         }
 
-        internal static bool staticSaveNewLoan(JSONs.NewLoan loan)
+        internal static bool staticSaveNewLoan(Model.JSONs.NewLoan loan)
         {
             return LoanDAO.saveNewLoan(loan.machine.id, loan.user.id, loan.aditional.loanDate, loan.user.dpto);
         }

@@ -62,6 +62,8 @@
         <script src='<%= ResolveUrl("~/Scripts/knockout-bindings-allowBindings.js") %>'></script>
         <script src='<%= ResolveUrl("~/Scripts/knockout-bindings-stopBinding.js") %>'></script>
         <script src='<%= ResolveUrl("~/Scripts/jquery.bootstrap.wizard.js") %>'></script>
+        <script src='<%= ResolveUrl("~/Scripts/paginator.js") %>'></script>
+        <script src='<%= ResolveUrl("~/Scripts/utils.js") %>'></script>
         <script data-main="Scripts/init/startup" src='<%= ResolveUrl("~/Scripts/require.js") %>'></script>
 
 

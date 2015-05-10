@@ -126,23 +126,23 @@ namespace Model.DAOs
             }
         }
 
-        public static List<User> searchUsers(string firstname, string lastname, string ramal, int dpto)
+        public static List<User> searchUsers(Model.JSONs.Request.UserRequest request)
         {
             MfinderDataContext context = new MfinderDataContext();
             var query = from it in context.Users
                         select it;
 
-            if (!String.IsNullOrEmpty(firstname))
-                query = query.Where(w => w.Firstname.ToLower().Contains(firstname.ToLower()));
+            if (!String.IsNullOrEmpty(request.firstname))
+                query = query.Where(w => w.Firstname.ToLower().Contains(request.firstname.ToLower()));
 
-            if (!String.IsNullOrEmpty(lastname))
-                query = query.Where(w => w.Lastname.ToLower().Contains(lastname.ToLower()));
+            if (!String.IsNullOrEmpty(request.lastname))
+                query = query.Where(w => w.Lastname.ToLower().Contains(request.lastname.ToLower()));
 
-            if (!String.IsNullOrEmpty(ramal))
-                query = query.Where(w => w.Ramal.ToLower().Contains(ramal.ToLower()));
+            if (!String.IsNullOrEmpty(request.ramal))
+                query = query.Where(w => w.Ramal.ToLower().Contains(request.ramal.ToLower()));
 
-            if (dpto != null && dpto > 0)
-                query = query.Where(w => w.DptoFk == dpto);
+            if (request.dpto > 0)
+                query = query.Where(w => w.DptoFk == request.dpto);
 
             var sql = query.ToString();
 

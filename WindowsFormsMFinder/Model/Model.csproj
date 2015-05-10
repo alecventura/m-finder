@@ -53,6 +53,15 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataContext1.lqml</DependentUpon>
     </Compile>
+    <Compile Include="JSONs\IJSONs.cs" />
+    <Compile Include="JSONs\Item.cs" />
+    <Compile Include="JSONs\Loan.cs" />
+    <Compile Include="JSONs\MachineJSON.cs" />
+    <Compile Include="JSONs\NewLoan.cs" />
+    <Compile Include="JSONs\Request\MachineRequest.cs" />
+    <Compile Include="JSONs\Request\Pagination.cs" />
+    <Compile Include="JSONs\Request\UserRequest.cs" />
+    <Compile Include="JSONs\UserJSON.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using MfinderContext;
+using Model.JSONs.Request;
+using Model.JSONs;
 
 namespace Model.DAOs
 {
@@ -84,25 +86,38 @@ namespace Model.DAOs
             }
         }
 
-        public static List<Machine> searchMachines(string model, string name, string serialnumber)
+        public static Pagination searchMachines(Model.JSONs.Request.MachineRequest request)
         {
+            Pagination p = new Pagination();
+
             MfinderDataContext context = new MfinderDataContext();
             var query = from it in context.Machines
                         select it;
 
-            if (!String.IsNullOrEmpty(model))
-                query = query.Where(w => w.Model.ToLower().Contains(model.ToLower()));
+            if (!String.IsNullOrEmpty(request.model))
+                query = query.Where(w => w.Model.ToLower().Contains(request.model.ToLower()));
+            if (!String.IsNullOrEmpty(request.name))
+                query = query.Where(w => w.Name.ToLower().Contains(request.name.ToLower()));
+            if (!String.IsNullOrEmpty(request.serialnumber))
+                query = query.Where(w => w.Serialnumber.ToLower().Contains(request.serialnumber.ToLower()));
 
-            if (!String.IsNullOrEmpty(name))
-                query = query.Where(w => w.Name.ToLower().Contains(name.ToLower()));
+            p.total = query.Count();
 
-            if (!String.IsNullOrEmpty(serialnumber))
-                query = query.Where(w => w.Serialnumber.ToLower().Contains(serialnumber.ToLower()));
-
+            if (request.offset > 0)
+            {
+                query = query.Skip(request.offset);
+                p.offset = request.offset;
+            }
+            if (request.limit > 0)
+                query = query.Take(request.limit);
             var sql = query.ToString();
 
             List<Machine> list = query.ToList();
-            return list;
+
+            List<MachineJSON> jsons = MachineJSON.map(list);
+
+            p.list = jsons.Cast<IJSONs>().ToList();
+            return p;
         }
     }
 }

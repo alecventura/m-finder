@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace Presenter.JSONs
+namespace Model.JSONs
 {
-    public class User
+    public class UserJSON
     {
         public string firstname { get; set; }
         public string lastname { get; set; }
@@ -14,23 +14,23 @@ namespace Presenter.JSONs
         public int id { get; set; }
         public int role { get; set; }
 
-        public static List<User> map(List<MfinderContext.User> users)
+        public static List<UserJSON> map(List<MfinderContext.User> users)
         {
-            List<User> usersJSON = new List<User>();
+            List<UserJSON> usersJSON = new List<UserJSON>();
             foreach (MfinderContext.User user in users)
             {
                 if (!(String.IsNullOrEmpty(user.Firstname) && String.IsNullOrEmpty(user.Lastname) && String.IsNullOrEmpty(user.Ramal)))
                 {
-                    User u = User.map(user);
+                    UserJSON u = UserJSON.map(user);
                     usersJSON.Add(u);
                 }
             }
             return usersJSON;
         }
 
-        public static User map(MfinderContext.User user)
+        public static UserJSON map(MfinderContext.User user)
         {
-            User u = new User();
+            UserJSON u = new UserJSON();
             u.firstname = user.Firstname;
             u.lastname = user.Lastname;
             u.ramal = user.Ramal;
@@ -38,10 +38,7 @@ namespace Presenter.JSONs
             {
                 u.dpto = (int)user.DptoFk;
             }
-            if (user.RoleFk != null)
-            {
-                u.role = (int)user.RoleFk;
-            }
+            u.role = (int)user.RoleFk;
             u.id = user.Id;
             return u;
         }

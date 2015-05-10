@@ -1,4 +1,5 @@
-﻿using Presenter.Utils;
+﻿using Model.JSONs;
+using Presenter.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -43,7 +44,7 @@ namespace Presenter
             return loans;
         }
 
-        public static bool staticSaveNewLoan(JSONs.NewLoan loan)
+        public static bool staticSaveNewLoan(NewLoan loan)
         {
             bool success = Services.LoansService.staticSaveNewLoan(loan);
             return success;
