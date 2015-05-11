@@ -11,7 +11,7 @@ namespace Model.JSONs.Request
         public string model { get; set; }
         public string name { get; set; }
         public string serialnumber { get; set; }
-        [DefaultValue(0)]
+        [DefaultValue(10)]
         public int limit { get; set; }
         [DefaultValue(0)]
         public int offset { get; set; }

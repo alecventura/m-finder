@@ -1,4 +1,6 @@
 ﻿using MfinderContext;
+using Model.JSONs;
+using Model.JSONs.Request;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -126,28 +128,40 @@ namespace Model.DAOs
             }
         }
 
-        public static List<User> searchUsers(Model.JSONs.Request.UserRequest request)
+        public static Pagination searchUsers(Model.JSONs.Request.UserRequest request)
         {
+            Pagination p = new Pagination();
+
             MfinderDataContext context = new MfinderDataContext();
             var query = from it in context.Users
                         select it;
 
             if (!String.IsNullOrEmpty(request.firstname))
                 query = query.Where(w => w.Firstname.ToLower().Contains(request.firstname.ToLower()));
-
             if (!String.IsNullOrEmpty(request.lastname))
                 query = query.Where(w => w.Lastname.ToLower().Contains(request.lastname.ToLower()));
-
             if (!String.IsNullOrEmpty(request.ramal))
                 query = query.Where(w => w.Ramal.ToLower().Contains(request.ramal.ToLower()));
-
             if (request.dpto > 0)
                 query = query.Where(w => w.DptoFk == request.dpto);
 
+            p.total = query.Count();
+
+            if (request.offset > 0)
+            {
+                query = query.Skip(request.offset);
+                p.offset = request.offset;
+            }
+            if (request.limit > 0)
+                query = query.Take(request.limit);
             var sql = query.ToString();
 
             List<User> list = query.ToList();
-            return list;
+            List<UserJSON> jsons = UserJSON.map(list);
+
+            p.list = jsons.Cast<IJSONs>().ToList();
+            return p;
         }
+
     }
 }

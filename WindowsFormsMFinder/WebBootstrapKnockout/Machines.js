@@ -13,7 +13,6 @@ window.jqReady = function () {
         self.request = ko.observable(ko.mapping.fromJS(request))
         self.isVisible = ko.observable(false);
         self.objModal = ko.observable();
-        self.limit = ko.observable(10);
 
         self.setsLabels = function (array) {
             _.each(array, function (item) {
@@ -58,11 +57,9 @@ window.jqReady = function () {
         self.findMachines = (function () {
             return function (offset, showmessage) {
                 self.request().offset(offset);
-                return utils.postJSON("Machines.aspx/searchMachine", self.mountRequest(), function (data) {
+                return utils.postJSON("Machines.aspx/searchMachines", self.mountRequest(), function (data) {
                     data = data.d;
-                    data.limit = self.limit();
                     self.request().offset(data.offset);
-                    self.request().limit(self.limit());
                     if (data.total === 0) {
                         if (showmessage) {
                             toastr.success("No machine found!");
@@ -85,7 +82,7 @@ window.jqReady = function () {
                 pagerOpts = {
                     div: $('#pager'),
                     offset: data.offset,
-                    limit: data.limit,
+                    limit: self.request().limit(),
                     total: data.total,
                     onClick: function (e, page) {
                         e.preventDefault();

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Model.DAOs;
+using Model.JSONs.Request;
 
 namespace Presenter.Services
 {
@@ -21,6 +22,11 @@ namespace Presenter.Services
         internal static bool returnLoan(int id)
         {
             return LoanDAO.returnLoan(id);
+        }
+
+        internal static Pagination searchLoans(LoanRequest request)
+        {
+            return Model.DAOs.LoanDAO.searchLoans(request);
         }
     }
 }

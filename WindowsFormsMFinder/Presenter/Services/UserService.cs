@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 
 using Model.DAOs;
+using Model.JSONs.Request;
 
 namespace Presenter.Services
 {
@@ -41,7 +42,7 @@ namespace Presenter.Services
             return UserDAO.deleteUser(id);
         }
 
-        internal static List<MfinderContext.User> searchUsers(Model.JSONs.Request.UserRequest request)
+        internal static Pagination searchUsers(Model.JSONs.Request.UserRequest request)
         {
             return Model.DAOs.UserDAO.searchUsers(request);
         }

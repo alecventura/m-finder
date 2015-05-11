@@ -1,4 +1,5 @@
 ﻿using Model.JSONs;
+using Model.JSONs.Request;
 using Presenter.Utils;
 using System;
 using System.Collections.Generic;
@@ -14,15 +15,8 @@ namespace Presenter
         public LoansPresenter(Presenter.InterfaceViews.ILoans view)
         {
             this.view = view;
-            loadLoans();
             view.fillDptoList(Services.DptoService.loadAll());
             view.fillRoleList(filterRoles(Services.RoleService.loadAll()));
-        }
-
-        private void loadLoans()
-        {
-            List<Model.DAOs.LoanDAO.Loan> loans = Services.LoansService.loadLoans();
-            view.fillLoans(loans);
         }
 
         private List<MfinderContext.Role> filterRoles(List<MfinderContext.Role> list)
@@ -54,6 +48,12 @@ namespace Presenter
         {
             bool success = Services.LoansService.returnLoan(id);
             return success;
+        }
+
+        public static Pagination staticSearchLoans(LoanRequest request)
+        {
+            Pagination loans = Services.LoansService.searchLoans(request);
+            return loans;
         }
     }
 }

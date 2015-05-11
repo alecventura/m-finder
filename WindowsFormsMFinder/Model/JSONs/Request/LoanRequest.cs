@@ -6,12 +6,8 @@ using System.Text;
 
 namespace Model.JSONs.Request
 {
-    public class UserRequest
+    public class LoanRequest
     {
-        public string firstname { get; set; }
-        public string lastname { get; set; }
-        public string ramal { get; set; }
-        public int dpto { get; set; }
         [DefaultValue(10)]
         public int limit { get; set; }
         [DefaultValue(0)]

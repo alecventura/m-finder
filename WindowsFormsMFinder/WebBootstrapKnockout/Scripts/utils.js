@@ -9,7 +9,13 @@ utils.postJSON = function (path, data, callback) {
         data: data,
         success: callback,
         contentType: 'application/json',
-        dataType: 'json'
+        dataType: 'json',
+        failure: function (response) {
+            alert(response);
+        },
+        error: function (response) {
+            alert(response);
+        }
     });
 };
 
@@ -21,7 +27,13 @@ utils.postBackgroundJSON = function (path, data, callback) {
         success: callback,
         contentType: 'application/json',
         dataType: 'json',
-        showOverlay: false
+        showOverlay: false,
+        failure: function (response) {
+            alert(response);
+        },
+        error: function (response) {
+            alert(response);
+        }
     });
 };
 
@@ -33,7 +45,13 @@ utils.withFormNamePostJSON = function (path, data, form, callback) {
         success: callback,
         contentType: 'application/json',
         dataType: 'json',
-        form: form
+        form: form,
+        failure: function (response) {
+            alert(response);
+        },
+        error: function (response) {
+            alert(response);
+        }
     });
 };
 
@@ -43,7 +61,13 @@ utils.onlyPostJSON = function (path, data, callback) {
         url: path,
         data: data,
         success: callback,
-        contentType: 'application/json'
+        contentType: 'application/json',
+        failure: function (response) {
+            alert(response);
+        },
+        error: function (response) {
+            alert(response);
+        }
     });
 };
 
@@ -54,7 +78,13 @@ utils.getJSON = function (path, data, callback) {
         data: data,
         success: callback,
         contentType: 'application/json',
-        dataType: 'json'
+        dataType: 'json',
+        failure: function (response) {
+            alert(response);
+        },
+        error: function (response) {
+            alert(response);
+        }
     });
 };
 

@@ -124,6 +124,13 @@
     <Content Include="Scripts\moment\moment.min.js" />
     <Content Include="Scripts\npm.js" />
     <Content Include="Scripts\paginator.js" />
+    <Content Include="Scripts\pickadate\default.css" />
+    <Content Include="Scripts\pickadate\default.date.css" />
+    <Content Include="Scripts\pickadate\default.time.css" />
+    <Content Include="Scripts\pickadate\legacy.js" />
+    <Content Include="Scripts\pickadate\picker.date.js" />
+    <Content Include="Scripts\pickadate\picker.js" />
+    <Content Include="Scripts\pickadate\picker.time.js" />
     <Content Include="Scripts\r.js" />
     <Content Include="Scripts\require.js" />
     <Content Include="Scripts\text.js" />
@@ -203,9 +210,7 @@
       <Name>Presenter</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Scripts\pickadate\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

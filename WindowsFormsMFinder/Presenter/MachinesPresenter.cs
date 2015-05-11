@@ -33,13 +33,13 @@ namespace Presenter
             return success;
         }
 
-        public static List<MachineJSON> staticSearchMachinesData(MachineRequest request)
-        {
-            Pagination p = Services.MachineService.searchMachines(request);
-            return p.list.Cast<MachineJSON>().ToList();
-        }
+        //public static List<MachineJSON> searchMachinesData(MachineRequest request)
+        //{
+        //    Pagination p = Services.MachineService.searchMachines(request);
+        //    return p.list.Cast<MachineJSON>().ToList();
+        //}
 
-        public static Pagination searchMachine(MachineRequest request)
+        public static Pagination staticSearchMachines(MachineRequest request)
         {
             return Services.MachineService.searchMachines(request);
         }

@@ -2,16 +2,15 @@
 
 <asp:Content ContentPlaceHolderID="content" runat="server">
     <script src='<%= ResolveUrl("~/Users.js") %>'></script>
-    <script type="text/javascript">
-        var usersJSON = <%= new  System.Web.Script.Serialization.JavaScriptSerializer().Serialize(usersJSON) %>;
+    <script type="text/javascript">        
         var dptos = <%= new  System.Web.Script.Serialization.JavaScriptSerializer().Serialize(dptos) %>;
         var roles = <%= new  System.Web.Script.Serialization.JavaScriptSerializer().Serialize(roles) %>;
     </script>
-    <div class="row" id="users">
+    <div class="row" id="users" style="margin: 0">
         <div class="col-xs-10 col-xs-offset-1" style="margin-top: 10px;">
-            <div data-bind='component: {name: "user-create", params:{dptos: $data.dptos, roles: $data.roles, objModal: null, isVisible: $data.isVisible, users: $data.users, isEdit: false}}'></div>
+            <div data-bind='component: {name: "user-create", params:{dptos: $data.dptos, roles: $data.roles, objModal: null, isVisible: $data.isVisible, users: $data.users, isEdit: false, search: $data.findUsers}}'></div>
         </div>
-        <div class="col-xs-10 col-xs-offset-1" style="margin-top: 100px;">
+        <div class="col-xs-10 col-xs-offset-1">
             <h2 style="text-align: center;">USERS</h2>
 
             <table id="loansTable" class="table">
@@ -39,7 +38,7 @@
                         <td data-bind="text: $data.dptoName"></td>
                         <td data-bind="text: $data.roleName"></td>
                         <td>
-                            <div data-bind='component: {name: "user-create", params:{dptos: $root.dptos, roles: $data.roles, objModal: $data, isVisible: null, users: $root.users, isEdit: true}}'></div>
+                            <div data-bind='component: {name: "user-create", params:{dptos: $root.dptos, roles: $data.roles, objModal: $data, isVisible: null, users: $root.users, isEdit: true, search: $data.findUsers}}'></div>
                         </td>
                         <td>
                             <a href="#" data-bind="click: $root.onRemoveClicked"><i class="glyphicon glyphicon-remove-circle"></i></a>
@@ -47,6 +46,7 @@
                     </tr>
                 </tbody>
             </table>
+            <div id="pager" class="pager"></div>
         </div>
     </div>
 </asp:Content>

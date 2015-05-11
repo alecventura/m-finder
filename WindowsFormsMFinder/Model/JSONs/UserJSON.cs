@@ -5,7 +5,7 @@ using System.Web;
 
 namespace Model.JSONs
 {
-    public class UserJSON
+    public class UserJSON : IJSONs
     {
         public string firstname { get; set; }
         public string lastname { get; set; }

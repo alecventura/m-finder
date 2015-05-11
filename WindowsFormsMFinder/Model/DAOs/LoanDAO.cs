@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using MfinderContext;
 using System.Diagnostics;
+using Model.JSONs.Request;
+using Model.JSONs;
 
 namespace Model.DAOs
 {
@@ -71,6 +73,35 @@ namespace Model.DAOs
                 Debug.WriteLine(e);
                 return false;
             }
+        }
+
+        public static Pagination searchLoans(JSONs.Request.LoanRequest request)
+        {
+            Pagination p = new Pagination();
+
+            MfinderDataContext context = new MfinderDataContext();
+            var query = from loan in context.Locations
+                        join user in context.Users on loan.UserFk equals user.Id
+                        join dpto in context.Dptos on loan.DptoFk equals dpto.Id
+                        join machine in context.Machines on loan.MachineFk equals machine.Id
+                        select new Loan { user = user, dpto = dpto, machine = machine, id = loan.Id };
+
+            p.total = query.Count();
+
+            if (request.offset > 0)
+            {
+                query = query.Skip(request.offset);
+                p.offset = request.offset;
+            }
+            if (request.limit > 0)
+                query = query.Take(request.limit);
+            var sql = query.ToString();
+
+            List<Loan> list = query.ToList();
+            List<LoanJSON> jsons = LoanJSON.map(list);
+
+            p.list = jsons.Cast<IJSONs>().ToList();
+            return p;
         }
     }
 }

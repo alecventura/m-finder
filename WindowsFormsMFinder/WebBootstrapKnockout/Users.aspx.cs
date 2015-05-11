@@ -8,23 +8,18 @@ using System.Web.Services;
 using Presenter.InterfaceViews;
 using Model.JSONs;
 using System.Web.Script.Services;
+using Model.JSONs.Request;
 
 namespace WebBootstrapKnockout
 {
     public partial class Users : System.Web.UI.Page, Presenter.InterfaceViews.IUsers
     {
         Presenter.UsersPresenter presenter;
-        public List<UserJSON> usersJSON;
         public List<Item> dptos;
         public List<Item> roles;
         protected void Page_Load(object sender, EventArgs e)
         {
             presenter = new Presenter.UsersPresenter(this);
-        }
-
-        public void fillUsers(List<MfinderContext.User> users)
-        {
-            this.usersJSON = UserJSON.map(users);
         }
 
         public bool showMessage(string message)
@@ -87,6 +82,14 @@ namespace WebBootstrapKnockout
                 return null;
             }
             return UserJSON.map(Presenter.UsersPresenter.staticLoadUsersData());
+        }
+
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public static Pagination searchUsers(UserRequest request)
+        {
+            Pagination pagination = Presenter.UsersPresenter.staticSearchUsers(request);
+            return pagination;
         }
     }
 }

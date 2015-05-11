@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Presenter.Utils;
 using Presenter.Services;
+using Model.JSONs.Request;
 
 namespace Presenter
 {
@@ -15,13 +16,6 @@ namespace Presenter
             this.view = view;
             view.fillDptoList(Services.DptoService.loadAll());
             view.fillRoleList(filterRoles(Services.RoleService.loadAll()));
-            loadUsersData();
-        }
-
-        public void loadUsersData()
-        {
-            List<MfinderContext.User> users = Services.UserService.loadUsersData();
-            view.fillUsers(users);
         }
 
         public static List<MfinderContext.User> staticLoadUsersData()
@@ -63,9 +57,9 @@ namespace Presenter
             return success;
         }
 
-        public static List<MfinderContext.User> staticSearchUsers(Model.JSONs.Request.UserRequest userRequest)
+        public static Pagination staticSearchUsers(Model.JSONs.Request.UserRequest userRequest)
         {
-            List<MfinderContext.User> users = Services.UserService.searchUsers(userRequest);
+            Pagination users = Services.UserService.searchUsers(userRequest);
             return users;
         }
     }

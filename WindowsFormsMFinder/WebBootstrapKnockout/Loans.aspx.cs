@@ -13,7 +13,6 @@ namespace WebBootstrapKnockout
 {
     public partial class Loans : System.Web.UI.Page, Presenter.InterfaceViews.ILoans
     {
-        public List<Loan> loansJSON;
         public List<Item> dptos;
         public List<Item> roles;
         Presenter.LoansPresenter presenter;
@@ -42,49 +41,54 @@ namespace WebBootstrapKnockout
             this.roles = jsons;
         }
 
-        public void fillLoans(List<Model.DAOs.LoanDAO.Loan> loans)
-        {
-            loansJSON = Loan.map(loans);
-        }
-
         public bool showMessage(string message)
         {
             throw new NotImplementedException();
         }
 
-        [WebMethod]
-        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public static List<MachineJSON> searchMachines(MachineRequest machineRequest)
-        {
-            return Presenter.MachinesPresenter.staticSearchMachinesData(machineRequest);
-        }
+        //[WebMethod]
+        //[ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        //public static Pagination searchMachines(MachineRequest machineRequest)
+        //{
+        //    return Presenter.MachinesPresenter.staticSearchMachines(machineRequest);
+        //}
+
+        //[WebMethod]
+        //[ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        //public static Pagination searchUsers(UserRequest userRequest)
+        //{
+        //    return Presenter.UsersPresenter.staticSearchUsers(userRequest);
+        //}
 
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public static List<UserJSON> searchUsers(UserRequest userRequest)
+        public static Pagination searchLoans(LoanRequest request)
         {
-            return UserJSON.map(Presenter.UsersPresenter.staticSearchUsers(userRequest));
+            return Presenter.LoansPresenter.staticSearchLoans(request);
         }
 
         [WebMethod]
+        [GenerateScriptType(typeof(UserJSON))]
+        [GenerateScriptType(typeof(MachineJSON))]
+        [GenerateScriptType(typeof(Model.JSONs.NewLoan.AditionalJSON))]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public static List<Loan> saveNewLoan(NewLoan loan)
+        public static List<LoanJSON> saveNewLoan(NewLoan loan)
         {
             Presenter.LoansPresenter.staticSaveNewLoan(loan);
 
             List<Model.DAOs.LoanDAO.Loan> loans = Presenter.LoansPresenter.staticLoadLoans();
-            return Loan.map(loans);
+            return LoanJSON.map(loans);
 
         }
 
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public static List<Loan> returnLoan(int id)
+        public static List<LoanJSON> returnLoan(int id)
         {
             Presenter.LoansPresenter.returnLoan(id);
 
             List<Model.DAOs.LoanDAO.Loan> loans = Presenter.LoansPresenter.staticLoadLoans();
-            return Loan.map(loans);
+            return LoanJSON.map(loans);
 
         }
 

@@ -74,10 +74,10 @@ namespace WebBootstrapKnockout
 
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public static Pagination searchMachine(MachineRequest request)
+        public static Pagination searchMachines(MachineRequest request)
         {
 
-            Pagination pagination = Presenter.MachinesPresenter.searchMachine(request);
+            Pagination pagination = Presenter.MachinesPresenter.staticSearchMachines(request);
             return pagination;
         }
     }

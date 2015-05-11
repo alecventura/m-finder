@@ -1,15 +1,17 @@
 ﻿var newUser = { 'firstname': '', 'lastname': '', 'ramal': '', 'dpto': -1, 'role': -1, 'id': -1 }
+var request = { 'limit': 10, 'offset': 0 }
 
 window.jqReady = function () {
 
-    function UsersViewModel(usersJSON, dptos, roles) {
+    function UsersViewModel(dptos, roles) {
         var self = this;
         self.dptos = ko.observableArray(dptos)
         self.roles = ko.observableArray(roles)
-        self.users = ko.observableArray(usersJSON);
+        self.users = ko.observableArray([]);
         self.users.subscribe(function (array) {
             self.setUsersLabels(array);
         });
+        self.request = ko.observable(ko.mapping.fromJS(request))
         self.isVisible = ko.observable(false);
 
         self.setUsersLabels = function (array) {
@@ -52,6 +54,53 @@ window.jqReady = function () {
                 }
             });
         }
+
+        self.mountRequest = function () {
+            return JSON.stringify({ 'request': ko.mapping.toJS(self.request) });
+        }
+
+        self.findUsers = (function () {
+            return function (offset, showmessage) {
+                self.request().offset(offset);
+                return utils.postJSON("Users.aspx/searchUsers", self.mountRequest(), function (data) {
+                    data = data.d;
+                    self.request().offset(data.offset);
+                    if (data.total === 0) {
+                        if (showmessage) {
+                            toastr.success("No user found!");
+                        }
+                        self.users([]);
+                    } else {
+                        if (showmessage) {
+                            toastr.success("Successfully found" + data.total + " users!");
+                        }
+                        self.users(data.list);
+                        self.generatePager(data, self);
+                    }
+                });
+            };
+        })();
+
+        self.generatePager = (function (self) {
+            return function (data, self) {
+                var pagerOpts;
+                pagerOpts = {
+                    div: $('#pager'),
+                    offset: data.offset,
+                    limit: self.request().limit(),
+                    total: data.total,
+                    onClick: function (e, page) {
+                        e.preventDefault();
+                        if (page.enabled) {
+                            return self.findUsers(page.offset, false);
+                        }
+                    }
+                };
+                return pager.gen(pagerOpts);
+            };
+        })();
+
+        self.findUsers(0, false);
     }
 
     $(document).ready(function () {
@@ -60,7 +109,7 @@ window.jqReady = function () {
 
             template: { require: 'Scripts/text!components/user-create/usercreate.html' }
         });
-        ko.applyBindings(new UsersViewModel(usersJSON, dptos, roles), document.getElementById('users'));
+        ko.applyBindings(new UsersViewModel(dptos, roles), document.getElementById('users'));
 
         $('.modal').on('show.bs.modal', function () {
             $(this).find('.modal-body').css({

@@ -3,6 +3,7 @@
         var newUser = { 'firstname': '', 'lastname': '', 'ramal': '', 'dpto': -1, 'role': -1, 'id': -1 }
         var self = this;
         self.isEdit = params.isEdit
+        self.search = params.search;
 
         if (params.isEdit == true) {
             self.objModal = ko.observable(ko.mapping.fromJS(params.objModal));
@@ -34,7 +35,7 @@
                 data: '{user: ' + JSON.stringify(ko.mapping.toJS(self.objModal)) + '}',
                 dataType: 'json',
                 success: function (response) {
-                    self.users(response.d);
+                    self.search(0, false);
                     self.isVisible(false);
                     $('.modal-backdrop').remove();
                     toastr.success("User successfully saved!");

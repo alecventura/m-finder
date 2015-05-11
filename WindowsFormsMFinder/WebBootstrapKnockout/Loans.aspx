@@ -3,57 +3,60 @@
 
 
 <asp:Content ContentPlaceHolderID="content" runat="server">
-    <div class="row" id="loans">
+    <div class="row" id="loans" style="margin: 0">
         <div class="col-xs-10 col-xs-offset-1" style="margin-top: 10px;">
             <button type="button" class="btn btn-primary" data-bind="toggle: isVisible">Make a Loan</button>
         </div>
 
-        <div class="col-xs-10 col-xs-offset-1" style="margin-top: 100px;">
+        <div class="col-xs-10 col-xs-offset-1">
             <h2 style="text-align: center;">LOANS</h2>
 
             <div data-bind="visible:$root.loans() == null || $root.loans().length == 0 ">
                 <p>You have no pending loan</p>
             </div>
 
-            <table id="loansTable" class="table" data-bind="visible: $root.loans() != null && $root.loans().length > 0">
-                <thead>
-                    <tr>
-                        <th>Machine Name
-                        </th>
-                        <th>Serial Number
-                        </th>
-                        <th>Model
-                        </th>
-                        <th>Loan Date
-                        </th>
-                        <th>User Name
-                        </th>
-                        <th>Dpto
-                        </th>
-                        <th style="text-align: center;">Return
-                        </th>
+            <div data-bind="visible: $root.loans() != null && $root.loans().length > 0">
+                <table id="loansTable" class="table">
+                    <thead>
+                        <tr>
+                            <th>Machine Name
+                            </th>
+                            <th>Serial Number
+                            </th>
+                            <th>Model
+                            </th>
+                            <th>Loan Date
+                            </th>
+                            <th>User Name
+                            </th>
+                            <th>Dpto
+                            </th>
+                            <th style="text-align: center;">Return
+                            </th>
 
-                    </tr>
-                </thead>
-                <tbody data-bind="foreach: loans">
-                    <tr>
-                        <td data-bind="text: $data.machineName"></td>
-                        <td data-bind="text: $data.machineSerialNumber"></td>
-                        <td data-bind="text: $data.machineModel"></td>
-                        <td data-bind="text: $data.loanDateText"></td>
-                        <td>
-                            <!-- ko text: userFirstname -->
-                            <!--/ko-->
-                            <!-- ko text: userLastName -->
-                            <!--/ko-->
-                        </td>
-                        <td data-bind="text: $data.dptoText"></td>
-                        <td style="text-align: center;">
-                            <a href="#" data-bind="click: $root.onReturnLoanClicked"><i class="glyphicon glyphicon-download-alt"></i></a>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+                        </tr>
+                    </thead>
+                    <tbody data-bind="foreach: loans">
+                        <tr>
+                            <td data-bind="text: $data.machineName"></td>
+                            <td data-bind="text: $data.machineSerialNumber"></td>
+                            <td data-bind="text: $data.machineModel"></td>
+                            <td data-bind="text: $data.loanDateText"></td>
+                            <td>
+                                <!-- ko text: userFirstname -->
+                                <!--/ko-->
+                                <!-- ko text: userLastName -->
+                                <!--/ko-->
+                            </td>
+                            <td data-bind="text: $data.dptoText"></td>
+                            <td style="text-align: center;">
+                                <a href="#" data-bind="click: $root.onReturnLoanClicked"><i class="glyphicon glyphicon-download-alt"></i></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div id="pager-loans" class="pager"></div>
+            </div>
         </div>
 
         <div class="modal large-modal" data-bind="isVisibleBig: $data.isVisible" data-backdrop="static" data-keyboard="false">
@@ -142,6 +145,7 @@
                                                 </tr>
                                             </tbody>
                                         </table>
+                                        <div id="pager-machines" class="pager"></div>
                                     </div>
                                 </div>
                                 <%--User Tab--%>
@@ -213,6 +217,7 @@
                                                 </tr>
                                             </tbody>
                                         </table>
+                                        <div id="pager-users" class="pager"></div>
                                     </div>
                                 </div>
                                 <%--Aditional Info Tab--%>
@@ -243,7 +248,6 @@
 
 
     <script type="text/javascript">
-        var loansJSON = <%= new  System.Web.Script.Serialization.JavaScriptSerializer().Serialize(loansJSON) %>;
         var dptos = <%= new  System.Web.Script.Serialization.JavaScriptSerializer().Serialize(dptos) %>;
         var roles = <%= new  System.Web.Script.Serialization.JavaScriptSerializer().Serialize(roles) %>;
     </script>

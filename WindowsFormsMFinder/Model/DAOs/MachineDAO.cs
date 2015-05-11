@@ -113,7 +113,6 @@ namespace Model.DAOs
             var sql = query.ToString();
 
             List<Machine> list = query.ToList();
-
             List<MachineJSON> jsons = MachineJSON.map(list);
 
             p.list = jsons.Cast<IJSONs>().ToList();
