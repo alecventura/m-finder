@@ -2,3 +2,9 @@ C:\Users\Vulcan\Documents\GitHub\m-finder\WindowsFormsMFinder\Model\bin\Debug\Mo
 C:\Users\Vulcan\Documents\GitHub\m-finder\WindowsFormsMFinder\Model\bin\Debug\Model.pdb
 C:\Users\Vulcan\Documents\GitHub\m-finder\WindowsFormsMFinder\Model\obj\Debug\Model.dll
 C:\Users\Vulcan\Documents\GitHub\m-finder\WindowsFormsMFinder\Model\obj\Debug\Model.pdb
+C:\Users\Vulcan\Documents\GitHub\m-finder\WindowsFormsMFinder\Model\bin\Debug\DataContext1.Designer.cs
+C:\Users\Vulcan\Documents\GitHub\m-finder\WindowsFormsMFinder\Model\bin\Debug\DataContext1.Diagram1.view
+C:\Users\Vulcan\Documents\GitHub\m-finder\WindowsFormsMFinder\Model\bin\Debug\DataContext1.edps
+C:\Users\Vulcan\Documents\GitHub\m-finder\WindowsFormsMFinder\Model\bin\Debug\DataContext1.lqml
+C:\Users\Vulcan\Documents\GitHub\m-finder\WindowsFormsMFinder\Model\bin\Debug\Model.dll.config
+C:\Users\Vulcan\Documents\GitHub\m-finder\WindowsFormsMFinder\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
