@@ -1,0 +1,7 @@
+C:\Users\Vulcan\Documents\GitHub\m-finder\WindowsFormsMFinder\Model\obj\Debug\Fakes\dd\b\Devart.Data.5.0.1171.0.Fakes.xml
+C:\Users\Vulcan\Documents\GitHub\m-finder\WindowsFormsMFinder\Model\obj\Debug\Fakes\dd\b\Devart.Data.5.0.1171.0.Fakes.dll
+C:\Users\Vulcan\Documents\GitHub\m-finder\WindowsFormsMFinder\Model\obj\Debug\Fakes\dd\b\Devart.Data.5.0.1171.0.Fakes.pdb
+C:\Users\Vulcan\Documents\GitHub\m-finder\WindowsFormsMFinder\Model\obj\Debug\Fakes\dd\b\Microsoft.QualityTools.Testing.Fakes.dll
+C:\Users\Vulcan\Documents\GitHub\m-finder\WindowsFormsMFinder\Model\obj\Debug\Fakes\dd\o\f.csprojResolveAssemblyReference.cache
+C:\Users\Vulcan\Documents\GitHub\m-finder\WindowsFormsMFinder\Model\obj\Debug\Fakes\dd\o\Devart.Data.5.0.1171.0.Fakes.dll
+C:\Users\Vulcan\Documents\GitHub\m-finder\WindowsFormsMFinder\Model\obj\Debug\Fakes\dd\o\Devart.Data.5.0.1171.0.Fakes.pdb
