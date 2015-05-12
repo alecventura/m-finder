@@ -28,7 +28,6 @@ C:\Users\Vulcan\Documents\GitHub\m-finder\WindowsFormsMFinder\Model\obj\Debug\Fa
 C:\Users\Vulcan\Documents\GitHub\m-finder\WindowsFormsMFinder\Model\obj\Debug\Fakes\dd\o\f.csproj.FileListAbsolute.txt
 C:\Users\Vulcan\Documents\GitHub\m-finder\WindowsFormsMFinder\Model\obj\Debug\Fakes\dd\o\f.csprojResolveAssemblyReference.cache
 C:\Users\Vulcan\Documents\GitHub\m-finder\WindowsFormsMFinder\Model\obj\Debug\Fakes\fakes.args
-C:\Users\Vulcan\Documents\GitHub\m-finder\WindowsFormsMFinder\Model\bin\Debug\Devart.Data.dll
 C:\Users\Vulcan\Documents\GitHub\m-finder\WindowsFormsMFinder\Model\bin\Debug\System.Data.DataSetExtensions.dll
 C:\Users\Vulcan\Documents\GitHub\m-finder\WindowsFormsMFinder\Model\bin\Debug\System.dll
 C:\Users\Vulcan\Documents\GitHub\m-finder\WindowsFormsMFinder\Model\bin\Debug\System.Xml.dll

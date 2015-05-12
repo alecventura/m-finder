@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <ReferencePath>C:\Users\Vulcan\Documents\GitHub\m-finder\WindowsFormsMFinder\Assemblies\</ReferencePath>
+    <ReferencePath>C:\Users\Vulcan\Documents\GitHub\m-finder\WindowsFormsMFinder\Assemblies\;C:\Users\Vulcan\Documents\GitHub\m-finder\WindowsFormsMFinder\Assemblies\EntityDeveloper\;C:\Users\Vulcan\Documents\GitHub\m-finder\WindowsFormsMFinder\Assemblies\EntityDeveloper\NET4\;C:\Users\Vulcan\Documents\GitHub\m-finder\WindowsFormsMFinder\Assemblies\dotConnect\;C:\Users\Vulcan\Documents\GitHub\m-finder\WindowsFormsMFinder\Assemblies\dotConnect\5.0\;C:\Users\Vulcan\Documents\GitHub\m-finder\WindowsFormsMFinder\Assemblies\dotConnect\5.0\Net2\;C:\Users\Vulcan\Documents\GitHub\m-finder\WindowsFormsMFinder\Assemblies\dotConnect\5.0\Net2\Common\;C:\Users\Vulcan\Documents\GitHub\m-finder\WindowsFormsMFinder\Assemblies\dotConnect\5.0\Net2\Common\NET4\</ReferencePath>
   </PropertyGroup>
 </Project>
