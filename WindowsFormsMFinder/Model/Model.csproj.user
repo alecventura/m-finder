@@ -3,30 +3,30 @@
   <PropertyGroup>
     <!--<ReferencePath>C:\Users\Vulcan\Documents\GitHub\m-finder\WindowsFormsMFinder\Assemblies\;C:\Users\Vulcan\Documents\GitHub\m-finder\WindowsFormsMFinder\Assemblies\EntityDeveloper\;C:\Users\Vulcan\Documents\GitHub\m-finder\WindowsFormsMFinder\Assemblies\EntityDeveloper\NET4\;C:\Users\Vulcan\Documents\GitHub\m-finder\WindowsFormsMFinder\Assemblies\dotConnect\;C:\Users\Vulcan\Documents\GitHub\m-finder\WindowsFormsMFinder\Assemblies\dotConnect\5.0\;C:\Users\Vulcan\Documents\GitHub\m-finder\WindowsFormsMFinder\Assemblies\dotConnect\5.0\Net2\;C:\Users\Vulcan\Documents\GitHub\m-finder\WindowsFormsMFinder\Assemblies\dotConnect\5.0\Net2\Common\;C:\Users\Vulcan\Documents\GitHub\m-finder\WindowsFormsMFinder\Assemblies\dotConnect\5.0\Net2\Common\NET4\</ReferencePath>-->
   </PropertyGroup>
-  <ItemGroup>
+  <!--<ItemGroup>
     <Reference Include="Devart.Data, Version=5.0.1171.0">
       <SpecificVersion>True</SpecificVersion>
       <HintPath>
-        ..\Assemblies\dotConnect\5.0\Net2\Common\Devart.Data.dll
+        \Assemblies\dotConnect\5.0\Net2\Common\Devart.Data.dll
       </HintPath>
     </Reference>
     <Reference Include="Devart.Data.Linq, Version=4.4.717.0">
       <SpecificVersion>True</SpecificVersion>
       <HintPath>
-        ..\Assemblies\dotConnect\5.0\Net2\Common\Devart.Data.Linq.dll
+        \Assemblies\dotConnect\5.0\Net2\Common\Devart.Data.Linq.dll
       </HintPath>
     </Reference>
     <Reference Include="Devart.Data.Mysql, Version=8.3.379.0">
       <SpecificVersion>True</SpecificVersion>
       <HintPath>
-        ..\Assemblies\dotConnect\5.0\Net2\Common\Devart.Data.MySql.dll
+        \Assemblies\dotConnect\5.0\Net2\Common\Devart.Data.MySql.dll
       </HintPath>
     </Reference>
     <Reference Include="Devart.Data.Mysql.Linq, Version=4.4.717.0">
       <SpecificVersion>True</SpecificVersion>
       <HintPath>
-        ..\Assemblies\dotConnect\5.0\Net2\Common\Devart.Data.MySql.Linq.dll
+        \Assemblies\dotConnect\5.0\Net2\Common\Devart.Data.MySql.Linq.dll
       </HintPath>
     </Reference>
-  </ItemGroup>
+  </ItemGroup>-->
 </Project>

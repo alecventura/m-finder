@@ -30,8 +30,21 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.QualityTools.Testing.Fakes, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+    <Reference Include="Devart.Data, Version=5.0.1171.0, Culture=neutral, PublicKeyToken=09af7300eec23701, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
+      <HintPath>Assemblies\dotConnect\5.0\Net2\Common\Devart.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Devart.Data.Linq, Version=4.4.717.0, Culture=neutral, PublicKeyToken=09af7300eec23701, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Assemblies\dotConnect\5.0\Net2\Common\Devart.Data.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="Devart.Data.MySql, Version=8.3.379.0, Culture=neutral, PublicKeyToken=09af7300eec23701, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Assemblies\dotConnect\5.0\Net2\Common\Devart.Data.MySql.dll</HintPath>
+    </Reference>
+    <Reference Include="Devart.Data.MySql.Linq, Version=4.4.717.0, Culture=neutral, PublicKeyToken=09af7300eec23701, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Assemblies\dotConnect\5.0\Net2\Common\Devart.Data.MySql.Linq.dll</HintPath>
     </Reference>
     <Reference Include="System">
       <Private>True</Private>
@@ -101,7 +114,6 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model1.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Fakes Include="Fakes\Devart.Data.fakes" />
     <None Include="Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>
     </None>

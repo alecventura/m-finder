@@ -5,11 +5,10 @@ C:\Users\Vulcan\Documents\GitHub\m-finder\WindowsFormsMFinder\Model\bin\Debug\Da
 C:\Users\Vulcan\Documents\GitHub\m-finder\WindowsFormsMFinder\Model\bin\Debug\Model.dll.config
 C:\Users\Vulcan\Documents\GitHub\m-finder\WindowsFormsMFinder\Model\bin\Debug\Model.dll
 C:\Users\Vulcan\Documents\GitHub\m-finder\WindowsFormsMFinder\Model\bin\Debug\Model.pdb
-C:\Users\Vulcan\Documents\GitHub\m-finder\WindowsFormsMFinder\Model\bin\Debug\Devart.Data.5.0.1171.0.Fakes.fakesconfig
-C:\Users\Vulcan\Documents\GitHub\m-finder\WindowsFormsMFinder\Model\bin\Debug\Microsoft.QualityTools.Testing.Fakes.dll
 C:\Users\Vulcan\Documents\GitHub\m-finder\WindowsFormsMFinder\Model\bin\Debug\System.Data.DataSetExtensions.dll
 C:\Users\Vulcan\Documents\GitHub\m-finder\WindowsFormsMFinder\Model\bin\Debug\System.dll
 C:\Users\Vulcan\Documents\GitHub\m-finder\WindowsFormsMFinder\Model\bin\Debug\System.Xml.dll
 C:\Users\Vulcan\Documents\GitHub\m-finder\WindowsFormsMFinder\Model\bin\Debug\System.Xml.Linq.dll
+C:\Users\Vulcan\Documents\GitHub\m-finder\WindowsFormsMFinder\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
 C:\Users\Vulcan\Documents\GitHub\m-finder\WindowsFormsMFinder\Model\obj\Debug\Model.dll
 C:\Users\Vulcan\Documents\GitHub\m-finder\WindowsFormsMFinder\Model\obj\Debug\Model.pdb
