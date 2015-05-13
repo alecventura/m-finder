@@ -1,3 +1,7 @@
+C:\Users\Vulcan\Documents\GitHub\m-finder\WindowsFormsMFinder\WebBootstrapKnockout\bin\DataContext1.Designer.cs
+C:\Users\Vulcan\Documents\GitHub\m-finder\WindowsFormsMFinder\WebBootstrapKnockout\bin\DataContext1.Diagram1.view
+C:\Users\Vulcan\Documents\GitHub\m-finder\WindowsFormsMFinder\WebBootstrapKnockout\bin\DataContext1.edps
+C:\Users\Vulcan\Documents\GitHub\m-finder\WindowsFormsMFinder\WebBootstrapKnockout\bin\DataContext1.lqml
 C:\Users\Vulcan\Documents\GitHub\m-finder\WindowsFormsMFinder\WebBootstrapKnockout\bin\WebBootstrapKnockout.dll.config
 C:\Users\Vulcan\Documents\GitHub\m-finder\WindowsFormsMFinder\WebBootstrapKnockout\bin\WebBootstrapKnockout.dll
 C:\Users\Vulcan\Documents\GitHub\m-finder\WindowsFormsMFinder\WebBootstrapKnockout\bin\WebBootstrapKnockout.pdb
@@ -8,7 +12,3 @@ C:\Users\Vulcan\Documents\GitHub\m-finder\WindowsFormsMFinder\WebBootstrapKnocko
 C:\Users\Vulcan\Documents\GitHub\m-finder\WindowsFormsMFinder\WebBootstrapKnockout\obj\Debug\WebBootstrapKnockout.csprojResolveAssemblyReference.cache
 C:\Users\Vulcan\Documents\GitHub\m-finder\WindowsFormsMFinder\WebBootstrapKnockout\obj\Debug\WebBootstrapKnockout.dll
 C:\Users\Vulcan\Documents\GitHub\m-finder\WindowsFormsMFinder\WebBootstrapKnockout\obj\Debug\WebBootstrapKnockout.pdb
-C:\Users\Vulcan\Documents\GitHub\m-finder\WindowsFormsMFinder\WebBootstrapKnockout\bin\DataContext1.Designer.cs
-C:\Users\Vulcan\Documents\GitHub\m-finder\WindowsFormsMFinder\WebBootstrapKnockout\bin\DataContext1.Diagram1.view
-C:\Users\Vulcan\Documents\GitHub\m-finder\WindowsFormsMFinder\WebBootstrapKnockout\bin\DataContext1.edps
-C:\Users\Vulcan\Documents\GitHub\m-finder\WindowsFormsMFinder\WebBootstrapKnockout\bin\DataContext1.lqml
