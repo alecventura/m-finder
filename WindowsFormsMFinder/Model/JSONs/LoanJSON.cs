@@ -39,24 +39,24 @@ namespace Model.JSONs
         public static LoanJSON map(Model.DAOs.LoanDAO.Loan loan)
         {
             LoanJSON l = new LoanJSON();
-            l.machineSerialNumber = loan.machine.Serialnumber;
-            l.machineName = loan.machine.Name;
-            l.machineModel = loan.machine.Model;
-            if (loan.machine.AquisitionDate != null)
+            l.machineSerialNumber = loan.machine.serialnumber;
+            l.machineName = loan.machine.name;
+            l.machineModel = loan.machine.model;
+            if (loan.machine.aquisitionDate != null)
             {
-                l.machineAquisitionDate = (DateTime)loan.machine.AquisitionDate;
+                l.machineAquisitionDate = (DateTime)loan.machine.aquisitionDate;
             }
-            if (loan.machine.WarrantyExpirationDate != null)
+            if (loan.machine.warrantyExpirationDate != null)
             {
-                l.machineWarrantyExpirationDate = (DateTime)loan.machine.WarrantyExpirationDate;
+                l.machineWarrantyExpirationDate = (DateTime)loan.machine.warrantyExpirationDate;
             }
-            if (loan.user.DptoFk != null)
+            if (loan.user.dpto.id != null)
             {
-                l.userDpto = (int)loan.user.DptoFk;
+                l.userDpto = (int)loan.user.dpto.id;
             }
-            l.userFirstname = loan.user.Firstname;
-            l.userLastName = loan.user.Lastname;
-            l.userRamal = loan.user.Ramal;
+            l.userFirstname = loan.user.firstname;
+            l.userLastName = loan.user.lastname;
+            l.userRamal = loan.user.ramal;
             l.id = loan.id;
             return l;
         }

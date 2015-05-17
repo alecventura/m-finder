@@ -9,6 +9,7 @@ using Presenter.InterfaceViews;
 using Model.JSONs;
 using System.Web.Script.Services;
 using Model.JSONs.Request;
+using Model;
 
 namespace WebBootstrapKnockout
 {
@@ -27,22 +28,22 @@ namespace WebBootstrapKnockout
             throw new NotImplementedException();
         }
 
-        public void fillDptoList(List<MfinderContext.Dpto> list)
+        public void fillDptoList(List<dpto> list)
         {
             List<Item> jsons = new List<Item>();
-            foreach (MfinderContext.Dpto i in list)
+            foreach (dpto i in list)
             {
-                jsons.Add(new Item(i.Id, i.Name));
+                jsons.Add(new Item(i.id, i.name));
             }
             this.dptos = jsons;
         }
 
-        public void fillRoleList(List<MfinderContext.Role> list)
+        public void fillRoleList(List<role> list)
         {
             List<Item> jsons = new List<Item>();
-            foreach (MfinderContext.Role i in list)
+            foreach (role i in list)
             {
-                jsons.Add(new Item(i.Id, i.Name));
+                jsons.Add(new Item(i.id, i.name));
             }
             this.roles = jsons;
         }

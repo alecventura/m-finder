@@ -8,6 +8,7 @@ using Model.JSONs;
 using System.Web.Services;
 using System.Web.Script.Services;
 using Model.JSONs.Request;
+using Model;
 
 namespace WebBootstrapKnockout
 {
@@ -20,12 +21,12 @@ namespace WebBootstrapKnockout
             presenter = new Presenter.MachinesPresenter(this);
         }
 
-        public void fillDptoList(List<MfinderContext.Dpto> list)
+        public void fillDptoList(List<dpto> list)
         {
             List<Item> jsons = new List<Item>();
-            foreach (MfinderContext.Dpto i in list)
+            foreach (dpto i in list)
             {
-                jsons.Add(new Item(i.Id, i.Name));
+                jsons.Add(new Item(i.id, i.name));
             }
             this.dptos = jsons;
         }

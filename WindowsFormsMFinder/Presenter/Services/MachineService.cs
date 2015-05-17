@@ -9,7 +9,7 @@ namespace Presenter.Services
 {
     public class MachineService
     {
-        internal static List<MfinderContext.Machine> loadMachines()
+        internal static List<machine> loadMachines()
         {
             return Model.DAOs.MachineDAO.loadMachines();
         }

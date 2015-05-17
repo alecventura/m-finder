@@ -15,7 +15,7 @@
             <table id="machinesTable" class="table">
                 <thead>
                     <tr>
-                        <th>Nodel
+                        <th>Model
                         </th>
                         <th>Name
                         </th>

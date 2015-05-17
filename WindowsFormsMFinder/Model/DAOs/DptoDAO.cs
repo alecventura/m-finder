@@ -2,18 +2,17 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using MfinderContext;
 
 namespace Model.DAOs
 {
     public class DptoDAO
     {
-        public static List<Dpto> loadAll()
+        public static List<dpto> loadAll()
         {
-            MfinderDataContext context = new MfinderDataContext();
-            var query = from it in context.Dptos
+            mfinderEntities context = new mfinderEntities();
+            var query = from it in context.dptoes
                         select it;
-            List<Dpto> list = query.ToList();
+            List<dpto> list = query.ToList();
             return list;
         }
     }

@@ -1,0 +1,271 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="mfinderModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.6" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2006/04/edm/ssdl">
+  <EntityType Name="action">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="45" />
+  </EntityType>
+  <EntityType Name="dpto">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="45" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'def.mfinder.history' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="history">
+    <Key>
+      <PropertyRef Name="action_fk" />
+    </Key>
+    <Property Name="action_fk" Type="int" Nullable="false" />
+    <Property Name="user_fk" Type="int" />
+    <Property Name="machine_fk" Type="int" />
+    <Property Name="dpto_fk" Type="int" />
+    <Property Name="comment" Type="varchar" MaxLength="255" />
+    <Property Name="actionDate" Type="datetime" Precision="0" />
+    <Property Name="technical_fk" Type="int" />
+  </EntityType>
+  <EntityType Name="location">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="user_fk" Type="int" />
+    <Property Name="dpto_fk" Type="int" />
+    <Property Name="machine_fk" Type="int" Nullable="false" />
+    <Property Name="comment" Type="varchar" MaxLength="255" />
+    <Property Name="technical_fk" Type="int" />
+    <Property Name="loanDate" Type="datetime" Precision="0" Nullable="false" />
+    <Property Name="devolutionDate" Type="datetime" Precision="0" />
+  </EntityType>
+  <EntityType Name="machine">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="model" Type="varchar" MaxLength="45" />
+    <Property Name="serialnumber" Type="varchar" MaxLength="45" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="45" />
+    <Property Name="aquisitionDate" Type="datetime" Precision="0" />
+    <Property Name="warrantyExpirationDate" Type="datetime" Precision="0" />
+  </EntityType>
+  <EntityType Name="role">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="45" Nullable="false" />
+  </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="firstname" Type="varchar" MaxLength="45" />
+    <Property Name="ramal" Type="varchar" MaxLength="45" />
+    <Property Name="role_fk" Type="int" Nullable="false" />
+    <Property Name="dpto_fk" Type="int" />
+    <Property Name="password" Type="varchar" MaxLength="45" />
+    <Property Name="lastname" Type="varchar" MaxLength="45" />
+    <Property Name="username" Type="varchar" MaxLength="45" />
+    <Property Name="active" Type="int" />
+  </EntityType>
+  <Association Name="dpto_fk">
+    <End Role="dpto" Type="Self.dpto" Multiplicity="0..1" />
+    <End Role="user" Type="Self.user" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="dpto">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="user">
+        <PropertyRef Name="dpto_fk" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="history_action_fk">
+    <End Role="action" Type="Self.action" Multiplicity="1" />
+    <End Role="history" Type="Self.history" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="action">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="history">
+        <PropertyRef Name="action_fk" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="history_dpto_fk">
+    <End Role="dpto" Type="Self.dpto" Multiplicity="0..1" />
+    <End Role="history" Type="Self.history" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="dpto">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="history">
+        <PropertyRef Name="dpto_fk" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="history_machine_fk">
+    <End Role="machine" Type="Self.machine" Multiplicity="0..1" />
+    <End Role="history" Type="Self.history" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="machine">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="history">
+        <PropertyRef Name="machine_fk" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="history_technical_fk">
+    <End Role="user" Type="Self.user" Multiplicity="0..1" />
+    <End Role="history" Type="Self.history" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="history">
+        <PropertyRef Name="technical_fk" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="history_user_fk">
+    <End Role="user" Type="Self.user" Multiplicity="0..1" />
+    <End Role="history" Type="Self.history" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="history">
+        <PropertyRef Name="user_fk" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="location_dpto_fk">
+    <End Role="dpto" Type="Self.dpto" Multiplicity="0..1" />
+    <End Role="location" Type="Self.location" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="dpto">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="location">
+        <PropertyRef Name="dpto_fk" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="location_machine_fk">
+    <End Role="machine" Type="Self.machine" Multiplicity="1" />
+    <End Role="location" Type="Self.location" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="machine">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="location">
+        <PropertyRef Name="machine_fk" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="location_technical_fk">
+    <End Role="user" Type="Self.user" Multiplicity="0..1" />
+    <End Role="location" Type="Self.location" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="location">
+        <PropertyRef Name="technical_fk" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="location_user_fk">
+    <End Role="user" Type="Self.user" Multiplicity="0..1" />
+    <End Role="location" Type="Self.location" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="location">
+        <PropertyRef Name="user_fk" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="role_fk">
+    <End Role="role" Type="Self.role" Multiplicity="1" />
+    <End Role="user" Type="Self.user" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="role">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="user">
+        <PropertyRef Name="role_fk" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="mfinderModelStoreContainer">
+    <EntitySet Name="action" EntityType="Self.action" Schema="mfinder" store:Type="Tables" />
+    <EntitySet Name="dpto" EntityType="Self.dpto" Schema="mfinder" store:Type="Tables" />
+    <EntitySet Name="location" EntityType="Self.location" Schema="mfinder" store:Type="Tables" />
+    <EntitySet Name="machine" EntityType="Self.machine" Schema="mfinder" store:Type="Tables" />
+    <EntitySet Name="role" EntityType="Self.role" Schema="mfinder" store:Type="Tables" />
+    <EntitySet Name="user" EntityType="Self.user" Schema="mfinder" store:Type="Tables" />
+    <EntitySet Name="history" EntityType="Self.history" store:Type="Tables" store:Schema="mfinder">
+      <DefiningQuery>SELECT
+`history`.`action_fk`, 
+`history`.`user_fk`, 
+`history`.`machine_fk`, 
+`history`.`dpto_fk`, 
+`history`.`comment`, 
+`history`.`actionDate`, 
+`history`.`technical_fk`
+FROM `history` AS `history`</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="dpto_fk" Association="Self.dpto_fk">
+      <End Role="dpto" EntitySet="dpto" />
+      <End Role="user" EntitySet="user" />
+    </AssociationSet>
+    <AssociationSet Name="history_action_fk" Association="Self.history_action_fk">
+      <End Role="action" EntitySet="action" />
+      <End Role="history" EntitySet="history" />
+    </AssociationSet>
+    <AssociationSet Name="history_dpto_fk" Association="Self.history_dpto_fk">
+      <End Role="dpto" EntitySet="dpto" />
+      <End Role="history" EntitySet="history" />
+    </AssociationSet>
+    <AssociationSet Name="history_machine_fk" Association="Self.history_machine_fk">
+      <End Role="machine" EntitySet="machine" />
+      <End Role="history" EntitySet="history" />
+    </AssociationSet>
+    <AssociationSet Name="history_technical_fk" Association="Self.history_technical_fk">
+      <End Role="user" EntitySet="user" />
+      <End Role="history" EntitySet="history" />
+    </AssociationSet>
+    <AssociationSet Name="history_user_fk" Association="Self.history_user_fk">
+      <End Role="user" EntitySet="user" />
+      <End Role="history" EntitySet="history" />
+    </AssociationSet>
+    <AssociationSet Name="location_dpto_fk" Association="Self.location_dpto_fk">
+      <End Role="dpto" EntitySet="dpto" />
+      <End Role="location" EntitySet="location" />
+    </AssociationSet>
+    <AssociationSet Name="location_machine_fk" Association="Self.location_machine_fk">
+      <End Role="machine" EntitySet="machine" />
+      <End Role="location" EntitySet="location" />
+    </AssociationSet>
+    <AssociationSet Name="location_technical_fk" Association="Self.location_technical_fk">
+      <End Role="user" EntitySet="user" />
+      <End Role="location" EntitySet="location" />
+    </AssociationSet>
+    <AssociationSet Name="location_user_fk" Association="Self.location_user_fk">
+      <End Role="user" EntitySet="user" />
+      <End Role="location" EntitySet="location" />
+    </AssociationSet>
+    <AssociationSet Name="role_fk" Association="Self.role_fk">
+      <End Role="role" EntitySet="role" />
+      <End Role="user" EntitySet="user" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

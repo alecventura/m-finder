@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using MfinderContext;
 using Model.JSONs.Request;
 using Model.JSONs;
 
@@ -10,12 +9,12 @@ namespace Model.DAOs
 {
     public class MachineDAO
     {
-        public static List<Machine> loadMachines()
+        public static List<machine> loadMachines()
         {
-            MfinderDataContext context = new MfinderDataContext();
-            var query = from it in context.Machines
+            mfinderEntities context = new mfinderEntities();
+            var query = from it in context.machines
                         select it;
-            List<Machine> list = query.ToList();
+            List<machine> list = query.ToList();
             return list;
         }
 
@@ -23,16 +22,16 @@ namespace Model.DAOs
         {
             try
             {
-                MfinderDataContext context = new MfinderDataContext();
-                Machine m = new Machine();
-                m.Serialnumber = serialnumber;
-                m.Name = name;
-                m.Model = model;
-                m.AquisitionDate = aquisitionDate;
-                m.WarrantyExpirationDate = warrantyExpirationDate;
+                mfinderEntities context = new mfinderEntities();
+                machine m = new machine();
+                m.serialnumber = serialnumber;
+                m.name = name;
+                m.model = model;
+                m.aquisitionDate = aquisitionDate;
+                m.warrantyExpirationDate = warrantyExpirationDate;
 
-                context.Machines.InsertOnSubmit(m);
-                context.SubmitChanges();
+                context.AddTomachines(m);
+                context.SaveChanges();
 
                 return true;
             }
@@ -46,18 +45,18 @@ namespace Model.DAOs
         {
             try
             {
-                MfinderDataContext context = new MfinderDataContext();
-                var query = from it in context.Machines
-                            where it.Id == id
+                mfinderEntities context = new mfinderEntities();
+                var query = from it in context.machines
+                            where it.id == id
                             select it;
-                Machine m = query.FirstOrDefault();
-                m.Serialnumber = serialnumber;
-                m.Name = name;
-                m.Model = model;
-                m.AquisitionDate = aquisitionDate;
-                m.WarrantyExpirationDate = warrantyExpirationDate;
+                machine m = query.FirstOrDefault();
+                m.serialnumber = serialnumber;
+                m.name = name;
+                m.model = model;
+                m.aquisitionDate = aquisitionDate;
+                m.warrantyExpirationDate = warrantyExpirationDate;
 
-                context.SubmitChanges();
+                context.SaveChanges();
 
                 return true;
             }
@@ -71,13 +70,13 @@ namespace Model.DAOs
         {
             try
             {
-                MfinderDataContext context = new MfinderDataContext();
-                var query = from it in context.Machines
-                            where it.Id == id
+                mfinderEntities context = new mfinderEntities();
+                var query = from it in context.machines
+                            where it.id == id
                             select it;
-                Machine m = query.FirstOrDefault();
-                context.Machines.DeleteOnSubmit(m);
-                context.SubmitChanges();
+                machine m = query.FirstOrDefault();
+                context.DeleteObject(m);
+                context.SaveChanges();
                 return true;
             }
             catch
@@ -90,18 +89,20 @@ namespace Model.DAOs
         {
             Pagination p = new Pagination();
 
-            MfinderDataContext context = new MfinderDataContext();
-            var query = from it in context.Machines
+            mfinderEntities context = new mfinderEntities();
+            var query = from it in context.machines
                         select it;
 
             if (!String.IsNullOrEmpty(request.model))
-                query = query.Where(w => w.Model.ToLower().Contains(request.model.ToLower()));
+                query = query.Where(w => w.model.ToLower().Contains(request.model.ToLower()));
             if (!String.IsNullOrEmpty(request.name))
-                query = query.Where(w => w.Name.ToLower().Contains(request.name.ToLower()));
+                query = query.Where(w => w.name.ToLower().Contains(request.name.ToLower()));
             if (!String.IsNullOrEmpty(request.serialnumber))
-                query = query.Where(w => w.Serialnumber.ToLower().Contains(request.serialnumber.ToLower()));
+                query = query.Where(w => w.serialnumber.ToLower().Contains(request.serialnumber.ToLower()));
 
             p.total = query.Count();
+
+            query = query.OrderBy(i => i.name);
 
             if (request.offset > 0)
             {
@@ -112,7 +113,7 @@ namespace Model.DAOs
                 query = query.Take(request.limit);
             var sql = query.ToString();
 
-            List<Machine> list = query.ToList();
+            List<machine> list = query.ToList();
             List<MachineJSON> jsons = MachineJSON.map(list);
 
             p.list = jsons.Cast<IJSONs>().ToList();

@@ -1,4 +1,5 @@
-﻿using Model.JSONs;
+﻿using Model;
+using Model.JSONs;
 using Model.JSONs.Request;
 using System;
 using System.Collections.Generic;
@@ -21,9 +22,9 @@ namespace Presenter
             return Services.MachineService.deleteMachine(id);
         }
 
-        public static List<MfinderContext.Machine> staticLoadMachinesData()
+        public static List<machine> staticLoadMachinesData()
         {
-            List<MfinderContext.Machine> machines = Services.MachineService.loadMachines();
+            List<machine> machines = Services.MachineService.loadMachines();
             return machines;
         }
 

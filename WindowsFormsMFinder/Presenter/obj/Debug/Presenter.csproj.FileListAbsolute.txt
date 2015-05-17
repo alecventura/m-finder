@@ -1,7 +1,4 @@
-C:\Users\Vulcan\Documents\GitHub\m-finder\WindowsFormsMFinder\Presenter\bin\Debug\DataContext1.Designer.cs
-C:\Users\Vulcan\Documents\GitHub\m-finder\WindowsFormsMFinder\Presenter\bin\Debug\DataContext1.Diagram1.view
-C:\Users\Vulcan\Documents\GitHub\m-finder\WindowsFormsMFinder\Presenter\bin\Debug\DataContext1.edps
-C:\Users\Vulcan\Documents\GitHub\m-finder\WindowsFormsMFinder\Presenter\bin\Debug\DataContext1.lqml
+C:\Users\Vulcan\Documents\GitHub\m-finder\WindowsFormsMFinder\Presenter\bin\Debug\Presenter.dll.config
 C:\Users\Vulcan\Documents\GitHub\m-finder\WindowsFormsMFinder\Presenter\bin\Debug\Presenter.dll
 C:\Users\Vulcan\Documents\GitHub\m-finder\WindowsFormsMFinder\Presenter\bin\Debug\Presenter.pdb
 C:\Users\Vulcan\Documents\GitHub\m-finder\WindowsFormsMFinder\Presenter\bin\Debug\Model.dll

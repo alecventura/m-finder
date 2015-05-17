@@ -5,12 +5,13 @@ using System.Text;
 
 using Model.DAOs;
 using Model.JSONs.Request;
+using Model;
 
 namespace Presenter.Services
 {
     class UserService
     {
-        internal static MfinderContext.User retrieveUserByUsername(string username)
+        internal static user retrieveUserByUsername(string username)
         {
             return UserDAO.retrieveUserByUsername(username);
         }
@@ -20,7 +21,7 @@ namespace Presenter.Services
             return UserDAO.registerNewUser(username, password, role);
         }
 
-        internal static List<MfinderContext.User> loadUsersData()
+        internal static List<user> loadUsersData()
         {
             return UserDAO.loadUsersData();
         }

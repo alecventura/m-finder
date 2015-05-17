@@ -22,7 +22,7 @@
 [assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("mfinderModel", "history_user_fk", "user", global::System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Model.user), "history", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Model.history))]
 
 // Original file name:
-// Generation date: 5/10/2015 10:36:17 PM
+// Generation date: 5/17/2015 10:23:44 AM
 namespace Model
 {
     

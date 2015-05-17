@@ -1,4 +1,5 @@
-﻿using Model.JSONs;
+﻿using Model;
+using Model.JSONs;
 using Model.JSONs.Request;
 using Presenter.Utils;
 using System;
@@ -19,12 +20,12 @@ namespace Presenter
             view.fillRoleList(filterRoles(Services.RoleService.loadAll()));
         }
 
-        private List<MfinderContext.Role> filterRoles(List<MfinderContext.Role> list)
+        private List<role> filterRoles(List<role> list)
         {
-            List<MfinderContext.Role> filtered = new List<MfinderContext.Role>();
-            foreach (MfinderContext.Role role in list)
+            List<role> filtered = new List<role>();
+            foreach (role role in list)
             {
-                if (!(role.Id.Equals((int)RoleEnum.Roles.ADMIN) || role.Id.Equals((int)RoleEnum.Roles.TECH)))
+                if (!(role.id.Equals((int)RoleEnum.Roles.ADMIN) || role.id.Equals((int)RoleEnum.Roles.TECH)))
                 {
                     filtered.Add(role);
                 }

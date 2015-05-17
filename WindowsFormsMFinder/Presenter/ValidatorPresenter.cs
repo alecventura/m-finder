@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 
 using Presenter.Utils;
+using Model;
 
 namespace Presenter
 {
@@ -17,8 +18,8 @@ namespace Presenter
 
         protected bool validateUsernamePasswordAndRole(string username, string pw)
         {
-            MfinderContext.User user = UserService.retrieveUserByUsername(username);
-            if (user != null && (user.RoleFk.Equals((int)RoleEnum.Roles.ADMIN) || user.RoleFk.Equals((int)RoleEnum.Roles.TECH)))
+            user user = UserService.retrieveUserByUsername(username);
+            if (user != null && (user.role.id.Equals((int)RoleEnum.Roles.ADMIN) || user.role.id.Equals((int)RoleEnum.Roles.TECH)))
             {
                 return true;
             }

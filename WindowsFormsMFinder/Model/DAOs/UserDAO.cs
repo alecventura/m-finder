@@ -1,5 +1,4 @@
-﻿using MfinderContext;
-using Model.JSONs;
+﻿using Model.JSONs;
 using Model.JSONs.Request;
 using System;
 using System.Collections.Generic;
@@ -15,21 +14,21 @@ namespace Model.DAOs
         {
             try
             {
-                MfinderDataContext context = new MfinderDataContext();
-                User user = new User();
-                user.Password = password;
-                user.Username = username;
+                mfinderEntities context = new mfinderEntities();
+                user user = new user();
+                user.password = password;
+                user.username = username;
                 if (role != null)
                 {
                     //string stringValue = Enum.GetName(typeof(RoleEnum.Roles), role);
-                    user.RoleFk = (int)role;
+                    user.role.id = (int)role;
                 }
                 else
                 {
-                    user.RoleFk = 3; // User role
+                    user.role.id = 3; // user role
                 }
-                context.Users.InsertOnSubmit(user);
-                context.SubmitChanges();
+                context.AddTousers(user);
+                context.SaveChanges();
                 return true;
             }
             catch (Exception e)
@@ -39,24 +38,24 @@ namespace Model.DAOs
             }
         }
 
-        public static User retrieveUserByUsername(string username)
+        public static user retrieveUserByUsername(string username)
         {
-            MfinderDataContext context = new MfinderDataContext();
-            var query = from it in context.Users
-                        where it.Username == username
+            mfinderEntities context = new mfinderEntities();
+            var query = from it in context.users.Include("role").Include("dpto")
+                        where it.username == username
                         select it;
 
             // Since we query for a single object instead of a collection, we can use the method First()
-            User answer = query.FirstOrDefault();
+            user answer = query.FirstOrDefault();
             return answer;
         }
 
-        public static List<User> loadUsersData()
+        public static List<user> loadUsersData()
         {
-            MfinderDataContext context = new MfinderDataContext();
-            var query = from it in context.Users
+            mfinderEntities context = new mfinderEntities();
+            var query = from it in context.users.Include("role").Include("dpto")
                         select it;
-            List<User> list = query.ToList();
+            List<user> list = query.ToList();
             return list;
         }
 
@@ -64,18 +63,18 @@ namespace Model.DAOs
         {
             try
             {
-                MfinderDataContext context = new MfinderDataContext();
-                var query = from it in context.Users
-                            where it.Id == id
+                mfinderEntities context = new mfinderEntities();
+                var query = from it in context.users.Include("role").Include("dpto")
+                            where it.id == id
                             select it;
-                User user = query.FirstOrDefault();
-                user.Firstname = firstname;
-                user.Lastname = lastname;
-                user.RoleFk = role;
-                user.DptoFk = dpto;
-                user.Ramal = ramal;
+                user user = query.FirstOrDefault();
+                user.firstname = firstname;
+                user.lastname = lastname;
+                user.role.id = role;
+                user.dpto.id = dpto;
+                user.ramal = ramal;
 
-                context.SubmitChanges();
+                context.SaveChanges();
                 return true;
             }
             catch (Exception e)
@@ -89,16 +88,16 @@ namespace Model.DAOs
         {
             try
             {
-                MfinderDataContext context = new MfinderDataContext();
-                User user = new User();
-                user.Firstname = firstname;
-                user.Lastname = lastname;
-                user.RoleFk = role;
-                user.DptoFk = dpto;
-                user.Ramal = ramal;
+                mfinderEntities context = new mfinderEntities();
+                user user = new user();
+                user.firstname = firstname;
+                user.lastname = lastname;
+                user.role.id = role;
+                user.dpto.id = dpto;
+                user.ramal = ramal;
 
-                context.Users.InsertOnSubmit(user);
-                context.SubmitChanges();
+                context.AddTousers(user);
+                context.SaveChanges();
                 return true;
             }
             catch (Exception e)
@@ -112,13 +111,13 @@ namespace Model.DAOs
         {
             try
             {
-                MfinderDataContext context = new MfinderDataContext();
-                var query = from it in context.Users
-                            where it.Id == id
+                mfinderEntities context = new mfinderEntities();
+                var query = from it in context.users.Include("role").Include("dpto")
+                            where it.id == id
                             select it;
-                User user = query.FirstOrDefault();
-                context.Users.DeleteOnSubmit(user);
-                context.SubmitChanges();
+                user user = query.FirstOrDefault();
+                context.DeleteObject(user);
+                context.SaveChanges();
                 return true;
             }
             catch (Exception e)
@@ -132,20 +131,22 @@ namespace Model.DAOs
         {
             Pagination p = new Pagination();
 
-            MfinderDataContext context = new MfinderDataContext();
-            var query = from it in context.Users
+            mfinderEntities context = new mfinderEntities();
+            var query = from it in context.users.Include("role").Include("dpto")
                         select it;
 
             if (!String.IsNullOrEmpty(request.firstname))
-                query = query.Where(w => w.Firstname.ToLower().Contains(request.firstname.ToLower()));
+                query = query.Where(w => w.firstname.ToLower().Contains(request.firstname.ToLower()));
             if (!String.IsNullOrEmpty(request.lastname))
-                query = query.Where(w => w.Lastname.ToLower().Contains(request.lastname.ToLower()));
+                query = query.Where(w => w.lastname.ToLower().Contains(request.lastname.ToLower()));
             if (!String.IsNullOrEmpty(request.ramal))
-                query = query.Where(w => w.Ramal.ToLower().Contains(request.ramal.ToLower()));
+                query = query.Where(w => w.ramal.ToLower().Contains(request.ramal.ToLower()));
             if (request.dpto > 0)
-                query = query.Where(w => w.DptoFk == request.dpto);
+                query = query.Where(w => w.dpto.id == request.dpto);
 
             p.total = query.Count();
+
+            query = query.OrderBy(i => i.firstname);
 
             if (request.offset > 0)
             {
@@ -156,7 +157,7 @@ namespace Model.DAOs
                 query = query.Take(request.limit);
             var sql = query.ToString();
 
-            List<User> list = query.ToList();
+            List<user> list = query.ToList();
             List<UserJSON> jsons = UserJSON.map(list);
 
             p.list = jsons.Cast<IJSONs>().ToList();

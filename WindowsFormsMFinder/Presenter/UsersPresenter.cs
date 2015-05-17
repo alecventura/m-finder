@@ -5,6 +5,7 @@ using System.Text;
 using Presenter.Utils;
 using Presenter.Services;
 using Model.JSONs.Request;
+using Model;
 
 namespace Presenter
 {
@@ -18,9 +19,9 @@ namespace Presenter
             view.fillRoleList(filterRoles(Services.RoleService.loadAll()));
         }
 
-        public static List<MfinderContext.User> staticLoadUsersData()
+        public static List<user> staticLoadUsersData()
         {
-            List<MfinderContext.User> users = Services.UserService.loadUsersData();
+            List<user> users = Services.UserService.loadUsersData();
             return users;
         }
 
@@ -38,12 +39,12 @@ namespace Presenter
             return true;
         }
 
-        private List<MfinderContext.Role> filterRoles(List<MfinderContext.Role> list)
+        private List<role> filterRoles(List<role> list)
         {
-            List<MfinderContext.Role> filtered = new List<MfinderContext.Role>();
-            foreach (MfinderContext.Role role in list)
+            List<role> filtered = new List<role>();
+            foreach (role role in list)
             {
-                if (!(role.Id.Equals((int)RoleEnum.Roles.ADMIN) || role.Id.Equals((int)RoleEnum.Roles.TECH)))
+                if (!(role.id.Equals((int)RoleEnum.Roles.ADMIN) || role.id.Equals((int)RoleEnum.Roles.TECH)))
                 {
                     filtered.Add(role);
                 }

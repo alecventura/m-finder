@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -13,6 +14,7 @@ namespace WebBootstrapKnockout
         protected void Page_Load(object sender, EventArgs e)
         {
             presenter = new Presenter.LoginPresenter(this);
+
         }
 
         protected void onLoginClicked(object sender, EventArgs e)

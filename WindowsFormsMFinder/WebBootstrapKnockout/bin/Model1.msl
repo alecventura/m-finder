@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="urn:schemas-microsoft-com:windows:storage:mapping:CS">
+  <EntityContainerMapping StorageEntityContainer="mfinderModelStoreContainer" CdmEntityContainer="mfinderEntities">
+    <EntitySetMapping Name="actions">
+      <EntityTypeMapping TypeName="mfinderModel.action">
+        <MappingFragment StoreEntitySet="action">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="dptoes">
+      <EntityTypeMapping TypeName="mfinderModel.dpto">
+        <MappingFragment StoreEntitySet="dpto">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="locations">
+      <EntityTypeMapping TypeName="mfinderModel.location">
+        <MappingFragment StoreEntitySet="location">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="comment" ColumnName="comment" />
+          <ScalarProperty Name="loanDate" ColumnName="loanDate" />
+          <ScalarProperty Name="devolutionDate" ColumnName="devolutionDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="machines">
+      <EntityTypeMapping TypeName="mfinderModel.machine">
+        <MappingFragment StoreEntitySet="machine">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="model" ColumnName="model" />
+          <ScalarProperty Name="serialnumber" ColumnName="serialnumber" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="aquisitionDate" ColumnName="aquisitionDate" />
+          <ScalarProperty Name="warrantyExpirationDate" ColumnName="warrantyExpirationDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="roles">
+      <EntityTypeMapping TypeName="mfinderModel.role">
+        <MappingFragment StoreEntitySet="role">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="mfinderModel.user">
+        <MappingFragment StoreEntitySet="user">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="firstname" ColumnName="firstname" />
+          <ScalarProperty Name="ramal" ColumnName="ramal" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="lastname" ColumnName="lastname" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="active" ColumnName="active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="histories">
+      <EntityTypeMapping TypeName="mfinderModel.history">
+        <MappingFragment StoreEntitySet="history">
+          <ScalarProperty Name="action_fk" ColumnName="action_fk" />
+          <ScalarProperty Name="comment" ColumnName="comment" />
+          <ScalarProperty Name="actionDate" ColumnName="actionDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="history_action_fk" TypeName="mfinderModel.history_action_fk" StoreEntitySet="history">
+      <EndProperty Name="action">
+        <ScalarProperty Name="id" ColumnName="action_fk" />
+      </EndProperty>
+      <EndProperty Name="history">
+        <ScalarProperty Name="action_fk" ColumnName="action_fk" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="dpto_fk" TypeName="mfinderModel.dpto_fk" StoreEntitySet="user">
+      <EndProperty Name="dpto">
+        <ScalarProperty Name="id" ColumnName="dpto_fk" />
+      </EndProperty>
+      <EndProperty Name="user">
+        <ScalarProperty Name="id" ColumnName="id" />
+      </EndProperty>
+      <Condition IsNull="false" ColumnName="dpto_fk" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="history_dpto_fk" TypeName="mfinderModel.history_dpto_fk" StoreEntitySet="history">
+      <EndProperty Name="dpto">
+        <ScalarProperty Name="id" ColumnName="dpto_fk" />
+      </EndProperty>
+      <EndProperty Name="history">
+        <ScalarProperty Name="action_fk" ColumnName="action_fk" />
+      </EndProperty>
+      <Condition IsNull="false" ColumnName="dpto_fk" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="location_dpto_fk" TypeName="mfinderModel.location_dpto_fk" StoreEntitySet="location">
+      <EndProperty Name="dpto">
+        <ScalarProperty Name="id" ColumnName="dpto_fk" />
+      </EndProperty>
+      <EndProperty Name="location">
+        <ScalarProperty Name="id" ColumnName="id" />
+      </EndProperty>
+      <Condition IsNull="false" ColumnName="dpto_fk" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="location_machine_fk" TypeName="mfinderModel.location_machine_fk" StoreEntitySet="location">
+      <EndProperty Name="machine">
+        <ScalarProperty Name="id" ColumnName="machine_fk" />
+      </EndProperty>
+      <EndProperty Name="location">
+        <ScalarProperty Name="id" ColumnName="id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="location_technical_fk" TypeName="mfinderModel.location_technical_fk" StoreEntitySet="location">
+      <EndProperty Name="user">
+        <ScalarProperty Name="id" ColumnName="technical_fk" />
+      </EndProperty>
+      <EndProperty Name="location">
+        <ScalarProperty Name="id" ColumnName="id" />
+      </EndProperty>
+      <Condition IsNull="false" ColumnName="technical_fk" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="location_user_fk" TypeName="mfinderModel.location_user_fk" StoreEntitySet="location">
+      <EndProperty Name="user">
+        <ScalarProperty Name="id" ColumnName="user_fk" />
+      </EndProperty>
+      <EndProperty Name="location">
+        <ScalarProperty Name="id" ColumnName="id" />
+      </EndProperty>
+      <Condition IsNull="false" ColumnName="user_fk" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="history_machine_fk" TypeName="mfinderModel.history_machine_fk" StoreEntitySet="history">
+      <EndProperty Name="machine">
+        <ScalarProperty Name="id" ColumnName="machine_fk" />
+      </EndProperty>
+      <EndProperty Name="history">
+        <ScalarProperty Name="action_fk" ColumnName="action_fk" />
+      </EndProperty>
+      <Condition IsNull="false" ColumnName="machine_fk" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="role_fk" TypeName="mfinderModel.role_fk" StoreEntitySet="user">
+      <EndProperty Name="role">
+        <ScalarProperty Name="id" ColumnName="role_fk" />
+      </EndProperty>
+      <EndProperty Name="user">
+        <ScalarProperty Name="id" ColumnName="id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="history_technical_fk" TypeName="mfinderModel.history_technical_fk" StoreEntitySet="history">
+      <EndProperty Name="user">
+        <ScalarProperty Name="id" ColumnName="technical_fk" />
+      </EndProperty>
+      <EndProperty Name="history">
+        <ScalarProperty Name="action_fk" ColumnName="action_fk" />
+      </EndProperty>
+      <Condition IsNull="false" ColumnName="technical_fk" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="history_user_fk" TypeName="mfinderModel.history_user_fk" StoreEntitySet="history">
+      <EndProperty Name="user">
+        <ScalarProperty Name="id" ColumnName="user_fk" />
+      </EndProperty>
+      <EndProperty Name="history">
+        <ScalarProperty Name="action_fk" ColumnName="action_fk" />
+      </EndProperty>
+      <Condition IsNull="false" ColumnName="user_fk" />
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

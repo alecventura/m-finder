@@ -14,12 +14,12 @@ namespace Model.JSONs
         public int id { get; set; }
         public int role { get; set; }
 
-        public static List<UserJSON> map(List<MfinderContext.User> users)
+        public static List<UserJSON> map(List<user> users)
         {
             List<UserJSON> usersJSON = new List<UserJSON>();
-            foreach (MfinderContext.User user in users)
+            foreach (user user in users)
             {
-                if (!(String.IsNullOrEmpty(user.Firstname) && String.IsNullOrEmpty(user.Lastname) && String.IsNullOrEmpty(user.Ramal)))
+                if (!(String.IsNullOrEmpty(user.firstname) && String.IsNullOrEmpty(user.lastname) && String.IsNullOrEmpty(user.ramal)))
                 {
                     UserJSON u = UserJSON.map(user);
                     usersJSON.Add(u);
@@ -28,18 +28,19 @@ namespace Model.JSONs
             return usersJSON;
         }
 
-        public static UserJSON map(MfinderContext.User user)
+        public static UserJSON map(user user)
         {
             UserJSON u = new UserJSON();
-            u.firstname = user.Firstname;
-            u.lastname = user.Lastname;
-            u.ramal = user.Ramal;
-            if (user.DptoFk != null)
+            u.firstname = user.firstname;
+            u.lastname = user.lastname;
+            u.ramal = user.ramal;
+            if (user.dpto != null && user.dpto.id != null)
             {
-                u.dpto = (int)user.DptoFk;
+                u.dpto = (int)user.dpto.id;
             }
-            u.role = (int)user.RoleFk;
-            u.id = user.Id;
+            u.role = (int)user.role.id;
+            u.role = (int)user.role.id;
+            u.id = user.id;
             return u;
         }
 
