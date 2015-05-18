@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
@@ -11,6 +12,7 @@ namespace WebBootstrapKnockout
     public partial class Login : System.Web.UI.Page, Presenter.InterfaceViews.ILogin
     {
         Presenter.LoginPresenter presenter;
+        public string conn = ConfigurationManager.ConnectionStrings["mfinderEntities"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
             presenter = new Presenter.LoginPresenter(this);

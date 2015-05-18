@@ -146,6 +146,7 @@
     <Content Include="Scripts\jquery-1.9.1.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Alert.cs" />
     <Compile Include="Controls\TextBox.cs" />
     <Compile Include="Machines.aspx.cs">
       <DependentUpon>Machines.aspx</DependentUpon>
