@@ -71,7 +71,31 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
+    <None Include="Assemblies\EntityDeveloper.exe.config" />
     <None Include="web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assemblies\Devart.TemplateEditor.Language.dll" />
+    <Content Include="Assemblies\EntityDeveloper.Common.dll" />
+    <Content Include="Assemblies\EntityDeveloper.Orm.Common.dll" />
+    <Content Include="Assemblies\EntityDeveloper.Orm.Linq.Common.dll" />
+    <Content Include="Assemblies\EntityDeveloper.Orm.LinqConnect.dll" />
+    <Content Include="Assemblies\EntityDeveloper.SqlServer.dll" />
+    <Content Include="Assemblies\MySql.Data.dll" />
+    <Content Include="Assemblies\MySql.Data.Entity.EF5.dll" />
+    <Content Include="Assemblies\MySql.Data.Entity.EF6.dll" />
+    <Content Include="Assemblies\MySql.Fabric.Plugin.dll" />
+    <Content Include="Assemblies\MySql.Web.dll" />
+    <Content Include="Assemblies\System.configuration.dll" />
+    <Content Include="Assemblies\System.Core.dll" />
+    <Content Include="Assemblies\System.Data.DataSetExtensions.dll" />
+    <Content Include="Assemblies\System.Data.dll" />
+    <Content Include="Assemblies\System.Data.Entity.dll" />
+    <Content Include="Assemblies\System.dll" />
+    <Content Include="Assemblies\System.Runtime.Serialization.dll" />
+    <Content Include="Assemblies\System.Security.dll" />
+    <Content Include="Assemblies\System.XML.dll" />
+    <Content Include="Assemblies\System.Xml.Linq.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
