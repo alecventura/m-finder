@@ -40,6 +40,7 @@
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="MySql.Data, Version=6.9.5.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="MySql.Data.Entity, Version=6.9.5.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -66,6 +67,7 @@
     <Content Include="Assemblies\EntityDeveloper.Orm.LinqConnect.dll" />
     <Content Include="Assemblies\EntityDeveloper.SqlServer.dll" />
     <Content Include="Assemblies\MySql.Data.dll" />
+    <Content Include="Assemblies\MySql.Data.Entity.dll" />
     <Content Include="Assemblies\MySql.Data.Entity.EF5.dll" />
     <Content Include="Assemblies\MySql.Data.Entity.EF6.dll" />
     <Content Include="Assemblies\MySql.Fabric.Plugin.dll" />
