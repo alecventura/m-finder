@@ -30,23 +30,42 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MySql.Data, Version=6.9.5.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
-    <Reference Include="MySql.Data.Entity, Version=6.9.5.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="MySql.Data, Version=6.9.5.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MySql.Data.Entity, Version=6.9.5.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MySql.Web, Version=6.9.5.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System">
       <Private>True</Private>
     </Reference>
-    <Reference Include="System.Configuration" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Data.Entity" />
-    <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.Security" />
+    <Reference Include="System.Configuration">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Core">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.Entity">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security">
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Xml.Linq">
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Data.DataSetExtensions">
       <Private>True</Private>
     </Reference>
-    <Reference Include="System.Data" />
     <Reference Include="System.Xml">
       <Private>True</Private>
     </Reference>
@@ -75,7 +94,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assembliess\EntityDeveloper.exe.config" />
     <None Include="ClassDiagram1.cd" />
     <EntityDeploy Include="Model1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
@@ -86,28 +104,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assembliess\Devart.TemplateEditor.Language.dll" />
-    <Content Include="Assembliess\EntityDeveloper.Common.dll" />
-    <Content Include="Assembliess\EntityDeveloper.Orm.Common.dll" />
-    <Content Include="Assembliess\EntityDeveloper.Orm.Linq.Common.dll" />
-    <Content Include="Assembliess\EntityDeveloper.Orm.LinqConnect.dll" />
-    <Content Include="Assembliess\EntityDeveloper.SqlServer.dll" />
-    <Content Include="Assembliess\MySql.Data.dll" />
-    <Content Include="Assembliess\MySql.Data.Entity.dll" />
-    <Content Include="Assembliess\MySql.Data.Entity.EF5.dll" />
-    <Content Include="Assembliess\MySql.Data.Entity.EF6.dll" />
-    <Content Include="Assembliess\MySql.Fabric.Plugin.dll" />
-    <Content Include="Assembliess\MySql.Web.dll" />
-    <Content Include="Assembliess\System.configuration.dll" />
-    <Content Include="Assembliess\System.Core.dll" />
-    <Content Include="Assembliess\System.Data.DataSetExtensions.dll" />
-    <Content Include="Assembliess\System.Data.dll" />
-    <Content Include="Assembliess\System.Data.Entity.dll" />
-    <Content Include="Assembliess\System.dll" />
-    <Content Include="Assembliess\System.Runtime.Serialization.dll" />
-    <Content Include="Assembliess\System.Security.dll" />
-    <Content Include="Assembliess\System.XML.dll" />
-    <Content Include="Assembliess\System.Xml.Linq.dll" />
+    <Content Include="Assemblies\System.Data.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

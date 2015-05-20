@@ -8,6 +8,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using System.Runtime.Serialization;
+
 [assembly: global::System.Data.Objects.DataClasses.EdmSchemaAttribute()]
 [assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("mfinderModel", "history_action_fk", "action", global::System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Model.action), "history", global::System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Model.history))]
 [assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("mfinderModel", "dpto_fk", "dpto", global::System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Model.dpto), "user", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Model.user))]
@@ -25,15 +27,15 @@
 // Generation date: 5/17/2015 10:23:44 AM
 namespace Model
 {
-    
+
     /// <summary>
     /// There are no comments for mfinderModel.action in the schema.
     /// </summary>
     /// <KeyProperties>
     /// id
     /// </KeyProperties>
-    [global::System.Data.Objects.DataClasses.EdmEntityTypeAttribute(NamespaceName="mfinderModel", Name="action")]
-    [global::System.Runtime.Serialization.DataContractAttribute(IsReference=true)]
+    [global::System.Data.Objects.DataClasses.EdmEntityTypeAttribute(NamespaceName = "mfinderModel", Name = "action")]
+    [global::System.Runtime.Serialization.DataContractAttribute(IsReference = true)]
     [global::System.Serializable()]
     public partial class action : global::System.Data.Objects.DataClasses.EntityObject
     {
@@ -51,7 +53,7 @@ namespace Model
         /// <summary>
         /// There are no comments for property id in the schema.
         /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
         [global::System.Runtime.Serialization.DataMemberAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
         public int id
@@ -148,8 +150,8 @@ namespace Model
     /// <KeyProperties>
     /// id
     /// </KeyProperties>
-    [global::System.Data.Objects.DataClasses.EdmEntityTypeAttribute(NamespaceName="mfinderModel", Name="dpto")]
-    [global::System.Runtime.Serialization.DataContractAttribute(IsReference=true)]
+    [global::System.Data.Objects.DataClasses.EdmEntityTypeAttribute(NamespaceName = "mfinderModel", Name = "dpto")]
+    [global::System.Runtime.Serialization.DataContractAttribute(IsReference = true)]
     [global::System.Serializable()]
     public partial class dpto : global::System.Data.Objects.DataClasses.EntityObject
     {
@@ -169,7 +171,7 @@ namespace Model
         /// <summary>
         /// There are no comments for property id in the schema.
         /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
         [global::System.Runtime.Serialization.DataMemberAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
         public int id
@@ -196,7 +198,7 @@ namespace Model
         /// <summary>
         /// There are no comments for property name in the schema.
         /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(IsNullable=false)]
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(IsNullable = false)]
         [global::System.Runtime.Serialization.DataMemberAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
         public string name
@@ -293,8 +295,8 @@ namespace Model
     /// <KeyProperties>
     /// id
     /// </KeyProperties>
-    [global::System.Data.Objects.DataClasses.EdmEntityTypeAttribute(NamespaceName="mfinderModel", Name="location")]
-    [global::System.Runtime.Serialization.DataContractAttribute(IsReference=true)]
+    [global::System.Data.Objects.DataClasses.EdmEntityTypeAttribute(NamespaceName = "mfinderModel", Name = "location")]
+    [global::System.Runtime.Serialization.DataContractAttribute(IsReference = true)]
     [global::System.Serializable()]
     public partial class location : global::System.Data.Objects.DataClasses.EntityObject
     {
@@ -314,7 +316,7 @@ namespace Model
         /// <summary>
         /// There are no comments for property id in the schema.
         /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
         [global::System.Runtime.Serialization.DataMemberAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
         public int id
@@ -368,7 +370,7 @@ namespace Model
         /// <summary>
         /// There are no comments for property loanDate in the schema.
         /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(IsNullable=false)]
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(IsNullable = false)]
         [global::System.Runtime.Serialization.DataMemberAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
         public global::System.DateTime loanDate
@@ -582,8 +584,8 @@ namespace Model
     /// <KeyProperties>
     /// id
     /// </KeyProperties>
-    [global::System.Data.Objects.DataClasses.EdmEntityTypeAttribute(NamespaceName="mfinderModel", Name="machine")]
-    [global::System.Runtime.Serialization.DataContractAttribute(IsReference=true)]
+    [global::System.Data.Objects.DataClasses.EdmEntityTypeAttribute(NamespaceName = "mfinderModel", Name = "machine")]
+    [global::System.Runtime.Serialization.DataContractAttribute(IsReference = true)]
     [global::System.Serializable()]
     public partial class machine : global::System.Data.Objects.DataClasses.EntityObject
     {
@@ -603,7 +605,7 @@ namespace Model
         /// <summary>
         /// There are no comments for property id in the schema.
         /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
         [global::System.Runtime.Serialization.DataMemberAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
         public int id
@@ -657,7 +659,7 @@ namespace Model
         /// <summary>
         /// There are no comments for property serialnumber in the schema.
         /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(IsNullable=false)]
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(IsNullable = false)]
         [global::System.Runtime.Serialization.DataMemberAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
         public string serialnumber
@@ -813,8 +815,8 @@ namespace Model
     /// <KeyProperties>
     /// id
     /// </KeyProperties>
-    [global::System.Data.Objects.DataClasses.EdmEntityTypeAttribute(NamespaceName="mfinderModel", Name="role")]
-    [global::System.Runtime.Serialization.DataContractAttribute(IsReference=true)]
+    [global::System.Data.Objects.DataClasses.EdmEntityTypeAttribute(NamespaceName = "mfinderModel", Name = "role")]
+    [global::System.Runtime.Serialization.DataContractAttribute(IsReference = true)]
     [global::System.Serializable()]
     public partial class role : global::System.Data.Objects.DataClasses.EntityObject
     {
@@ -834,7 +836,7 @@ namespace Model
         /// <summary>
         /// There are no comments for property id in the schema.
         /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
         [global::System.Runtime.Serialization.DataMemberAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
         public int id
@@ -861,7 +863,7 @@ namespace Model
         /// <summary>
         /// There are no comments for property name in the schema.
         /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(IsNullable=false)]
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(IsNullable = false)]
         [global::System.Runtime.Serialization.DataMemberAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
         public string name
@@ -914,8 +916,8 @@ namespace Model
     /// <KeyProperties>
     /// id
     /// </KeyProperties>
-    [global::System.Data.Objects.DataClasses.EdmEntityTypeAttribute(NamespaceName="mfinderModel", Name="user")]
-    [global::System.Runtime.Serialization.DataContractAttribute(IsReference=true)]
+    [global::System.Data.Objects.DataClasses.EdmEntityTypeAttribute(NamespaceName = "mfinderModel", Name = "user")]
+    [global::System.Runtime.Serialization.DataContractAttribute(IsReference = true)]
     [global::System.Serializable()]
     public partial class user : global::System.Data.Objects.DataClasses.EntityObject
     {
@@ -933,7 +935,7 @@ namespace Model
         /// <summary>
         /// There are no comments for property id in the schema.
         /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
         [global::System.Runtime.Serialization.DataMemberAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
         public int id
@@ -1292,8 +1294,8 @@ namespace Model
     /// <KeyProperties>
     /// action_fk
     /// </KeyProperties>
-    [global::System.Data.Objects.DataClasses.EdmEntityTypeAttribute(NamespaceName="mfinderModel", Name="history")]
-    [global::System.Runtime.Serialization.DataContractAttribute(IsReference=true)]
+    [global::System.Data.Objects.DataClasses.EdmEntityTypeAttribute(NamespaceName = "mfinderModel", Name = "history")]
+    [global::System.Runtime.Serialization.DataContractAttribute(IsReference = true)]
     [global::System.Serializable()]
     public partial class history : global::System.Data.Objects.DataClasses.EntityObject
     {
@@ -1311,7 +1313,7 @@ namespace Model
         /// <summary>
         /// There are no comments for property action_fk in the schema.
         /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
         [global::System.Runtime.Serialization.DataMemberAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
         public int action_fk
@@ -1593,24 +1595,24 @@ namespace Model
         /// <summary>
         /// Initializes a new mfinderEntities object using the connection string found in the 'mfinderEntities' section of the application configuration file.
         /// </summary>
-        public mfinderEntities() : 
-                base("name=mfinderEntities", "mfinderEntities")
+        public mfinderEntities() :
+            base("name=mfinderEntities", "mfinderEntities")
         {
             this.OnContextCreated();
         }
         /// <summary>
         /// Initialize a new mfinderEntities object.
         /// </summary>
-        public mfinderEntities(string connectionString) : 
-                base(connectionString, "mfinderEntities")
+        public mfinderEntities(string connectionString) :
+            base(connectionString, "mfinderEntities")
         {
             this.OnContextCreated();
         }
         /// <summary>
         /// Initialize a new mfinderEntities object.
         /// </summary>
-        public mfinderEntities(global::System.Data.EntityClient.EntityConnection connection) : 
-                base(connection, "mfinderEntities")
+        public mfinderEntities(global::System.Data.EntityClient.EntityConnection connection) :
+            base(connection, "mfinderEntities")
         {
             this.OnContextCreated();
         }
